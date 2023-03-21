@@ -4,3 +4,6 @@ The repository contains HTML, CSS & JS exercises. Each exercise is located in a 
 
 1. Pricing page exercise
 The exercise goal is to recreate this page https://getbootstrap.com/docs/4.0/examples/pricing/ using flexbox.
+
+2. Media queries exercise
+The exercise goal is to recreate this page: https://ikbqsp.csb.app/ using media queries and flexbox.
