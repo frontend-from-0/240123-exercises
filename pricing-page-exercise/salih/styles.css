@@ -1,0 +1,195 @@
+/* Global */
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-family:sans-serif;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+.main li{
+    padding: 0.2rem 0;
+}
+h1{
+    margin: 0;
+    text-align: center;
+    margin-top: 5px;
+}
+button{
+    margin: 15px 10px;
+    min-width: 60%;
+    padding: 12px 0;
+}
+small{
+    font-weight: 100;
+    font-size: 0.5em;
+}
+.blue-button{
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.white-button{
+    color: #007bff;
+    background-color: white;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+
+/*_____________________________________*/
+/*Navigation Bar*/
+
+.nav-container{
+    width: 100%;
+    min-height: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+}
+.menu-container{
+    display: flex;
+    align-items: center;
+    min-width: 35%;
+    justify-content: center;
+    /* border: 1px solid red; */
+    flex-wrap: wrap;
+}
+.links{
+    display: flex;
+    min-width: 70%;
+    justify-content: space-between;
+    font-size: medium;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    min-width: 85%;
+    /* border: 1px solid red; */
+    list-style-type: none;
+    padding:0;
+    
+}
+.menu-item{
+    color: rgb(58, 58, 58);
+    padding: 1px;
+}
+.sign-up-button{
+    font-size: large;
+    border: 1px solid rgb(92, 92, 255);
+    
+    padding: 6px;
+    border-radius: 2px;
+}
+
+.company-name{
+    margin-left: 1rem;
+    font-size: x-large;
+}
+
+.blue{
+    color:rgb(92, 92, 255);
+}
+
+a:link{
+    text-decoration: none;
+}
+
+/*Pricing Text*/
+.pricing-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.pricing-text{
+    text-align: center;
+    width: 40%;
+}
+.pricing-ptext{
+    font-size: 1.3em;
+    font-weight: 100;
+}
+
+/*______________________________________________*/
+/* The Cards are starting at this point */
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-container{
+    width: 60%;
+    height: 50vh;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.card-body{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    flex: 1;
+    margin: 10px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;     
+}
+.card-title{
+    padding: 5px 0;
+    font-weight: 400;
+}
+.card-header{
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+
+h4{
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+
+
+/*___________________________________________________*/
+/* Footer Related CSS Codes*/
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.footer-container{
+    width: 60%;
+    height: 20vh;
+    /* border: 1px solid red; */
+    display: flex;
+    /* align-items: flex-start; */
+    justify-content: center;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+.column{
+    padding:5px 35px;
+    flex: 1;
+}
+
+h2{
+    margin:0;
+    text-align: center;
+}
+
+
+
