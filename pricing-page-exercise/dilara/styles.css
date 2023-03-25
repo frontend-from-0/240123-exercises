@@ -1,8 +1,9 @@
 .nav-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content:space-between;
-    height:38px;
-    padding: 16px 24px;
+    min-height:38px;
+    padding: 8px 24px;
     align-items: center;
     border-bottom: 1px solid #dee2e6;
     box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
@@ -66,6 +67,7 @@ font-size: large;
 }
 .options {
     display: flex;
+    flex-wrap: wrap;
     max-width: 960px;
     width: 100%;
     padding-right: 15px;
@@ -76,16 +78,21 @@ font-size: large;
 .free {
     display: block;
     margin: 10px;
-    border: 2px solid grey;
+    border: 1px solid #00000020;
     width: 300px;
     text-align: center;
     border-radius: 5px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
 }
 
 .header-free {
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid #00000020;
     background-color: #f7f7f7;
     font-size: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 60px;
 }
 
 .sign-free {
@@ -108,15 +115,20 @@ font-size: large;
 .pro {
     display: block;
     margin: auto;
-    border: 2px solid grey;
+    border: 1px solid #00000020;
     width: 300px;
     text-align: center;
     border-radius: 5px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
 }
 .header-pro {
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid #00000020;
     background-color: #f7f7f7;
     font-size: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 60px;
 }
 .second-button {
     background-color: #007bff;
@@ -139,15 +151,20 @@ font-size: large;
 .enterprise {
     display: block;
     margin: auto;
-    border: 2px solid grey;
+    border: 1px solid #00000020;
     width: 300px;
     text-align: center;
     border-radius: 5px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
 }
 .header-enterprise {
-    border-bottom: 2px solid grey;
+    border-bottom: 1px solid #00000020;
     background-color: #f7f7f7;
     font-size: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 60px;
 }
 .currency {
     font-size: 30px;
@@ -161,7 +178,57 @@ font-size: large;
  margin-bottom: -10px;
 
 }
-
+hr {
+    width: 960px;
+    margin-top: 60px;
+}
 .footer {
     display:flex;
+    flex-wrap: wrap;
+}
+.icon {
+    flex: 1;
+    min-width: 240px;
+    margin-top: 21px;
+}
+
+.iconp {
+    font-size: small;
+    color: #6c757d;
+}
+
+.features {
+    border: 1px none white;
+    margin-bottom: -10px;
+    flex: 1;
+    min-width: 240px;
+}
+
+.resources {
+    border: 1px none white;
+    margin-bottom: -10px;
+    flex: 1;
+    min-width: 240px;
+}
+
+.about {
+    border: 1px none white;
+    flex: 1;
+    min-width: 240px;
+}
+
+.footer-element {
+    margin-bottom: -15px;
+    font-size: medium;
+}
+
+.footer-link {
+    color: #6c757d;
+    text-decoration: none;
+    margin-bottom: -15px;
+}
+
+.footer-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
