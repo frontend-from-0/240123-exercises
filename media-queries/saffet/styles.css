@@ -73,8 +73,39 @@ nav li a {
 #nav-toggle:checked ~ ul {
 	display: flex;
 	/* Use correct flex direction */
+	flex-direction: column;
+	color: white;
+	margin: 5px 0;
+}
+#nav-toggle:checked ~ ul li {
+	display: flex;
+	/* Use correct flex direction */
+	flex-direction: column;
+	color: white;
+	padding: 4px;
 }
 
+
 @media all and (min-width: 768px) {
-	
+	nav ul {
+		display: flex;
+		flex-direction: row;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		color: white;
+	}
+
+	.hamburger{
+		display: none;
+	}
+
+	#nav-toggle:checked ~ ul {
+		display: flex;
+		/* Use correct flex direction */
+		flex-direction: row;
+		color: white;
+		margin: 5px 0;
+	}
+
 }
