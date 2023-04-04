@@ -7,3 +7,6 @@ The exercise goal is to recreate this page https://getbootstrap.com/docs/4.0/exa
 
 2. Media queries exercise
 The exercise goal is to recreate this page: https://ikbqsp.csb.app/ using media queries and flexbox.
+
+3. Responsive grid layout exercise
+The exercise goal is to recreate this page: https://ojd2uv.csb.app/ (which is a very common layout) using css grid and media queries. Make sure to mimic haviour of the page on diferent device sizes.
