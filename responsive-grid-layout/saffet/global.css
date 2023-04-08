@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
+  overflow: hidden;
 }
 
 body {
@@ -11,18 +12,23 @@ body {
 
 .header {
   background-color: #006c67;
+  grid-area: header;
 }
 .sidebar-left {
   background-color: #003844;
+  grid-area: sidebar-left;
 }
 .sidebar-right {
   background-color: #ffb100;
+  grid-area: sidebar-right;
 }
 .content {
   background-color: #ffebc6;
+  grid-area: content;
 }
 .footer {
   background-color: #006c67;
+  grid-area: footer;
 }
 
 .content > div {
@@ -32,4 +38,11 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-rows: 130px 1fr 130px;
+  grid-template-columns: 200px auto 200px;
+  grid-template-areas: 
+  "header header header"
+  "sidebar-left content sidebar-right"
+  "sidebar-left footer footer";
 }

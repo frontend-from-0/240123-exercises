@@ -22,3 +22,18 @@
 
   Let's use 768px and 1200px in the lesson, you can use more specific breakpoints at home!
 */
+
+@media all and (max-width: 768px) {
+  .container {
+    grid-template-rows: 80px 1fr 80px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+  }
+
+  .sidebar-left, .sidebar-right {
+    display: none;
+  }
+}
