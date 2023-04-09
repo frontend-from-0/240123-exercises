@@ -11,18 +11,29 @@ body {
 
 .header {
   background-color: #006c67;
+  display: grid;
+  grid-column: 1/4;
+  grid-row: 1/2;
 }
 .sidebar-left {
   background-color: #003844;
+  grid-column: 1/2;
+  grid-row: 2/4;
 }
 .sidebar-right {
   background-color: #ffb100;
+  grid-column: 3/4;
+  grid-row: 2/3;
 }
 .content {
   background-color: #ffebc6;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
 .footer {
   background-color: #006c67;
+  grid-column: 2/4;
+  grid-row: 3/4;
 }
 
 .content > div {
@@ -32,4 +43,7 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 100px 1fr 400px;
 }
