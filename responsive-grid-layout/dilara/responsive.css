@@ -25,12 +25,16 @@
 
 @media screen and (max-width:768px) {
   .container {
-     grid-template-columns: 0 6fr 0;
+     grid-template-areas: "header"
+     "content"
+     "footer";
+     grid-template-rows: 50px 1fr 470px;
+     grid-template-columns: 1fr;
   }
 }
 
 @media screen and (min-width:1200px) {
   .container {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 200px 1fr 160px;
   }
 }
