@@ -16,7 +16,7 @@
 <body>
   <header>
     <nav class="navbar">
-        <div><h3 class="heading-small">Company name</h3></div>
+        <div><a class="heading-small" href="#desc">Company name</a></div>
         <ul>  
             <li><a class="navlink" href="#Features">Features</a></li>
             <li><a class="navlink" href="#Enterprise">Enterprise</a></li>
@@ -27,7 +27,7 @@
     </nav>
  </header>
  <main>
-    <div class="description">
+    <div id="desc" class="description">
         <h1 id="pricing" class="text-center">Pricing</h1>
         <p class="text-center">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
     </div>
@@ -35,10 +35,10 @@
         <div class="content">
             <div class="prices">
                 <div class="card_head">
-                    <h1 class="text-center">Free</h1>
+                    <h3 class="text-center">Free</h3>
                 </div>
                 <div class="card_body">
-                    <h1><span class="dollar">&#36;0</span><span>/ mo</span></h1>
+                    <h3><span class="dollar">&#36;0</span><span>/ mo</span></h3>
                     <ul>
                         <li>10 users included</li>
                         <li>2 GB of storage</li>
@@ -50,10 +50,10 @@
             </div>
             <div class="prices">
                 <div class="card_head">
-                    <h1 class="text-center">Pro</h1>
+                    <h3 class="text-center">Pro</h3>
                 </div>
                 <div class="card_body">
-                    <h1><span class="dollar">&#36;15 </span><span>/ mo</span></h1>
+                    <h3><span class="dollar">&#36;15 </span><span>/ mo</span></h3>
                     <ul>
                         <li>20 users included</li>
                         <li>10 GB of storage</li>
@@ -65,10 +65,10 @@
             </div>
             <div class="prices">
                 <div class="card_head">
-                    <h1 class="text-center">Enterprise</h1>
+                    <h3 class="text-center">Enterprise</h3>
                 </div>
                 <div class="card_body">
-                    <h1><span class="dollar">&#36;29</span><span>/ mo</span></h1>
+                    <h3><span class="dollar">&#36;29</span><span>/ mo</span></h3>
                     <ul>
                         <li>30 users included</li>
                         <li>15 GB of storage</li>
@@ -79,6 +79,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </main>
         <footer>
             <div class="footer-container">
                 <div class="footer-text">
@@ -115,9 +117,7 @@
                     </ul>    
                 </div>
             </div>
-            </main>
         </footer>
-
-    </div>
+    
 </body>
 </html>
