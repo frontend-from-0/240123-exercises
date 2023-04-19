@@ -9,7 +9,7 @@ body {
 .nav-bar{
     box-sizing: border-box;
     height: 70px;
-    border: 1px transparent grey;
+    border: 1px solid transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,7 +27,7 @@ body {
     align-items: center;
 }
 
-.nav-links a{
+.nav-links a, .footer-links a{
     text-decoration: none;
 }
 
@@ -36,7 +36,7 @@ body {
     color: black;
 }
 
-.nav-links>a:hover{
+.nav-links>a:hover, .footer-links a:hover{
     text-decoration: underline;
 }
 
@@ -87,35 +87,6 @@ main{
     justify-content: center;
     align-items: center;
 }
-/* 
-.cards{
-    margin: 30px 0 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 60%;
-}
-
-.cards ul{
-    list-style-type: none;
-}
-
-.card{
-    box-sizing: border-box;
-    border: 1px solid grey;
-    border-radius: 7px;
-    padding: 30px;
-    width: 30%;
-}
-
-.cards h3{
-    width: 100%;
-    font-size: 25px;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 0;
-    border: 1px solid red;
-} */
 
 .container{
     width: 65%;
@@ -176,6 +147,7 @@ ul{
     border: none;
     border-radius: 6px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .sign-btn{
@@ -188,17 +160,16 @@ ul{
     border: 1px solid #007bff;
     border-radius: 6px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .sign-btn:hover{
     background-color: #007bff;
     color: white;
-    cursor: pointer;
 }
 
 .other-btn:hover{
     background-color: #0071eb;
-    cursor: pointer;
 }
 
 footer{
@@ -211,7 +182,6 @@ footer{
 }
 
 .footer-columns{
-    /* border: 1px solid red; */
     display: flex;
 
 }
@@ -228,12 +198,7 @@ footer{
 }
 
 .footer-links a{
-    text-decoration: none;
     color: grey;
-}
-
-.footer-links a:hover{
-    text-decoration: underline;
 }
 
 .title-footer{
