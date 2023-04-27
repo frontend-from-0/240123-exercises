@@ -1,8 +1,10 @@
 /* Global */
-
+html{
+    font-family:sans-serif;
+}
 *, ::after, ::before {
     box-sizing: border-box;
-    font-family:sans-serif;
+    
 }
 ul{
     list-style-type: none;
@@ -13,9 +15,8 @@ ul{
     padding: 0.2rem 0;
 }
 h1{
-    margin: 0;
+    margin: 5px 0 0 0;
     text-align: center;
-    margin-top: 5px;
 }
 button{
     margin: 15px 10px;
@@ -24,22 +25,22 @@ button{
 }
 small{
     font-weight: 100;
-    font-size: 0.5em;
+    font-size: 1.5rem;
 }
 .blue-button{
     background-color: #007bff;
-    color: white;
+    color: #FFFFFF;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .white-button{
     color: #007bff;
-    background-color: white;
+    background-color: #FFFFFF;
     border: 1px solid #007bff;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 
@@ -49,7 +50,7 @@ small{
 .nav-container{
     width: 100%;
     min-height: 50px;
-    background-color: white;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,33 +61,32 @@ small{
 .menu-container{
     display: flex;
     align-items: center;
-    min-width: 35%;
     justify-content: center;
-    /* border: 1px solid red; */
     flex-wrap: wrap;
 }
 .links{
     display: flex;
-    min-width: 70%;
-    justify-content: space-between;
-    font-size: medium;
+    min-width: 110%;
+    margin-right: 6rem;
+    justify-content: space-around;
+    font-size: 1.1rem;
 }
 .menu{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     min-width: 85%;
-    /* border: 1px solid red; */
     list-style-type: none;
     padding:0;
     
 }
 .menu-item{
-    color: rgb(58, 58, 58);
+    color: #3A3A3A;
     padding: 1px;
 }
 .sign-up-button{
-    font-size: large;
-    border: 1px solid rgb(92, 92, 255);
+    font-size: 1.5rem;
+    border: 1px solid #5C5CFF;
     
     padding: 6px;
     border-radius: 2px;
@@ -94,11 +94,11 @@ small{
 
 .company-name{
     margin-left: 1rem;
-    font-size: x-large;
+    font-size: 1.4rem;
 }
 
 .blue{
-    color:rgb(92, 92, 255);
+    color:#5C5CFF;
 }
 
 a:link{
@@ -116,7 +116,7 @@ a:link{
     width: 40%;
 }
 .pricing-ptext{
-    font-size: 1.3em;
+    font-size: 1.3rem;
     font-weight: 100;
 }
 
@@ -129,8 +129,7 @@ a:link{
 }
 .card-container{
     width: 60%;
-    height: 50vh;
-    /* border: 1px solid red; */
+    margin-bottom: 8rem; /*Added to create a space between card-container and footer.*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,7 +158,7 @@ a:link{
 
 h4{
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     text-align: center;
 }
 
@@ -175,9 +174,7 @@ footer{
 .footer-container{
     width: 60%;
     height: 20vh;
-    /* border: 1px solid red; */
     display: flex;
-    /* align-items: flex-start; */
     justify-content: center;
     border-top: 1px solid rgba(0,0,0,.125);
 }
