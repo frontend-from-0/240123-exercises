@@ -9,63 +9,66 @@
 </head>
 <body>
   <div class="main-section">
-  <div class="nav-bar">
-    <div class="company-name">
-      <p>Company Name</p>
+  <div class="navbar">
+    <div class="navbar--leftside">
+      <span>Company Name</span>
     </div>
-    <div class="pages">
-      <a class="link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Features</a>
-      <a class="link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Enterprise</a>
-      <a class="link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Support</a>
-      <a class="link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Pricing</a>
-      <button class="sign-up">Sign up</button>
+    <div class="navbar--rightside">
+      <a class="navbar--rightside__link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Features</a>
+      <a class="navbar--rightside__link"  href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Enterprise</a>
+      <a class="navbar--rightside__link"  href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Support</a>
+      <a class="navbar--rightside__link"  href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Pricing</a>
+      <a class="sign-up">Sign up</a>
     </div>
   </div>
-  <div class="main-page">
-  <div class="header">
-    <h1>Pricing</h1>
-    <p class="information">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization</p>
+  <div class="content">
+  <div class="main-text-content">
+    <h1 class="main-text-content__header">Pricing</h1>
+    <p class="main-text-content__text">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization</p>
   </div>
   <div class="options">
-    <div class="free">
-      <div class="header-free">
+    <div class="option--free">
+      <div class="option--free__header">
         <span>Free</span>
       </div>
-      <div class="description">
-        <br>
+      <div class="option--cards__list">
         <span><b class="currency">$0</b> <span class="grey">/ mo</span></span>
-        <p>10 users included</p>
-        <p>2 GB of storage</p>
-        <p>Email support</p>
-        <p>Help center access</p>
+        <ul>
+        <li>10 users included</li>
+        <li>2 GB of storage</li>
+        <li>Email support</li>
+        <li>Help center access</li>
+        </ul>
         <button class="sign-free">Sign up for free</button>
       </div>
     </div>
-    <div class="pro">
-      <div class="header-pro">
+    <div class="option--pro">
+      <div class="option--pro__header">
         <span>Pro</span>
       </div>
-      <div class="description">
-        <br>
+      <div class="option--cards__list">
         <span><b class="currency">$15</b> <span class="grey">/ mo</span></span>
-        <p>20 users included</p>
-        <p>10 GB of storage</p>
-        <p>Priority email support</p>
-        <p>Help center access</p>
+        <ul>
+        <li>20 users included</li>
+        <li>10 GB of storage</li>
+        <li>Priority email support</li>
+        <li>Help center access</li>
+      </ul>
         <button class="second-button">Get started</button>
       </div>
     </div>
-    <div class="enterprise">
-      <div class="header-enterprise">
+    <div class="option--enterprise">
+      <div class="option--enterprise__header">
         <span>Enterprise</span>
       </div>
-      <div class="description">
-        <br>
+      <div class="option--cards__list">
         <span><b class="currency">$29</b> <span class="grey">/ mo</span></span>
-        <p>30 users included</p>
-        <p>15 GB of storage</p>
-        <p>Phone and email support</p>
-        <p>Help center access</p>
+        <ul>
+        <li>30 users included</li>
+        <li>15 GB of storage</li>
+        <li>Phone and email support</li>
+        <li>Help center access</li>
+        </ul>
         <button class="second-button">Contact us</button>
       </div>
     </div>
@@ -77,29 +80,35 @@
       <!--Add Icon Here-->
       <p class="iconp">© 2017-2018</p>
     </div>
-    <div class="features">
+    <div class="footer--features">
       <h3>Features</h3>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Cool stuff</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Random feature</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Team feature</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Stuff for developers</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Another one</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Last time</a></p>
+      <ul>
+      <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Cool stuff</a></li>
+       <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Random feature</a></li>
+        <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Team feature</a></li>
+          <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Stuff for developers</a></li>
+            <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Another one</a></li>
+              <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Last time</a></li>
+      </ul>
 
     </div>
-    <div class="resources">
+    <div class="footer--resources">
       <h3>Resources</h3>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Resource</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Resource name</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Another resource</a></p>
-      <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Final resource</a></p>
+      <ul>
+      <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Resource</a></li>
+      <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Resource name</a></li>
+      <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Another resource</a></li>
+      <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Final resource</a></li>
+    </ul>
     </div>
-    <div class="about">
+    <div class="footer--about">
       <h3>About</h3>
-    <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Team</a></p>
-    <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Location</a></p>
-    <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Privacy</a></p>
-    <p class="footer-element"><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Terms</a></p>
+    <ul>
+    <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Team</a></li>
+    <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Location</a></li>
+    <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Privacy</a></li>
+    <li><a class="footer-link" href="https://getbootstrap.com/docs/4.0/examples/pricing/#">Terms</a></li>
+  </ul>
     </div>
   </div>
   </div>
