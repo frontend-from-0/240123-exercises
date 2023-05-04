@@ -1,24 +1,37 @@
-/* 
-  Media query syntax
-
-  @media media type and (condition: breakpoint) {
-    // CSS rules
+@media all and (min-width:1200px) { 
+  .container {
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 100px 1fr 300px;
+  grid-template-areas: 
+  "header header header"
+  "sidebar-left content sidebar-right"
+  "footer footer footer";
+  gap: 1rem;
   }
+}
 
-  Media types
+@media all and  (max-width:768px) { 
+  .container {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows:  70px 1fr 400px;
+      grid-template-areas: 
+      "header header"
+      "content content"
+      "footer footer";
+      gap:0.5rem;
+  }
+  .sidebar {
+      display: none;
+  }
+}
 
-  all — for all media types
-  print — for printers
-  screen — for computer screens, tablets and, smart-phones
-  speech — for screen readers that “read” the page out loud
-
-  Common break points
-
-  320px — 480px: Mobile devices
-  481px — 768px: iPads, Tablets
-  769px — 1024px: Small screens, laptops
-  1025px — 1200px: Desktops, large screens
-  1201px and more —  Extra large screens, TV
-
-  Let's use 768px and 1200px in the lesson, you can use more specific breakpoints at home!
-*/
+@media all and (max-width:480px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows:  50px 1fr 500px;
+    grid-template-areas: 
+    "header "
+    "content"
+    "footer"
+  }
+}
