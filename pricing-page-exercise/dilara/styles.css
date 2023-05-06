@@ -208,6 +208,7 @@ hr {
 }
 
 .iconp {
+    display: block;
     font-size: small;
     color: #6c757d;
 }
