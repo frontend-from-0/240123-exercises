@@ -83,11 +83,15 @@ console.log('------------------------');
 // ---
 // 8. Declare a variable temperature and initialize it to 20.
 // Increase the value of temperature by 5 and log the result to console.
+let temperature = 20;
+temperature = temperature + 5; 
+console.log('Exercise 8.1:', temperature);
 
 console.log('------------------------');
 // ---
 // 9. Declare a variable TODAY_DATE and initialize it to the current date using the built in Date object. (Optional)
-
+const TODAY_DATE =  new Date();
+console.log(TODAY_DATE.getFullYear());
 
 // Note: When you create a new Date object using a string representation of a date and time, such as 'January 1, 2000', the resulting date and time are interpreted based on the timezone of the environment in which the code is running.
 // The output (1999-12-31T23:00:00.000Z) is in UTC (Coordinated Universal Time) format, which is often used as a reference time in computing. The Z at the end of the string indicates that the time is in UTC.
@@ -104,6 +108,7 @@ console.log('Exercise 10:', number6, number7);
 const number99 = ++number6 + 1; // 8
 
 console.log('Exercise 10:', number6, number7, number99);
+
 console.log('------------------------');
 // ---
 // 11. Declare a variable number8 and initialize it to 8. Declare a variable number9 and initialize it to `number8++` (number8 incremented using postfix ++ operator). Log both values to the console.
@@ -116,14 +121,24 @@ console.log('------------------------');
 
 // ---
 // 12. Declare a variable number10 and initialize it to -3. Use the postfix ++ operator to increment the value of num by 1, then multiply the result by 2 and log it to the console.
+let number10 = -3;
+console.log(number10++ * 2);
+console.log('Exercise 12:',number10);
 
 console.log('------------------------');
 // ---
 // 13. Declare two variables a and b and initialize them to 2 and 3, respectively. Use the prefix ++ operator to increment the value of a by 1, then add b to the result and log it to the console.
+let a = 2;
+const b = 3;
+console.log('Exercise 13:',++a + b);
 
 console.log('------------------------');
-
 // BONUS: generate random number in a range from 0 to 10
 // Use Math.floor() and Math.random() to do that.
 // Math.random() generate random number between 0 and 1 (not including 1)
-// Math.floor()
+// Math.floor() 
+
+console.log('Exercise Bonus:', Math.random());
+
+
+
