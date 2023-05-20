@@ -13,8 +13,8 @@ console.log('------------------------');
 // Declare a variable age and initialize it to your age as a number.
 // Declare a variable phrase and initialize it to the string "Hello, world!".
 // Add name and age to the sentence above. "Hello, world! My name is (name). I'm (age) years old.".
-var name = "Saffet";
-var age ="26";
+let name = "Saffet";
+let age ="26";
 const phrase = "Hello, world!";
 const sentence = phrase + " My name is " + name + "." + " I'm " + age + " years old.";
 console.log('Exercise 2.1:',sentence);
@@ -27,8 +27,8 @@ console.log('------------------------');
 // Declare a variable number2 and initialize it to 3.
 // Declare a variable result and initialize it to the quotient of number1 divided by number2.
 // Declare a variable number3 and initialize it to the difference between number1 and number2.
-var number1 = 10;
-var number2 = 3;
+let number1 = 10;
+let number2 = 3;
 const result = number1 / number2;
 const number3 = number1 - number2;
 console.log('Exercise 3.1:',result);
@@ -39,8 +39,8 @@ console.log('------------------------');
 // 4. Declare a variable firstName and initialize it to your first name as a string.
 // Declare a variable lastName and initialize it to your last name as a string.
 // Declare a variable fullName and initialize it to the concatenation of firstName and lastName.
-var firstName = "Saffet";
-var lastName = "Kaban";
+let firstName = "Saffet";
+let lastName = "Kaban";
 const fullName = firstName + " " + lastName;
 console.log('Exercise 4:', 'My Full Name is', fullName);
 console.log('------------------------');
@@ -49,8 +49,8 @@ console.log('------------------------');
 // 5. Declare a variable number4 and initialize it to 7.
 // Declare a variable number5 and initialize it to 2.
 // Declare a variable result2 and initialize it to the product of number4 and number5 (multiply numbers).
-var number4 = 7;
-var number5 = 2;
+let number4 = 7;
+let number5 = 2;
 const result2 = number4 * number5;
 console.log('Exercise 5:', result2);
 console.log('------------------------');
@@ -76,8 +76,8 @@ console.log('------------------------');
 // ---
 // 8. Declare a variable temperature and initialize it to 20.
 // Increase the value of temperature by 5 and log the result to console.
-var temperature = 20;
-var updatedTemp = temperature + 5;
+let temperature = 20;
+let updatedTemp = temperature + 5;
 console.log('Exercise 8:',updatedTemp);
 console.log('------------------------');
 
@@ -117,15 +117,15 @@ console.log('------------------------');
 
 // ---
 // 12. Declare a variable number10 and initialize it to -3. Use the postfix ++ operator to increment the value of num by 1, then multiply the result by 2 and log it to the console.
-var number10 = -3;
+let number10 = -3;
 number10++;
 console.log('Exercise 12:',number10*2);
 console.log('------------------------');
 
 // ---
 // 13. Declare two variables a and b and initialize them to 2 and 3, respectively. Use the prefix ++ operator to increment the value of a by 1, then add b to the result and log it to the console.
-var a = 2;
-var b = 3;
+let a = 2;
+let b = 3;
 a = ++a;
 console.log('Exercise 13:',a + b);
 console.log('------------------------');
@@ -135,8 +135,8 @@ console.log('------------------------');
 // Math.random() generate random number between 0 and 1 (not including 1)
 // Math.floor()
 
-var randomNum = Math.random(); // generated a number between 0 and 1 
-var rangedNum = randomNum*10;  // made this number between 0 an 10
+let randomNum = Math.random(); // generated a number between 0 and 1 
+let rangedNum = randomNum*10;  // made this number between 0 an 10
 const lastVersionOfNumber = Math.floor(rangedNum); //rounds the decimal number down
 console.log('Bonus Exercise:',lastVersionOfNumber);
 console.log('------------------------');
