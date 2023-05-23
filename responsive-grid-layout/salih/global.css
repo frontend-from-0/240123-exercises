@@ -1,35 +1,96 @@
-* {
+/* I did all of them offline in my own computer. That's why I changed all codes, sorry. Next examples will be better.*/
+*{
   box-sizing: border-box;
   font-family: "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", sans-serif;
 }
 
-body {
-  background-color: #f1f2f3;
-  font-family: Arial, sans-serif;
-  margin: 0;
+/* Coloring and Other Small Things */
+/*_________________________________________*/
+.container{
+  height: 150vh;
+  width: 100%;
+}
+.header{
+  background-color: #ff5896;
+}
+.sidebar-left{
+  background-color: #21aa3f;
+}
+.content{
+  background-color: #316fe2;
+}
+.sidebar-right{
+  background-color: #cca028;
+}
+.footer{
+  background-color: #40518a;
 }
 
-.header {
-  background-color: #006c67;
-}
-.sidebar-left {
-  background-color: #003844;
-}
-.sidebar-right {
-  background-color: #ffb100;
-}
-.content {
-  background-color: #ffebc6;
-}
-.footer {
-  background-color: #006c67;
+/*___________________________________*/
+/* Gridding */
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 100px 1fr 180px;
+  grid-template-areas: 
+  "header header header"
+  "sidebar-left content sidebar-right"
+  "sidebar-left footer footer"
+  ;
 }
 
-.content > div {
-  height: 300px;
+.header{
+  grid-area: header;
+}
+.sidebar-left{
+  grid-area: sidebar-left;
+}
+.content{
+  grid-area: content;
+}
+.sidebar-right{
+  grid-area: sidebar-right;
+}
+.footer{
+  grid-area: footer;
 }
 
-.container {
-  width: 100vw;
-  height: 100vh;
+/*____________________________________________*/
+/* Media Query*/
+@media all and (max-width:480px) {
+
+  .container{
+      display: grid;
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-rows: 75px 1fr 100px;
+      grid-template-areas: 
+      "header header header"
+      "content content sidebar-right"
+      "footer footer footer"
+      ;
+  }
+  .sidebar-left{
+      display: none; 
+  }
+
+}
+
+/* Second Query for sidebar-right*/
+@media all and (max-width:330px) {
+
+  .container{
+      display: grid;
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-rows: 75px 1fr 100px;
+      grid-template-areas: 
+      "header header header"
+      "content content content"
+      "footer footer footer"
+      ;
+  }
+  .sidebar-right{
+      display: none;
+  }
+
 }
