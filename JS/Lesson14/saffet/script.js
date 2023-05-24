@@ -53,12 +53,18 @@ console.log('------------------------');
 // 9. Use the `join` method to join an array of strings into a single string and print it to the console.
 const arrayExercise9 = ["An", "array",  "of", "strings"];
 console.log("Exercise9: ", arrayExercise9.join("-"));
+
 console.log('------------------------');
 // 10. Use the `replace` method to replace "can help" with "help" in the string stringExercise10 and print the result to the console.
-const stringExercise10 = "Software design patterns can help simplify complex can help systems.";
-console.log("Exercise10: ", stringExercise10.replace("can help", "help"));
+let stringExercise10 = "Software design patterns can help simplify complex can help systems.";
+//console.log("Exercise10: ", stringExercise10.replace("can help", "help"));
 
 // What's the best approach to find and replace all occurences?
+// I don't know which one is best approach but I just tried my logic :/
+while( stringExercise10.includes("can help")){
+    stringExercise10 = stringExercise10.replace("can help", "help");
+    console.log("BONUS Exercise",stringExercise10);
+}
 
 console.log('------------------------');
 // 11. Use the `startsWith` method to check if strings below starts with a price, and print the result to the console.
@@ -71,23 +77,31 @@ console.log('------------------------');
 // 12. Use the `endsWith` method to check if a string ends with a "!" (exclamation mark), and print the result to the console.
 const string1Exercise12 = "$9.99 - Sale! 50% off all items in store";
 const string2Exercise12 = "Bundle deal: Save $50 when you buy two products together!";
-
+console.log("Exercise 12: ", string1Exercise12.endsWith("!"));
+console.log("Exercise 12: ", string2Exercise12.endsWith("!"));
 
 console.log('------------------------');
 // 13. Use the `includes` method to check if a string includes a "%" character and print the result to the console.
 const string1Exercise13 = "$9.99 - Sale! 50% off all items in store";
 const string2Exercise13 = "Bundle deal: Save $50 when you buy two products together!";
-
+console.log("Exercise13: ", string1Exercise13.includes("%"));
+console.log("Exercise13: ", string2Exercise13.includes("%"));
 
 console.log('------------------------');
 // 14. Use the `substring` method to extract the word "Databases" from string stringExercise14 based on two indices and print it to the console.
 // Question: What is the difference between `substring()` and `slice()`?
 const stringExercise14 = 'Databases are an essential component of many applications.';
+console.log("Exercise14: ", stringExercise14.substring(0,8));
+// Answer: substring method's second parameter represents how many letters of word wanted to be extracted. (Not the whole sentence)
+// Substringin ikinci parametresi çıkartılmak istenen kelime ile ilgilidir. Slice methodunda cümlenin kaçıncı harfleri olacağı seçilirken
+// substring metodunda ise başlangıç harfi cümleden seçildikten sonra ikinci parametre o seçilen harften sonra kaç harf seçileceği ile ilgilidir.
 
 console.log('------------------------');
 // 15. Remove extra spaces from the string stringExercise15 and print the result to the console.
 const stringExercise15 = "    Hello world    ";
+console.log("Exercise15: ", stringExercise15.trim());
 
 console.log('------------------------');
 // 16. Extract the price and currency from a string below using "slice" method and print it to console.
 const planPriceString = "Premium plan - 9.99 USD/month."; // Should return "9.99 USD"
+console.log("Exercise16: ", planPriceString.slice(15,23));
