@@ -87,6 +87,10 @@ const stringReplace = stringExercise10.replace("can help", "help");
 console.log("Exercise10: ", stringReplace);
 
 // What's the best approach to find and replace all occurences?
+const removeWord = "can help";
+const addWord = "help";
+const replaceWords = stringExercise10.split(removeWord).join(addWord);
+console.log(replaceWords);
 
 console.log('------------------------');
 // 11. Use the `startsWith` method to check if strings below starts with a price, and print the result to the console.
