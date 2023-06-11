@@ -1,129 +1,114 @@
-// 1. Declare a variable x and initialize it to 5.
-// Declare a variable y and initialize it to 3.
-// Declare a variable z and initialize it to the sum of x and y.
-// var, const, let
-const x = 5;
+
+/* 1. */
+
+let x = 5;
 const y = 3;
-const z = x + y;
-console.log('Exercise 1:', z);
+let z = x + y;
 
-console.log('------------------------');
-const name = "onur";
-const age = 32;
-const phrase = "Hello world!";
-const myAge = `${phrase} My name is ${name}. I'm ${age} years old.`;
-const myAge2 = phrase + " My name is " + name + ". I'm " + age + " years old.";
+console.log("x:", x);
+console.log("y:", y);
+console.log("z:", z);
 
-console.log('Exercise 2:',myAge);
-console.log('Exercise 2.2:',myAge2);
+/* 2. */
 
-// ---
-// 2. Declare a variable name and initialize it to your name as a string.
-// Declare a variable age and initialize it to your age as a number.
-// Declare a variable phrase and initialize it to the string "Hello, world!".
-// Add name and age to the sentence above. "Hello, world! My name is (name). I'm (age) years old.".
+let name = "onder martin";
+let age = 47;
+let phrase = "Hello, world! My name is " + name + ". I'm " + age + " years old.";
 
-console.log('------------------------');
-// ---
-// 3. Declare a variable number1 and initialize it to 10.
-// Declare a variable number2 and initialize it to 3.
-// Declare a variable result and initialize it to the quotient of number1 divided by number2.
-// Declare a variable number3 and initialize it to the difference between number1 and number2.
-const number1 = 10;
-const number2 = 3;
-const result = number1 / number2;
+console.log(phrase);
 
-const number3 = number1 - number2; 
+/* 3. */
 
-console.log('Exercise 3.1:',result);
-console.log('Exercise 3.2:',number3);
+let number1 = 10;
+let number2 = 3;
+let result = number1 / number2;
+let number3 = number1 - number2;
 
-console.log('------------------------');
-// ---
-// 4. Declare a variable firstName and initialize it to your first name as a string.
-// Declare a variable lastName and initialize it to your last name as a string.
-// Declare a variable fullName and initialize it to the concatenation of firstName and lastName.
+console.log("number1:", number1);
+console.log("number2:", number2);
+console.log("result:", result);
+console.log("number3:", number3);
 
-const firstName = "Salih";
-const lastName = "Kus";
-const fullName = firstName + " " + lastName;
-console.log('Exercise 4:', 'My Full Name is', fullName);
+/* 4. */
 
-console.log('------------------------');
+let firstName = "Onder";
+let lastName = "Martin";
+let fullName = firstName + " " + lastName;
 
-// ---
-// 5. Declare a variable number4 and initialize it to 7.
-// Declare a variable number5 and initialize it to 2.
-// Declare a variable result2 and initialize it to the product of number4 and number5 (multiply numbers).
-const number4 = 7;
-const number5 = 2;
-const result2 = number4 * number5;
+console.log("fullName:", fullName);
+
+/* 5. */
+
+let number4 = 7;
+let number5 = 2;
+let result2 = number4 * number5;
 console.log('Exercise 5:', result2);
- 
-console.log('------------------------');
-// ---
-// 6. Declare a variable PI and initialize it to the value of PI (3.14159). There's a built in function to do that (Math.PI).
 
-const pi = Math.PI;
-console.log('Exercise 6:', pi);
+/* 6. */
+const PI = Math.PI;
+console.log("PI:", PI);
 
-console.log('------------------------');
-// ---
-// 7. Declare a variable counter and initialize it to 0.
-// Increment the counter variable by 1 using 3 different ways to increment numbers.
+/* 7. */
+
 let counter = 0;
-counter++;
-console.log('Exercise 7.1:', counter);
-++counter;
-console.log('Exercise 7.2:', counter);
+
 counter = counter + 1;
-console.log('Exercise 7.3:', counter);
+console.log("Counter after increment 1:", counter);
 
-console.log('------------------------');
-// ---
-// 8. Declare a variable temperature and initialize it to 20.
-// Increase the value of temperature by 5 and log the result to console.
+counter += 1;
+console.log("Counter after increment 2:", counter);
 
-console.log('------------------------');
-// ---
-// 9. Declare a variable TODAY_DATE and initialize it to the current date using the built in Date object. (Optional)
+counter++;
+console.log("Counter after increment 3:", counter);
+
+/* 8. */
+
+let temperature = 20;
+temperature += 5;
+
+console.log("Updated temperature:", temperature);
+
+/* 9. */
+
+let TODAY_DATE = new Date();
+
+console.log("Today's date:", TODAY_DATE);
 
 
-// Note: When you create a new Date object using a string representation of a date and time, such as 'January 1, 2000', the resulting date and time are interpreted based on the timezone of the environment in which the code is running.
-// The output (1999-12-31T23:00:00.000Z) is in UTC (Coordinated Universal Time) format, which is often used as a reference time in computing. The Z at the end of the string indicates that the time is in UTC.
-// The reason the output is one hour behind what you might expect (i.e. January 1, 2000 at 00:00:00) is because of the timezone offset between your local timezone and UTC. The output indicates that your local timezone is one hour ahead of UTC. This is likely because your local timezone observes daylight saving time, which can cause the timezone offset to change depending on the time of year.
-// To get the date and time in your local timezone, you can use methods such as getDate(), getMonth(), and getFullYear() to extract the individual components of the date and time, and then construct a new Date object using those components. 
+/* 10. */
 
-console.log('------------------------');
-// ---
-// 10. Declare a variable number6 and initialize it to 6. Declare a variable number7 and initialize it to `++number6` (number6 incremented using prexif ++ operator). Log both values to the console.
 let number6 = 6;
-// First, number6 got incremented, then number7 got value of number6 (it was 7);
-const number7 = ++number6; // 7
-console.log('Exercise 10:', number6, number7);
-const number99 = ++number6 + 1; // 8
+let number7 = ++number6;
 
-console.log('Exercise 10:', number6, number7, number99);
-console.log('------------------------');
-// ---
-// 11. Declare a variable number8 and initialize it to 8. Declare a variable number9 and initialize it to `number8++` (number8 incremented using postfix ++ operator). Log both values to the console.
-let number8 = 6;
-// First, number9 got value of number8 (it was 6), then number8 got incremented;
-let number9 = number8 + 1 ; //6
-console.log('Exercise 11:', number8, number9);
+console.log("number6:", number6);
+console.log("number7:", number7);
 
-console.log('------------------------');
+/* 11. */
+let number8 = 8;
+let number9 = number8++;
 
-// ---
-// 12. Declare a variable number10 and initialize it to -3. Use the postfix ++ operator to increment the value of num by 1, then multiply the result by 2 and log it to the console.
+console.log("number8:", number8);
+console.log("number9:", number9);
 
-console.log('------------------------');
-// ---
-// 13. Declare two variables a and b and initialize them to 2 and 3, respectively. Use the prefix ++ operator to increment the value of a by 1, then add b to the result and log it to the console.
+/* 12. */
+let number10 = -3;
+result = number10 * 2;
 
-console.log('------------------------');
+console.log("Result:", result);
 
-// BONUS: generate random number in a range from 0 to 10
-// Use Math.floor() and Math.random() to do that.
-// Math.random() generate random number between 0 and 1 (not including 1)
-// Math.floor()
+
+console.log("Result:", result);
+
+/* 13. */
+
+let a = 2;
+let b = 3;
+++a;
+result = a + b;
+
+console.log("Result:", result);
+
+
+/* bonus. */
+let randomNumber = Math.floor(Math.random() * 11);
+console.log("Random number between 0 and 10:", randomNumber);
