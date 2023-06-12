@@ -250,7 +250,7 @@ checkGrade('D');
 // 15. Write a program that asks the user to enter their age, and then calculates and displays their age in dog years (where one human year is equivalent to seven dog years). If the user enters a negative number or zero, display an error message.
 
 function calculateDogYears(age) {
-	let dogYears = age / 7;
+	let dogYears = age * 7;
 	if (age <= 0) {
 		console.log('invalid input');
 	} else {
