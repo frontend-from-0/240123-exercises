@@ -57,10 +57,10 @@ checkIfStringIsUpperCase('write a program that takes in');
 
 // 5. Write a program that takes in a number and checks if it's positive, negative, or zero using if else statement.
 
-function isNumberPositiveOrNegative(num) {
-	if (num > 0) {
+function isNumberPositiveOrNegative(numbervalue) {
+	if (numbervalue > 0) {
 		console.log('Number is positive');
-	} else if (num < 0) {
+	} else if (numbervalue < 0) {
 		console.log('Number is negative');
 	} else {
 		console.log('Number is equel to zero');
@@ -73,7 +73,7 @@ isNumberPositiveOrNegative(0);
 // 6. Write a program that takes in a year and checks if it's a leap year (is divisible by 4 and not divisible by 100 OR divisible by 400) or not using if else statement.
 
 function isLeapYear(yearNumber) {
-	if (yearNumber % 4 === 0 && (yearNumber % 100 !== 0 || yearNumber % 400 === 0)) {
+	if ((yearNumber % 4 === 0 && yearNumber % 100 !== 0) || yearNumber % 400 === 0) {
 		console.log('İt is a leap year')
 	} else {
 		console.log('İt is not a leap year');
@@ -85,9 +85,9 @@ isLeapYear(2023);
 // 7. Write a program that takes in a temperature and checks if it's above or below freezing using if else statement.
 
 function isTemperatureCheckFreezing(temperature) {
-	if (temperature <= 0) {
+	if (temperature < 0) {
 		console.log('temperature is below freezing');
-	} else {
+	} else if (temperature > 0) {
 		console.log('temperature is above freezing');
 	}
 }
