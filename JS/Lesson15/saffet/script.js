@@ -196,13 +196,52 @@ console.log("-------------------------------------------------");
 // 18.5 – 24.9	Healthy Weight
 // 25.0 – 29.9	Overweight
 // 30.0 and Above	Obesity
-
+console.log("Ex8:");
 function chechBody(weight, height){
-	
+	let bmi = weight / (height*height);
+
+	if (bmi < 18.5)
+	console.log("underweight");
+
+	else if (bmi >= 18.5 && bmi < 24.9)
+	console.log("Healthy");
+
+	else if (bmi >= 24.9 && bmi < 30)
+   console.log("overweight");
+
+	else if (bmi >= 30)
+	console.log("Obesity");
 }
 
-// 9. Write a program that takes in a person's age and checks if they are a child (age 0-12), teenager (age 13-19), adult (age 20-64), or senior citizen (age 65 and above) using if else statement.
+chechBody(25, 1.69);
+chechBody(75, 1.69);
+chechBody(100, 1.69);
 
+
+console.log("-------------------------------------------------");
+// 9. Write a program that takes in a person's age and checks if they are a child (age 0-12), teenager (age 13-19), adult (age 20-64), or senior citizen (age 65 and above) using if else statement.
+console.log("Ex9:");
+function checkCategory(age1){
+	if(age1<12 && age1>0){
+		console.log("Child");
+	}
+	else if(age1>13 && age1<19){
+		console.log("Teenager");
+	}
+	else if(age1>20 && age1<64){
+		console.log("Adult");
+	}
+	else{
+		console.log("Senior Citizen");
+	}
+}
+
+checkCategory(10);
+checkCategory(17);
+checkCategory(45);
+checkCategory(80);
+
+console.log("-------------------------------------------------");
 // 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
 
 // 11. Write a program that asks the user to enter their salary and their years of experience. If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
