@@ -1,10 +1,15 @@
 // 1. Write a loop that prints out the numbers from 1 to 10.
-for (let i = 1; i<=10; i++) {
+console.log("Example 1:");
+
+for(let i = 1; i<11; i++){
 	console.log(i);
 }
+
 console.log('- - - - - - - - - - - - - - - - - ');
 // 2. Write a loop that prints out the odd numbers from 1 to 20.
 // 1,3,5,7...
+console.log("Example 2:");
+
 for (let i = 1; i<20; i = i+2){
 	console.log(i);
 }
@@ -12,6 +17,7 @@ for (let i = 1; i<20; i = i+2){
 console.log('- - - - - - - - - - - - - - - - - ');
 // 3. Write a loop that prints out the even numbers from 1 to 20.
 // 2, 4, 6...
+console.log("Example 3:");
 for (let i =2; i<=20; i+=2) {
 	console.log(i);
 }
