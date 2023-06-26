@@ -158,8 +158,20 @@ console.log('- - - - - - - - - - - - - - - - - ');
 
 // 14. Write a loop that finds the second largest number in an array of numbers.----------------------????????????????????????????????
 console.log("Example 14:");
-const numbers14 = [10, 5, 20, 8, 15];
+const numbers14 = [235, 5, 20, 8, 15, 234];
 
+let max = Math.max(numbers14[0], numbers14[1]);
+let secondMax = Math.min(numbers14[0], numbers14[1]);
+for (let i = 2; i < numbers14.length; i++) {
+    if (numbers14[i] > max) {
+      secondMax = max; // first assign second max to what max was before, then assign max to the new largest number
+      max = numbers14[i];
+    } else if (secondMax < max && numbers14[i] > secondMax) {
+        secondMax = numbers14[i];
+    }
+}
+
+console.log("The second largest number: ", secondMax);
 
 console.log(numbers14);
 console.log('- - - - - - - - - - - - - - - - - ');
