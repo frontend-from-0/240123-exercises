@@ -143,12 +143,12 @@ console.log("__________________________________________________");
 
 // 6. Write a program that takes in a year and checks if it's a leap year (is divisible by 4 and not divisible by 100 OR divisible by 400) or not using if else statement.
 function checkIfItIsLeapYear(year){
-	if (year % 4 == 0){
-		if(year % 100 !== 0){
-			return "Leap Year"
-		}
-	}
-	return "Not a Leap Year"
+	if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return "leap year"; 
+  } else {
+    return "not a leap year";
+  }
+
 }
 console.log('Exercise 6.1: ', checkIfItIsLeapYear(1993));
 console.log('Exercise 6.2: ', checkIfItIsLeapYear(1904));
@@ -158,7 +158,7 @@ console.log("__________________________________________________");
 
 // 7. Write a program that takes in a temperature and checks if it's above or below freezing using if else statement.
 function checkTemp(temp) {
-	return temp >= 0 ? "Above Freezing"
+	return temp > 0 ? "Above Freezing"
 	: "Below Freezing";
 }
 
@@ -180,9 +180,9 @@ function chechBMI(height, weight){
 		return "Underweight";
 	} else if (BMI > 18.5 && BMI <24.9){
 		return "Healthy Weight";
-	} else if (BMI > 25 && BMI <29.9) {
+	} else if (BMI >= 25 && BMI <29.9) {
 		return "Overweight";
-	} else if (BMI > 30) {
+	} else if (BMI >= 30) {
 		return "Above Obesity";
 	} else {
 		return "N/A"
@@ -196,13 +196,13 @@ console.log("__________________________________________________");
 // 9. Write a program that takes in a person's age and checks if they are a child (age 0-12), teenager (age 13-19), adult (age 20-64), or senior citizen (age 65 and above) using if else statement.
 
 function checkAge(age){
-	if (age > 0 && age < 12){
+	if (age > 0 && age <= 12){
 		return "child";
 	} else if (age > 13 && age < 19){
 		return "teenager";
-	} else if (age > 20 && age < 64) {
+	} else if (age >= 20 && age <= 64) {
 		return "adult";
-	} else if (age > 65) {
+	} else if (age >= 65) {
 		return "senior citizen";
 	} else {
 		return "N/A"
