@@ -104,7 +104,7 @@ const person = {name: "John", surname: "Doe", age: 30, city: "New York"};
 // Object keys: name, surname, age, city 
 
 for (const key in person){
-	console.log(`${key}: ${person[key]}`);
+	console.log(`Ecersite 10: ${key}: ${person[key]}`);
 }
 console.log('- - - - - - - - - - - - - - - - - ');
 // 11. Write a for...in loop that sums the values of an object.
@@ -116,27 +116,91 @@ for(const key in obj) {
 console.log(sum);
 console.log('- - - - - - - - - - - - - - - - - ');
 // 12. Write a loop that finds the average of an array of numbers.
-const numbers12 = [10, 20, 30, 40, 50];
+const numbers12 = [10, 20, 30, 40, 500];
+function sumArray(numbers){
+	let sum=0;
+	for (i=0; i< numbers.length; i++){
+		sum += numbers[i];
+	};
+	return sum/numbers.length;
+}
+console.log('Exercise 12.1: ', sumArray(numbers12));
 
 console.log('- - - - - - - - - - - - - - - - - ');
 // 13. Write a loop that prints out the sum of all even numbers between 1 and 50.
+function sumEvenNumbers(firstNum, secondNum){
+	let small, big, sum=0;
+	if (firstNum > secondNum){ 
+		small = secondNum;
+		big = firstNum;
+	} else {
+		small = firstNum;
+		big = secondNum;
+	};
+	console.log('11-The Small Number is ', small, '. The Big Number is ', big); //I used them to follow the code.
+	for (i=small; i < big+1; i++){
+		console.log('22-The Small Number is ', small, '. The Big Number is ', big, 'The i Number is ', i); //I used them to follow the code.
+		if (i % 2 == 0){
+			sum += small;
+			console.log('33-The sum is ', sum); //I used them to follow the code.
+		};
+	};
+	return sum;
+}
 
-
-
+console.log('Exercise 13.1: ', sumEvenNumbers(1, 50));
 console.log('- - - - - - - - - - - - - - - - - ');
 // 14. Write a loop that finds the second largest number in an array of numbers.
-const numbers14 = [10, 5, 20, 8, 15];
+const numbers14 = [10, 5, 20, 8, 15, 42];
+function orderingSmalToBig(numbers){
+	let bigNumber = 0;
+	for (i = 0; i<numbers.length; i++){
+		for(j = i; j < numbers.length; j++){
+			console.log('The i is: ', i, ' || The j is: ', j);
+			console.log('The Numbers-i is: ', numbers[i], ' || The numbers-j is: ', numbers[j]);
+			if(numbers[j]>numbers[i]){
+				bigNumber = numbers[j];
+				numbers[j]=numbers[i];
+				numbers[i]=bigNumber;
+				bigNumber=0;
+				console.log('Inside If new Numbers is: ', numbers);
+			}
+		}
+	}
+	return numbers;
+}
 
-console.log('- - - - - - - - - - - - - - - - - ');
+console.log('Exercise 14.1: ', orderingSmalToBig(numbers14)[1]);
+console.log('_________________________________________________________________________ ');
 // 15. Write a loop that counts the number of vowels in a given string.
-const string15 = 'Hello, how are you?';
+const string15 = 'Hello, how are you? Are you Fine?';
 const vowels = 'aeiouAEIOU';
+function vowelsNumber(givenString, vowelList){
+	let sum =0;
+	console.log(givenString.length);
+	for (i =0; i< givenString.length; i++){
+		console.log('Current givenString Letter is: ', givenString[i]);
+		if(vowelList.includes(givenString[i])){
+			console.log('Inside If givenString Letter is: ', givenString[i], ' || i is: ', i);
+			sum += 1;
+		}
+	}
+	return sum;
+}
 
+console.log('Exercise 15.1: ', vowelsNumber(string15, vowels));
 console.log('- - - - - - - - - - - - - - - - - ');
 // 16. Write a loop that calculates the sum of all digits in a given number.
 function sumDigits(num) {
-  // Write your code here
+	let sum=0;
+	const numString = num.toString();
+	console.log(numString.length);
+	for (i=0; i<numString.length;i++){
+		console.log('Current Sum is: ', sum, ' || Current value is: ', numString[i]);
+		sum += Number(numString[i]);
+	}
+	return sum;
 }
-console.log(sumDigits(12345)); // Output: 15
+console.log('Exercise 16: ', sumDigits(12345)); // Output: 15
 console.log('- - - - - - - - - - - - - - - - - ');
 
