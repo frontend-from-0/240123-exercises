@@ -225,29 +225,49 @@ console.log('----------------------------');
 console.log("Exercise 13: ");
 
 const coordinates = [10, 20, 30];
+const [x, y, z] = coordinates;
+
+console.log("X: ", x,"Y: ", y ,"Z: ",z);
 
 console.log('----------------------------');
 // 14. Object Destructuring
 // Given the following object, use object destructuring to assign the values of name and age to their respective variables:
+console.log("Exercise 14: ");
+
 const personE14 = {
   name: 'John Doe',
   age: 25,
 };
 
+const {name, age} = personE14;
+
+console.log("Name: ", name, "Age: ", age);
+
 // 15. Array Destructuring with Default Values
 // Given the following array, use array destructuring with default values to assign the values of a, b, and c, with default values of 1, 2, and 3 respectively:
+console.log("Exercise 15: ");
+// Bu örneği anlamadım!
 const numbers = [4];
+const [a=1, b=2, c=3] = numbers;
+
+console.log(numbers);
+console.log(a,b,c);
 
 
 // 16. Object Destructuring with Renaming
 // Given the following object, use object destructuring with renaming to assign the value of name to a variable named fullName:
+console.log("Exercise 16: ");
+
 const personE16 = {
   name: 'John Doe',
 };
 
+const {name: Fullname} = personE16;
+console.log(Fullname);
 
 // 17. Nested Object Destructuring
 // Given the following nested object, use object destructuring to assign the values of name, age, and city to their respective variables:
+console.log("Exercise 17: ");
 const personE17 = {
   name: 'John Doe',
   age: 25,
@@ -255,3 +275,11 @@ const personE17 = {
     city: 'New York',
   },
 };
+
+const {name: fullName, age: manAge, address:{city:currentAddress} } = personE17;
+
+console.log(fullName);
+console.log(manAge);
+console.log(currentAddress);
+
+
