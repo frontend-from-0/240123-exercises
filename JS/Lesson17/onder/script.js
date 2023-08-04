@@ -134,19 +134,54 @@ console.log('----------------------------');
 // Input: ({name: "John", age: 30}, "city", "New York")
 // Output: {name: "John", age: 30, city: "New York"}
 
+//I'm really not sure about 10-11-12-13 questions.
+const object = { name: "John", age: 30 };
+const key = "city";
+const value = "New York";
+
+const result = addObjectKeyValue(object, key, value);
+console.log(result); 
+   
+
+
 console.log('----------------------------');
 // 11. Write a function that takes an object and a key, and removes the key-value pair from the object.
 // Input: ({name: "John", age: 30, city: "New York"}, "city")
 // Output: {name: "John", age: 30}
 
+function removeObjectKey(obj, key) {
+    delete obj[key];
+    return obj;
+  }
+  const object = { name: "John", age: 30, city: "New York" };
+  const key = "city";
+  
+  const result = removeObjectKey(object, key);
+  console.log(result);
+  
 console.log('----------------------------');
+
 // 12. Write a function that takes two arrays of equal length and returns an object with the first array as keys and the second array as values.
 // Input: (["name", "age", "city"], ["John", 30, "New York"])
 // Output: {name: "John", age: 30, city: "New York"}
 
+const keys = ["name", "age", "city"];
+const values = ["John", 30, "New York"];
+
+const object = arraysToObject(keys, values);
+console.log(object);
+
 // 13. Array Destructuring
 // Given the following array, use array destructuring to assign the values of x, y, and z to their respective variables: 
-const coordinates = [10, 20, 30];
+
+const array = [10, 20, 30];
+
+const [x, y, z] = array;
+
+console.log("x:", x);
+console.log("y:", y);
+console.log("z:", z);
+
 
 // 14. Object Destructuring
 // Given the following object, use object destructuring to assign the values of name and age to their respective variables:
@@ -159,13 +194,25 @@ const personE14 = {
 // Given the following array, use array destructuring with default values to assign the values of a, b, and c, with default values of 1, 2, and 3 respectively:
 const numbers = [4];
 
+const [a = 1, b = 2, c = 3] = numbers;
+
+console.log("a:", a);
+console.log("b:", b);
+console.log("c:", c);
+
+
 
 // 16. Object Destructuring with Renaming
 // Given the following object, use object destructuring with renaming to assign the value of name to a variable named fullName:
 const personE16 = {
   name: 'John Doe',
 };
+  
+  const { name: fullName } = personE16;
+  
+  console.log("fullName:", fullName);
 
+  
 
 // 17. Nested Object Destructuring
 // Given the following nested object, use object destructuring to assign the values of name, age, and city to their respective variables:
@@ -176,3 +223,10 @@ const personE17 = {
     city: 'New York',
   },
 };
+  
+  const { name, age, address: { city } } = personE17;
+  
+  console.log("name:", name);
+  console.log("age:", age);
+  console.log("city:", city);
+  
