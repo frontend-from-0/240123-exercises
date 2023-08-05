@@ -6,24 +6,24 @@ console.log("Example 1; ");
 
 class Person {
     constructor(name, age, gender){
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+        this._name = name;
+        this._age = age;
+        this._gender = gender;
     }
 
     greet(){
-        console.log(`Greetings from ${this.name}`);
+        console.log(`Greetings from ${this._name}`);
     }
 }
 
 class Student extends Person{
     constructor(name, age, gender, major){
         super(name, age, gender);
-        this.major = major;
+        this._major = major;
     }
 
     greet(){
-        console.log(`Greetings from ${this.name}, a student who is studying ${this.major}`);
+        console.log(`Greetings from ${this._name}, a student who is studying ${this._major}`);
     }
 }
 
@@ -42,32 +42,31 @@ console.log("Example 2; ");
 
 class Shape{
     constructor(name, color){
-        this.name = name;
-        this.color = color;
+        this._name = name;
+        this._color = color;
     }
 
     describe(){
-        console.log(`This is a ${this.color} ${this.name}`);
+        console.log(`This is a ${this._color} ${this._name}`);
     }
 }
 
 class Square extends Shape{
-    constructor(name = "Square", color, sideLenght){
-        super(color);
-        this.name = name;
-        this.sideLenght = sideLenght;
-        this.area = sideLenght*sideLenght;
+    constructor(color, sideLenght){
+        super("square",color);
+        this._sideLenght = sideLenght;
+        this._area = sideLenght*sideLenght;
     }
 
     describe(){
-        console.log(`This is a ${this.color} ${this.name} with a side lenght of ${this.sideLenght} and area of ${this.area}`);
+        console.log(`This is a ${this._color} ${this._name} with a side lenght of ${this._sideLenght} and area of ${this._area}`);
     }
 }
 
 const myShape = new Shape("rectangular", "purple");
 myShape.describe();
 
-const mySquare = new Square("Square", "blue", 4);
+const mySquare = new Square("blue", 4);
 mySquare.describe();
 
 console.log("==================================");
@@ -117,16 +116,16 @@ console.log("Exercise 4: ");
 
 class BankAccount{
     constructor(balance, interestRate){
-        this. balance = balance;
-        this.interestRate = interestRate;
+        this._balance = balance;
+        this._interestRate = interestRate;
         this._transactionHistory = [];
     }
 
     deposit(amount){
         if(amount>0){
-            this.balance += amount;
+            this._balance += amount;
             const transaction = {
-                type: "deposit",
+                type: "Deposit",
                 amount: amount,
                 date: new Date().toLocaleDateString()
             };
@@ -140,8 +139,8 @@ class BankAccount{
 
     withdraw(amount){
         if(amount>0){
-            if(this.balance >= amount){
-                this.balance -= amount;
+            if(this._balance >= amount){
+                this._balance -= amount;
                 const transaction = {
                     type: "Widthrawal",
                     amount : amount,
@@ -168,7 +167,7 @@ class BankAccount{
     }
 
     get currentBalance() {
-        let balance = this.balance;
+        let balance = this._balance;
         for(const transaction in this._transactionHistory) {
             if(transaction.type === "deposit"){
                 balance += transaction.amount;
@@ -184,18 +183,18 @@ class BankAccount{
 
 const account = new BankAccount(1000, 0.005);
 
-console.log("Balance: ",account.balance);
-console.log("Interest rate: ",account.interestRate);
+console.log("Balance: ",account._balance);
+console.log("Interest rate: ",account._interestRate);
 
 
 account.deposit(400);
-console.log("New balance: ",account.balance);
+console.log("New balance: ",account._balance);
 
 account.withdraw(600);
-console.log("New balance: ",account.balance);
+console.log("New balance: ",account._balance);
 
-console.log("Transaction History: ", account.transactionHistory);
+console.log("Transaction History: ", account._transactionHistory);
 
-console.log("Current Balance: ", account.balance);
+console.log("Current Balance: ", account._balance);
 
 console.log("==================================");
