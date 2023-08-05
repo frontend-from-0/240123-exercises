@@ -133,32 +133,81 @@ console.log('----------------------------');
 // 10. Write a function that takes an object and a key-value pair, and adds the key-value pair to the object.
 // Input: ({name: "John", age: 30}, "city", "New York")
 // Output: {name: "John", age: 30, city: "New York"}
+function addKeyValue(obj, key, value){
+  obj[key] = value;
+  return obj;
+}
+
+const newValue = addKeyValue({name: "John", age: 30}, "city", "New York");
+console.log("Ex 10.1:", newValue);
 
 console.log('----------------------------');
 // 11. Write a function that takes an object and a key, and removes the key-value pair from the object.
 // Input: ({name: "John", age: 30, city: "New York"}, "city")
 // Output: {name: "John", age: 30}
 
+function deleteKeyValuePair(obj, key){
+  console.log('First Entry: ', obj);
+  delete obj[key];
+  return obj;
+}
+
+const deletedNewObject = deleteKeyValuePair({name: "John", age: 30, city: "New York"}, "age");
+console.log("Ex 11.1:", deletedNewObject);
+
 console.log('----------------------------');
 // 12. Write a function that takes two arrays of equal length and returns an object with the first array as keys and the second array as values.
 // Input: (["name", "age", "city"], ["John", 30, "New York"])
 // Output: {name: "John", age: 30, city: "New York"}
 
+function createObjectFromArrays(obj1, obj2){
+  const newObject =[];
+  for(let i in obj1){
+    newObject[obj1[i]] = obj2[i];
+  }
+  return newObject;
+}
+
+const myNewObject = createObjectFromArrays(["name", "age", "city"], ["John", 30, "New York"]);
+console.log("Ex 12.1:", myNewObject);
+
+
+console.log('----------------------------');
 // 13. Array Destructuring
 // Given the following array, use array destructuring to assign the values of x, y, and z to their respective variables: 
 const coordinates = [10, 20, 30];
+const [x,y,z] = coordinates;
 
+console.log('X: ', x);
+console.log('Y: ', y);
+console.log('Z: ', z);
+
+
+
+
+console.log('----------------------------');
 // 14. Object Destructuring
 // Given the following object, use object destructuring to assign the values of name and age to their respective variables:
 const personE14 = {
   name: 'John Doe',
   age: 25,
 };
+const{name, age} = personE14;
 
+console.log('Exercise 14 and name is ', name, '. Also the age is', age);
+
+console.log('----------------------------');
 // 15. Array Destructuring with Default Values
 // Given the following array, use array destructuring with default values to assign the values of a, b, and c, with default values of 1, 2, and 3 respectively:
 const numbers = [4];
 
+const [a = 1, b=2, c=3] = numbers;
+
+console.log('a: ', a);
+console.log('b: ', b);
+console.log('c: ', c);
+
+console.log('----------------------------');
 
 // 16. Object Destructuring with Renaming
 // Given the following object, use object destructuring with renaming to assign the value of name to a variable named fullName:
@@ -166,13 +215,25 @@ const personE16 = {
   name: 'John Doe',
 };
 
+const {name: fullName} = personE16;
+
+console.log('Exercise 16 and name is ', fullName);
+console.log(personE16);
+
+console.log('----------------------------');
+
 
 // 17. Nested Object Destructuring
 // Given the following nested object, use object destructuring to assign the values of name, age, and city to their respective variables:
 const personE17 = {
-  name: 'John Doe',
-  age: 25,
+  name2: 'John Doe',
+  age2: 25,
   address: {
     city: 'New York',
   },
 };
+
+const {name2, age2, address} = personE17;
+
+console.log(address.city);
+console.log(name2);
