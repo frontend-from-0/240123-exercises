@@ -40,7 +40,7 @@ class Shape {
 }
 
 class Square extends Shape{
-    constructor(name, color, sideLength, area){
+    constructor(name = "Square", color, sideLength, area){
         super(name, color);
         this._sideLength = sideLength;
         this._area = area;
@@ -71,7 +71,7 @@ class Vehicle{
     }
 }
 
-class car extends Vehicle{
+class Car extends Vehicle{
     constructor(make, model, year, numDoors){
         super(make, model, year);
         this._numDoors = numDoors;
