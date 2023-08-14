@@ -1,0 +1,60 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family:'Raleway', sans-serif;
+    font-size: 28px;
+    background-color: #16A085;
+    color: #16A085;
+    font-weight: 600;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.card{
+    border-radius: 5px;
+    width: 500px;
+    min-height: 50px;
+    padding: 40px 40px 0 40px;
+    position: relative;
+    background-color: #fff;
+}
+
+.author{
+    font-size: 20px;
+}
+
+.fa-brands{
+    color:#16A085;
+}
+
+a{
+    text-decoration: none;
+}
+
+.icon{
+    font-size: 40px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.button{
+    background-color: #16A085;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    width: 90px;
+    color: #fff;
+}
+
+.button:hover{
+    cursor: pointer;
+}
