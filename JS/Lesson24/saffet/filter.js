@@ -271,7 +271,7 @@ const productsExercise6 = [
 ];
 
 const outOfStock = productsExercise6.filter(product => {
-	if(product.quantity === 0){
+	if(product.quantity > 0){
 		return product;
 	}
 });
@@ -283,7 +283,7 @@ console.log(outOfStock);
 const numbersExercise7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const divisibleBy3 = numbersExercise7.filter(number => {
-	if(number%3 === 0){
+	if(number%3 !== 0){
 		return number;
 	}
 });
@@ -306,7 +306,7 @@ const wordsExercise8 = [
 ];
 
 const stringsHaveMore5Characters = wordsExercise8.filter(string => {
-	if(string.length>5){
+	if(string.length<=5){
 		return string;
 	}
 });
@@ -379,7 +379,7 @@ const studentsExercise9 = [
 ];
 
 const lowerThenC = studentsExercise9.filter(student => {
-	if(student.grade === "D+" || student.grade === "D"){
+	if(student.grade !== "D+" || student.grade !== "D" || student.grade !== "C-" ||student.grade !== "D-" || student.grade !== "F+" || student.grade !== "F" || student.grade !== "F-"){
 		return student;
 	}
 });
@@ -452,7 +452,7 @@ const usersExercise10 = [
 ];
 
 const startWithJ = usersExercise10.filter(user => {
-	if(user.name.charAt(0)=== "J" || user.name.charAt(0)=== "j"){
+	if(user.name.charAt(0).toLowerCase() !== "j" ){
 		return user;
 	}
 });
