@@ -194,7 +194,11 @@ const sentencesExercise5 = [
 	'The aroma of freshly brewed coffee permeated the air, enticing passersby to indulge in a cup of warmth.',
 	'The butterfly gracefully fluttered its wings, showcasing vibrant colors in a delicate dance.',
 ];
-
+const moreThanTen = sentencesExercise5.filter(words => {
+	if (words.length>10) {
+		return words;
+	}});
+console.log("Exercise 5:",moreThanTen);
 
 // Exercise 6:
 // Given an array of products, filter out the products that are out of stock (where the quantity is 0).
@@ -260,12 +264,18 @@ const productsExercise6 = [
 		quantity: 14,
 	},
 ];
+const stock = productsExercise6.filter(isNone=> { if(isNone.quantity === 0) {
+  return isNone;
+}})
+console.log("Exercises 6:",stock);
 
 // Exercise 7:
 // Given an array of numbers, filter out the numbers that are divisible by 3.
 const numbersExercise7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const divisible = numbersExercise7.filter(number => number % 3 ==0);
+console.log("Exercise 7:", divisible);
 
-// Exercise 8:
+// Exercise 8: /*im not sure this is not working*/ 
 // Given an array of strings, filter out the strings that have more than 5 characters.
 const wordsExercise8 = [
 	'apple',
@@ -279,6 +289,9 @@ const wordsExercise8 = [
 	'island',
 	'jungle',
 ];
+const longerStrings = wordsExercise8.filter((word) => word.length > 5);
+console.log("Exercise 8:", longerStrings); 
+
 
 // Exercise 9:
 // Given an array of objects representing students, filter out the students who have a grade lower than C.
@@ -344,6 +357,8 @@ const studentsExercise9 = [
 		grade: 'B-',
 	},
 ];
+const noteControl = studentsExercise9.filter(point => { if(point.grade<"C") { return point;  }});
+console.log("Exercise 9:",noteControl);
 
 // Exercise 10:
 // Given an array of user objects, filter out the users who have a name starting with the letter "J".
@@ -409,3 +424,9 @@ const usersExercise10 = [
 		email: 'sophia@example.com',
 	},
 ];
+
+const startsWithJ = usersExercise10.filter(isName => { if (isName.name.startsWith("J"))
+{
+  return isName;
+}});
+console.log("Exercises 10:",startsWithJ);
