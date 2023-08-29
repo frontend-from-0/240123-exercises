@@ -140,7 +140,6 @@ let  number9 = number8++;
 console.log('Exercises11 :', number8,number9);
 
 
-
 console.log('------------------------');
 
 // ---
