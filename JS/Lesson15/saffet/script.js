@@ -88,6 +88,7 @@ function checkAge(age){
 	if(age < 18){
 		console.log("Sorry, you are not old enough to vote");
 	}
+
 	else if(age>=18 && age<=65){
 		console.log("You are eligible to vote");
 	}
@@ -99,7 +100,6 @@ function checkAge(age){
 checkAge(17);
 checkAge(43);
 checkAge(78);
-checkAge(65);
 
 console.log("-------------------------------------------------");
 // 3. Write a program that asks the user to enter two numbers and checks if the first number is greater than, less than, 
@@ -162,6 +162,7 @@ console.log("-------------------------------------------------");
 console.log("Ex6:");
 
 function checkLeapYear(year){
+
 	if(year % 4 == 0 && year % 100 !== 0){
 		console.log("It's leap year");
 	}
@@ -181,6 +182,7 @@ console.log("-------------------------------------------------");
 console.log("Ex7:");
 
 function checkTemp(temperature){
+
 	if(temperature < 0){
 		console.log("Below freezing")
 	}
@@ -207,10 +209,12 @@ function chechBody(weight, height){
 	if (bmi < 18.5)
 	console.log("underweight");
 
+
 	else if (bmi >= 18.5 && bmi <= 24.9)
 	console.log("Healthy");
 
 	else if (bmi >= 25 && bmi < 29.9)
+
    console.log("overweight");
 
 	else if (bmi >= 30)
@@ -226,6 +230,7 @@ console.log("-------------------------------------------------");
 // 9. Write a program that takes in a person's age and checks if they are a child (age 0-12), teenager (age 13-19), adult (age 20-64), or senior citizen (age 65 and above) using if else statement.
 console.log("Ex9:");
 function checkCategory(age1){
+
 	if(age1>0 && age1<=12){
 		console.log("Child");
 	}
@@ -233,6 +238,7 @@ function checkCategory(age1){
 		console.log("Teenager");
 	}
 	else if(age1>=20 && age1<=64){
+
 		console.log("Adult");
 	}
 	else{
@@ -251,21 +257,26 @@ console.log("-------------------------------------------------");
 //If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print 
 //"You are old enough to vote".
 console.log("Ex10:");
+
 let studentFlag = Boolean;
 function isEligibleToVote(age, studentFlag){
 	if(age<18 && studentFlag ===1){
 		console.log("You are a student and not old enough to vote");
 	}
 	else if(age>=18 && age<=65 && studentFlag===0){
+
 		console.log("You are eligible to vote");
 	}
 	else if(age>65){
 		console.log("You are a senior citizen");
 	}
+
 	else if(studentFlag ===1 && age >= 18){
+
 		console.log("You are old enough to vote")
 	}
 }
+
 
 isEligibleToVote(12, 1);
 isEligibleToVote(19,0);
@@ -280,7 +291,9 @@ function interview(salary, experience){
 	if(salary<30000 && experience<5){
 		console.log("Sorry, we cannot offer you the job at this time");
 	}
+
 	else if(salary<50000 && experience>=5 && experience<=10){
+
 		console.log("We can offer you the job at a lower salary");
 	}
 	else if(salary>=50000 || experience>=10){
@@ -306,6 +319,7 @@ function checkScore(score){
 	if(score>0 && score<60){
 		console.log("You failed the test");
 	}
+
 	else if(score>=60 && score<=70){
 		console.log("You passed the test, but your grade is not great");
 	}
@@ -403,6 +417,7 @@ console.log("-------------------------------------------------");
 console.log("Ex15:");
 
 function convertAgeToDogYears(age2){
+
 	let dogYear = age2 * 7;
 	if(dogYear>0){
 		console.log(dogYear);
@@ -412,7 +427,9 @@ function convertAgeToDogYears(age2){
 	}
 }
 
+
 convertAgeToDogYears(3);
 convertAgeToDogYears(-3);
+
 
 console.log("-------------------------------------------------");
