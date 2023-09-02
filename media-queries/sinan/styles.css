@@ -9,22 +9,16 @@ body {
 
 /*
 Here are commonly used media query break points:
-
 Extra small devices (portrait phones) - up to 576px
 @media (max-width: 575.98px) - styles for extra small devices 
-
 Small devices (landscape phones) - from 576px to 767px
 @media (min-width: 576px) and (max-width: 767.98px) - styles for small devices
-
 Medium devices (tablets) - from 768px to 991px
 @media (min-width: 768px) and (max-width: 991.98px) - styles for medium devices
-
 Large devices (laptops/desktops) - from 992px to 1199px
 @media (min-width: 992px) and (max-width: 1199.98px) - styles for large devices
-
 Extra large devices (large laptops and desktops) - 1200px and above
 @media (min-width: 1200px) - styles for extra large devices
-
 TODO:
 Create a responsive navigation menu that collapses into a "hamburger" menu on screens with a width of 768 pixels or less and displays horizontally on larger screens.
 1. Add a navigation menu with several list items (Home, About, Services, Contact) within the body.
@@ -36,12 +30,10 @@ Create a responsive navigation menu that collapses into a "hamburger" menu on sc
 7. Show the "hamburger" menu icon on small screens.
 8. Use JavaScript (or CSS and the :checked pseudo-class) to toggle the visibility of the vertical navigation menu when the "hamburger" icon is clicked.
 9. Test your webpage in a browser and adjust the browser window's width to see the navigation menu change based on screen size.
-
 */
 
 nav {
 	background-color: #333;
-	color: white;
 	padding: 10px;
 }
 
@@ -50,12 +42,10 @@ nav ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	color: white;
 }
 
 nav li {
 	margin-right: 10px;
-	margin-top: 10px;
 }
 
 nav li a {
@@ -75,17 +65,9 @@ nav li a {
 
 #nav-toggle:checked ~ ul {
 	display: flex;
-	flex-direction: column;
+	/* Use correct flex direction */
 }
 
-@media only screen and (min-width: 767px) {
-	nav ul {
-    display: flex;
-	}
-    #nav-toggle:checked ~ ul {
-		flex-direction: row;
-	}
-    .hamburger {
-		display: none;
-    }
+@media all and (min-width: 768px) {
+
 }
