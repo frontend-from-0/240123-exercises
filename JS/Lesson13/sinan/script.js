@@ -49,9 +49,9 @@ console.log('------------------------');
 // Declare a variable lastName and initialize it to your last name as a string.
 // Declare a variable fullName and initialize it to the concatenation of firstName and lastName.
 
-const firstName = "sinan";
-const lastName = "dagli";
-const fullName = firstName +  lastName;
+const firstName = 'sinan';
+const lastName = 'dagli';
+const fullName = firstName +" "+  lastName;
 console.log('Exercises4 :',fullName);
 
 
@@ -64,7 +64,7 @@ console.log('------------------------');
 
 const number4 = 7;
 const number5 = 2;
-const resultt2 = number4 + number5;
+const resultt2 = number4 * number5;
 
 console.log('Exercises5 :',resultt2);
 
@@ -95,7 +95,7 @@ console.log('------------------------');
 // Increase the value of temperature by 5 and log the result to console.
 
 const temperature = 20;
-const result = temperature+20;
+const result = temperature+5;
 console.log('Exercises8 :',result);
 
 
@@ -135,7 +135,7 @@ console.log('------------------------');
 
 // First, number9 got value of number8 (it was 6), then number8 got incremented;
 
-let number8 = 6 ;
+let number8 = 8;
 let  number9 = number8+1;
 console.log('Exercises11 :', number8,number9);
 
@@ -160,7 +160,8 @@ console.log('------------------------');
 let a = 2;
 console.log('Exercises13.1 :', a);
 let b = 3;
-b = ++a;
+++a;
+const resultt = a+b;
 console.log('Exercises13.2 :', b);
 console.log('Exercises13.3 :', a);
 
