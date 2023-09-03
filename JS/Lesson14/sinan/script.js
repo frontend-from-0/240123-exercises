@@ -19,7 +19,6 @@ console.log('------------------------');
 // 2. Use the `slice` method to extract 'Debugging code' from the string below and print it to the console.
 const stringExercise2 = 'Debugging code can be a frustrating but necessary task.';
 console.log('Exercises 2.1:',stringExercise2.slice(0,13));
-console.log('Exercises 2.2:',stringExercise2.slice(0,stringExercise2.length));
 
 
 console.log('------------------------');
@@ -64,7 +63,7 @@ console.log(stringExercise8.split(" "));
 console.log('------------------------');
 // 9. Use the `join` method to join an array of strings into a single string and print it to the console.
 const arrayExercise9 = ["An", "array",  "of", "strings"];
-console.log(arrayExercise9.join("-"));
+console.log(arrayExercise9.join(" "));
 
 
 console.log('------------------------');
@@ -103,7 +102,7 @@ console.log('------------------------');
 // 14. Use the `substring` method to extract the word "Databases" from string stringExercise14 based on two indices and print it to the console.
 // Question: What is the difference between `substring()` and `slice()`?
 const stringExercise14 = 'Databases are an essential component of many applications.';
-console.log('Exercises 14:', stringExercise14.substring(9));
+console.log('Exercises 14:', stringExercise14.substring(0,9));
 
 
 
@@ -117,6 +116,6 @@ console.log('Exercises 15:', stringExercise15.trim());
 console.log('------------------------');
 // 16. Extract the price and currency from a string below using "slice" method and print it to console.
 const planPriceString = "Premium plan - 9.99 USD/month."; // Should return "9.99 USD"
-console.log('Exercises 16:', planPriceString.slice(-15,-7));
+console.log('Exercises 16:', planPriceString.slice(planPriceString.indexOf('-') + 1,  planPriceString.indexOf('/')));
 
 
