@@ -21,7 +21,7 @@ console.log('------------------------');
 const myName='sinan';
 const myAge= 28;
 const phrase ='Hello, world!';
-const salute = '${phrase} My name is ${myName} Im ${myAge} years old.';
+const salute = `${phrase} My name is ${myName} Im ${myAge} years old.`;
 console.log('Exercises2 :', salute);
 console.log(phrase + ' My name is '+ myName +'. Im ' + myAge + ' years old.');
 
