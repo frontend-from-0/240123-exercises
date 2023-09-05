@@ -22,7 +22,7 @@ const wordsExercise2 = [
 ];
 
 const wordsWithoutA= wordsExercise2.filter(word => !word.includes("a"));
-console.log(wordsExercise2, wordsWithoutA);
+console.log('Exercise 2:',wordsExercise2, wordsWithoutA);
 
 // Exercise 3:
 // Given an array of objects representing books, filter out the books with a price less than $10.
@@ -90,12 +90,12 @@ const booksExercise9 = [
 ];
 
 const bookWithPriceOver10 = booksExercise9.filter( book => {
-	if(book.price > 10){
+	if(book.price < 10){
 		return book;
 	}
 });
 
-console.log(bookWithPriceOver10);
+console.log('Exercise 3:',bookWithPriceOver10);
 
 // Exercise 4:
 // Given an array of user objects, filter out the users who are below 25 years old.
@@ -167,7 +167,7 @@ const userOver25 = usersExercise4.filter(user => {
 		return user;
 	}
 });
-console.log(userOver25, usersExercise4);
+console.log('Exercise 4:',userOver25, usersExercise4);
 
 
 // Exercise 5:
@@ -194,8 +194,13 @@ const sentencesExercise5 = [
 	'The aroma of freshly brewed coffee permeated the air, enticing passersby to indulge in a cup of warmth.',
 	'The butterfly gracefully fluttered its wings, showcasing vibrant colors in a delicate dance.',
 ];
-
-
+const longerStences = sentencesExercise5.filter(words => {
+	const count =  words.split(' ');
+	if (count.length>10){
+		return words;
+	}
+})
+console.log('Exercise 5:',longerStences);
 // Exercise 6:
 // Given an array of products, filter out the products that are out of stock (where the quantity is 0).
 const productsExercise6 = [
@@ -260,10 +265,22 @@ const productsExercise6 = [
 		quantity: 14,
 	},
 ];
+const quantityStock = productsExercise6.filter(stock => {
+	if(stock.quantity === 0)
+	return stock;
+})
+console.log('Exercise 6:',quantityStock);
 
 // Exercise 7:
 // Given an array of numbers, filter out the numbers that are divisible by 3.
 const numbersExercise7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const divisibleByTree = numbersExercise7.filter (number => {
+	if (number % 3 ===0){
+		return number;
+	}
+	});
+	console.log('Exercise 7:',divisibleByTree);
 
 // Exercise 8:
 // Given an array of strings, filter out the strings that have more than 5 characters.
@@ -279,6 +296,9 @@ const wordsExercise8 = [
 	'island',
 	'jungle',
 ];
+const longWord = wordsExercise8.filter((word) => word.length > 5) 
+console.log('Exercise 8:',longWord);
+
 
 // Exercise 9:
 // Given an array of objects representing students, filter out the students who have a grade lower than C.
@@ -344,7 +364,12 @@ const studentsExercise9 = [
 		grade: 'B-',
 	},
 ];
-
+const lowerThanC = studentsExercise9.filter(note => {
+	if(note.grade > "C"){
+		return note;
+	}
+})
+console.log('Exercise 9:',lowerThanC);
 // Exercise 10:
 // Given an array of user objects, filter out the users who have a name starting with the letter "J".
 const usersExercise10 = [
@@ -409,3 +434,9 @@ const usersExercise10 = [
 		email: 'sophia@example.com',
 	},
 ];
+const nameChek = usersExercise10.filter(firstName => {
+	if(firstName.name.startsWith('J')){
+		return firstName;
+	}
+});
+console.log('Exercise 10:',nameChek); 
