@@ -79,4 +79,7 @@ const stringExercise15 = "    Hello world    ";
 
 console.log('------------------------');
 // 16. Extract the price and currency from a string below using "slice" method and print it to console.
-const planPriceString = "Premium plan - 9.99 USD/month."; // Should return "9.99 USD"
+const planPriceString = "Premium plan - 9.99 USD/month.";
+const extractedPriceCurrency = planPriceString.slice(planPriceString.indexOf(" ") + 1, planPriceString.indexOf("/"));
+
+console.log("Extracted price and currency:", extractedPriceCurrency);
