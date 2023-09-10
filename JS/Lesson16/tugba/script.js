@@ -75,7 +75,7 @@ while(number7>=1) {
  }
 
 console.log('- - - - - - - - - - - - - - - - - ');
-=======
+
 
 let number7 = 10;
 
@@ -89,29 +89,30 @@ console.log("- - - - - - - - - - - - - - - - - ");
 
 // 8. Write a while loop that generates random numbers between 1 and 10 until a number greater than 8 is generated, and then prints out the total number of iterations.
 
-let totalIterationsNumber = 0;
-<<<<<<< Updated upstream
-let randomNumbers = 0 [randomNumber];
-=======
-let randomNumber = 0;
->>>>>>> Stashed changes
+function getRandomNumber () {
+	return Math.floor(Math.random()*10)+1;
+	} 
+	
+	let iteration = 1;
+	let randomNumber = getRandomNumber();
+	let randomNumbers = [randomNumber];
+	
+	while(randomNumber <= 8){
+	randomNumber = getRandomNumber();
+	randomNumbers.push(randomNumber);
+	iteration++;
+	}
+	
+	console.log('Iterations:', iteration, 'random number: ', randomNumber, 'Numbers: ', randomNumbers);
+	
+	console.log('- - - - - - - - - - - - - - - - - ');
 
-while (randomNumber <= 8) {
-	randomNumber = Math.floor(Math.random() * 10) + 1;
-	totalIterationsNumber++;
-} 
-console.log("Exercise 8: ", 'Total number of iterations: ', totalIterationsNumber);
-
-
-console.log("- - - - - - - - - - - - - - - - - ");
-<<<<<<< Updated upstream
 // 9. Write a do-while loop that counts from 1 to 10 and prints out each number.
 let number9 = 1;
 do {
 	console.log(number9);
 	number9++;
 } while (number9 <= 10);
-=======
 
 // 9. Write ;a do-while loop that counts from 1 to 10 and prints out each number.
 
@@ -154,7 +155,7 @@ const myObject = {
   
   console.log("Sum:", sum);
   
-=======
+
 
 let person = { name: "John", surname: "Doe", age: 30, city: "New York" };
 
@@ -188,7 +189,6 @@ for (let i = 0; i < numbers.length; i++) {
 const average = sum / numbers.length;
 console.log("Average:", averageArray);
 
-=======
 const numbers12 = [10, 20, 30, 40, 50, 100, 100, 130, 420];
 let sumArray = 0;
 
@@ -212,7 +212,7 @@ for (let i = 2; i <= 50; i += 2) {
 
 console.log("Sum of even numbers:", sum);
 
-=======
+
 let evenSum = 0;
 for (let i = 2; i <= 50; i += 2) {
 	evenSum += i;
@@ -237,7 +237,7 @@ for (let i = 0; i < numbers.length; i++) {
   }
 }
 console.log("Second largest number:");
-=======
+
 
 const numbers14 = [10, 5, 20, 8, 15, 554352587, 234, 697, 764764];
 
@@ -288,7 +288,7 @@ console.log("Sum of digits:", sum);
 }
 
 console.log(sumDigits(12345)); // Output: 15
-=======
+
 let vowelsCount = 0;
 
 for (let i = 0; i < string15.length; i++) {
