@@ -42,9 +42,12 @@ const stringExercise8 = 'Algorithms are a fundamental part of computer science.'
 
 console.log('------------------------');
 // 9. Use the `join` method to join an array of strings into a single string and print it to the console.
-const arrayExercise9 = ["An", "array",  "of", "strings"];
+const arrayOfStrings = ['Join', 'an', 'array', 'of', 'strings', 'into', 'a', 'single', 'string.'];
+const joinedString = arrayOfStrings.join(' ');
 
-console.log('------------------------');
+console.log("Joined string:", joinedString);
+
+
 // 10. Use the `replace` method to replace "can help" with "help" in the string stringExercise10 and print the result to the console.
 const stringExercise10 = "Software design patterns can help simplify complex can help systems.";
 
