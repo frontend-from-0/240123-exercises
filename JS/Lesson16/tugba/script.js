@@ -99,7 +99,7 @@ let randomNumber = 0;
 while (randomNumber <= 8) {
 	randomNumber = Math.floor(Math.random() * 10) + 1;
 	totalIterationsNumber++;
-}
+} 
 console.log("Exercise 8: ", 'Total number of iterations: ', totalIterationsNumber);
 
 
