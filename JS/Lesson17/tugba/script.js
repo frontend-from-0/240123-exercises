@@ -131,8 +131,12 @@ console.log("Ex 9.2:", isKeyInTheObject({name: "John", age: 30, city: "New York"
 
 console.log('----------------------------');
 // 10. Write a function that takes an object and a key-value pair, and adds the key-value pair to the object.
-// Input: ({name: "John", age: 30}, "city", "New York")
-// Output: {name: "John", age: 30, city: "New York"}
+const inputObject = { name: "John", age: 30 };
+const keyToAdd = "city";
+const valueToAdd = "New York";
+
+const result = addKeyValuePair(inputObject, keyToAdd, valueToAdd);
+console.log(result); // Output: { name: 'John', age: 30, city: 'New York' }
 
 //I'm really not sure about 10-11-12-13 questions.
 const object = { name: "John", age: 30 };
@@ -146,8 +150,11 @@ console.log(result);
 
 console.log('----------------------------');
 // 11. Write a function that takes an object and a key, and removes the key-value pair from the object.
-// Input: ({name: "John", age: 30, city: "New York"}, "city")
-// Output: {name: "John", age: 30}
+const inputObject = { name: "John", age: 30, city: "New York" };
+const keyToRemove = "city";
+
+const result = removeKey(inputObject, keyToRemove);
+console.log(result); // Output: { name: 'John', age: 30 }
 
 function removeObjectKey(obj, key) {
     delete obj[key];
@@ -162,15 +169,20 @@ function removeObjectKey(obj, key) {
 console.log('----------------------------');
 
 // 12. Write a function that takes two arrays of equal length and returns an object with the first array as keys and the second array as values.
-// Input: (["name", "age", "city"], ["John", 30, "New York"])
-// Output: {name: "John", age: 30, city: "New York"}
+const keys = ["name", "age", "city"];
+const values = ["John", 30, "New York"];
 
+<<<<<<< Updated upstream
 const keys = ["name", "age", "city"];
 const values = ["John", 30, "New York"];
 
 const object = arraysToObject(keys, values);
 console.log(object);
 
+=======
+const result = arraysToObj(keys, values);
+console.log(result); // Output: { name: 'John', age: 30, city: 'New York' }
+>>>>>>> Stashed changes
 // 13. Array Destructuring
 // Given the following array, use array destructuring to assign the values of x, y, and z to their respective variables: 
 
