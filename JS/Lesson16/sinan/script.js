@@ -1,5 +1,5 @@
 // 1. Write a loop that prints out the numbers from 1 to 10.
-for (let i =0; i<10; i++) {
+for (let i =1; i<11; i++) {
 	console.log(i);
 	}
 console.log('- - - - - - - - - - - - - - - - - ');
@@ -12,7 +12,7 @@ for(let i=1; i<20; i+=2){
 console.log('- - - - - - - - - - - - - - - - - ');
 // 3. Write a loop that prints out the even numbers from 1 to 20.
 // 2, 4, 6...
-for(let i =0; i<20; i+=2) {
+for(let i =2; i<=20; i+=2) {
 	console.log(i);
 }
 
@@ -56,10 +56,10 @@ for (let i=arrayEx6.length-1; i >=0; i--)
 console.log('Exercise 6.1:',newArray);
 console.log('- - - - - - - - - - - - - - - - - ');
 // 7. Write a while loop that counts from 10 to 1 and prints out each number.
-let count = 0;
-while(count < 10) {
+let count = 10;
+while(count > 0) {
 	console.log(count);
-	count++;
+	count--;
 }
 console.log('- - - - - - - - - - - - - - - - - ');
 // 8. Write a while loop that generates random numbers between 1 and 10 until a number greater than 8 is generated, and then prints out the total number of iterations.
