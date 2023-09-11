@@ -104,21 +104,21 @@ checkAge(18);
 checkAge(65);
 
 // 3. Write a program that asks the user to enter two numbers and checks if the first number is greater than, less than, or equal to the second number using if else statement.
-function checkGreater(numberFirst,NumberSecond) {
-	if (numberFirst < NumberSecond){
-		return 'NumberSecond greater than numberFirst';
+function compareNumbers(firstNumber,secondNumber) {
+	if (firstNumber < secondNumber){
+		return 'Second number is greater that first';
 	}
-	else if (numberFirst === NumberSecond){
-		return 'numberFirst equal to NumberSecond';
+	else if (firstNumber === secondNumber){
+		return 'Second number is equal to first';
 	}
-	else if (numberFirst > NumberSecond){ 
-		return 'numberFirst greater than NumberSecond';
+	else if (firstNumber > secondNumber){ 
+		return 'First number is greater that second';
 	}
 	else {
 		return 'NaN';
 	}
 }
-	console.log('Exercise 3:',checkGreater(3,3));
+	console.log('Exercise 3:',compareNumbers(3,3));
 // 4. Write a program that takes in a string and checks if the first letter is uppercase using if else statement.
 
 function checkIfStringIsUpperCase(stringToCheck) {
@@ -133,41 +133,41 @@ checkIfStringIsUpperCase('Exercise 4.1:','Write a program that takes in');
 checkIfStringIsUpperCase('Exercise 4.2:','write a program that takes in');
 
 // 5. Write a program that takes in a number and checks if it's positive, negative, or zero using if else statement.
-function checkNumberPositive(checkNumber) {
-	if (checkNumber > 0){
-		return 'checkNumber is positive';
+function numberSign(number) {
+	if (number > 0){
+		return 'number is positive';
 	}
-	else if (checkNumber < 0){
-		return 'checkNumber is negative';
+	else if (number < 0){
+		return 'The number is negative';
 	}
-	else if (checkNumber === 0){ 
-		return 'checkNumber is equal to zero';
+	else if (number === 0){ 
+		return 'The number is equal to zero';
 	}
 	else {
 		return 'NaN';
 	}
 }
-console.log('Exercise 5:',checkNumberPositive(-55));
+console.log('Exercise 5:',numberSign(-55));
 
 
 // 6. Write a program that takes in a year and checks if it's a leap year (is divisible by 4 and not divisible by 100 OR divisible by 400) or not using if else statement.
-function LeapYear(checkYear) {
-	if (checkYear %4 === 0){
+function isLeapYear(year) {
+	if (year %4 === 0  && year %100 === 0){
 		return 'Leap Year';
 	}
-	else if (!checkYear %4 === 0){
+	else if (!year %4 === 0){
 		return 'Not Leap Year';
 	}
 	
 }
-console.log('Exercise 6:',LeapYear(2024));
+console.log('Exercise 6:',isLeapYear(4040));
 
 // 7. Write a program that takes in a temperature and checks if it's above or below freezing using if else statement.
-function checkTemperature(freezingPoint) {
-	if (freezingPoint <= 0){
+function checkTemperature(temperature) {
+	if (temperature < 0){
 		return 'The temperature below the freezing point';
 	}
-	else if (freezingPoint > 0){
+	else if (temperature > 0){
 		return 'The temperature above the freezing point';
 	}
 }
@@ -186,13 +186,13 @@ function checkObese(weight, height){
 	if (bmi < 18.5){
 		return 'Underweight';
 	}
-	else if (bmi > 18.5 && bmi < 24.9 ){
+	else if (bmi >= 18.5 && bmi <= 24.9 ){
 		return 'Healthy Weight';
 	}
-	else if (bmi > 25 && bmi < 29.9 ){
+	else if (bmi >= 25 && bmi <= 29.9 ){
 		return 'Overweight';
 	}
-	else if (bmi > 30 ){
+	else if (bmi >= 30 ){
 		return 'Obesity';
 	}
 }
@@ -223,23 +223,24 @@ console.log('Exercise 9:',checkAge(65));
 
 
 // 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
-let studentStatus = Boolean;
-function voteStatus(age,studentStatus){
+
+function checkVotingEligibility(age,studentStatus){
 	
-	if (age < 18 && studentStatus === 1){
+	if (age < 18){
 		return 'You are a student and not old enough to vote';
 	}
-	else if (age >= 18 && age <= 65 && studentStatus === 0){
+	else if (age >= 18 && age <= 65 && !studentStatus){
 		return 'You are eligible to vote';
 	}
-	else if (age < 65 ){
-		return 'You are a senior citizen';
-	}
-	else if (age >= 18 && studentStatus === 1){
+	else if (age >= 18 && studentStatus){
 		return 'You are old enough to vote';
 	}
+	else if (age > 65 ){
+		return 'You are a senior citizen';
+	}
+	
 }
-console.log('Exercise 10:',voteStatus(64,0));
+console.log('Exercise 10:',checkVotingEligibility(19,1));
 
 
 // 11. Write a program that asks the user to enter their salary and their years of experience. If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
@@ -334,9 +335,9 @@ gradeTest('a'.toUpperCase());
 
 // 15. Write a program that asks the user to enter their age, and then calculates and displays their age in dog years (where one human year is equivalent to seven dog years). If the user enters a negative number or zero, display an error message.
 
-function dogYear(dogAge) {
-	let humanAge = dogAge * 7;
-	if (dogAge < 0 ){
+function convertAgeToDogYears(humanYears) {
+	let humanAge = humanYears * 7;
+	if (humanYears < 0 ){
 		return "Please insert positive age number";
 	}
 		else {
@@ -344,4 +345,4 @@ function dogYear(dogAge) {
 		return humanAge;
 		}	
 	}
-console.log('Exercise 15:',dogYear(5));
+console.log('Exercise 15:',convertAgeToDogYears(5));
