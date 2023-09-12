@@ -152,15 +152,14 @@ console.log('Exercise 5:',numberSign(-55));
 
 // 6. Write a program that takes in a year and checks if it's a leap year (is divisible by 4 and not divisible by 100 OR divisible by 400) or not using if else statement.
 function isLeapYear(year) {
-	if (year %4 === 0  && year %100 === 0){
-		return 'Leap Year';
-	}
-	else if (!year %4 === 0){
-		return 'Not Leap Year';
+	if (year %4 === 0 && year %100 !==0 || year % 400 === 0){
+		return true;
 	}
 	
+	else 
+		return false;
 }
-console.log('Exercise 6:',isLeapYear(4040));
+console.log('Exercise 6:',isLeapYear(2023));
 
 // 7. Write a program that takes in a temperature and checks if it's above or below freezing using if else statement.
 function checkTemperature(temperature) {
