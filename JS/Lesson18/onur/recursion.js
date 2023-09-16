@@ -102,9 +102,9 @@ function capitalizeFirstLetter(sentence) {
 		console.log("Invalid input");
 	}
 
-	const TotalWords = sentence.split(' ');
-	const firstWord = TotalWords[0];
-	const remainingWords = TotalWords.slice(1);
+	const totalWords = sentence.split(' ');
+	const firstWord = totalWords[0];
+	const remainingWords = totalWords.slice(1);
 
 	const capitalizedFirstLetter = firstWord[0].toUpperCase() + firstWord.slice(1);
 
