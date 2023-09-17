@@ -213,31 +213,3 @@ console.log("Sum of digits:", sum);
 }
 
 console.log(sumDigits(12345)); // Output: 15
-
-let vowelsCount = 0;
-
-for (let i = 0; i < string15.length; i++) {
-	for (let a = 0; a < vowels.length; a++) {
-		if (string15[i].includes(vowels[a])) {
-			vowelsCount++;
-		}
-	}
-}
-
-console.log("Exercise 15: ", "The number of vowels in string15: ", vowelsCount);
-
-
-console.log('- - - - - - - - - - - - - - - - - ');
-
-// 16. Write a loop that calculates the sum of all digits in a given number.
-
-function sumDigits(num) {
-	let sum = 0;
-	let numString = num.toString();
-	for (let i = 0; i < numString.length; i++) {
-		sum += parseInt(numString[i]);
-	}
-	return sum;
-}
-console.log("Exercise 15: ", sumDigits(12345)); // Output: 15
-console.log('- - - - - - - - - - - - - - - - - ');
