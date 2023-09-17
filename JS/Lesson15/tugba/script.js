@@ -232,6 +232,7 @@ function checkAgeAndStudent() {
 	} else if (age >= 18 && isStudent === 'yes') {
 		console.log("You are old enough to vote");
 }
+}
 checkAgeAndStudent();
 
 
@@ -247,6 +248,7 @@ function checkSalaryAndExperience(salary, experience) {
 		console.log('We can offer you the job at a lower salary')
 	} else if (salary > 50000 && experience > 10) {
 		console.log('We can offer you the job at the requested salary');
+}
 }
 checkSalaryAndExperience(22000, 3);
 checkSalaryAndExperience(45000, 7);
