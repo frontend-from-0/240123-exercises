@@ -67,7 +67,7 @@ console.log("Exercise 6: ", reverseString(string));
 console.log("- - - - - - - - - - - - - - - - - ");
 
 // 7. Write a while loop that counts from 10 to 1 and prints out each number.
-<<<<<<< Updated upstream
+
 let number7= 10;
 while(number7>=1) {
 	console.log("Exercise 7: ", number7);
@@ -75,17 +75,6 @@ while(number7>=1) {
  }
 
 console.log('- - - - - - - - - - - - - - - - - ');
-
-
-let number7 = 10;
-
-while (number7 >= 1) {
-	console.log("Exercise 7: ", number7);
-	number7--;
-}
-
-console.log("- - - - - - - - - - - - - - - - - ");
->>>>>>> Stashed changes
 
 // 8. Write a while loop that generates random numbers between 1 and 10 until a number greater than 8 is generated, and then prints out the total number of iterations.
 
@@ -114,80 +103,34 @@ do {
 	number9++;
 } while (number9 <= 10);
 
-// 9. Write ;a do-while loop that counts from 1 to 10 and prints out each number.
-
-let number9 = 1;
-do {
-	console.log("Exercise 9: ", number9);
-	number9++;
-} while (number9 <= 10);
-console.log("- - - - - - - - - - - - - - - - - ");
->>>>>>> Stashed changes
-
 // 10. Write a for...in loop that prints out the keys and values of an object.
-<<<<<<< Updated upstream
-let person = {
+
+let person10 = {
     name: "John",
-    surname: "Doe"
+    surname: "Doe",
     age: 30,
     city: "New York"
   };
   
-  for (let key in person) {
-    console.log(`Key: ${key}, Value: ${person[key]}`);
+  for (let key in person10) {
+    console.log(`Key: ${key}, Value: ${person10[key]}`);
   }
   
 console.log('- - - - - - - - - - - - - - - - - ');
-
-// 11. Write a for...in loop that sums the values of an object.
-
-const myObject = {
-    value1: 10,
-    value2: 20,
-    value3: 30
-  };
-  
-  let sum = 0;
-  
-  for (let key in myObject) {
-    sum += myObject[key];
-  }
-  
-  console.log("Sum:", sum);
-  
-
-
-let person = { name: "John", surname: "Doe", age: 30, city: "New York" };
-
-for (let key in person) {
-	console.log("Exercise 10: ", `${key}: ${person[key]}`);
-}
-console.log("- - - - - - - - - - - - - - - - - ");
 
 // 11. Write a for...in loop that sums the values of an object.
 
 let obj = { a: 10, b: 20, c: 30 };
-let sum = 0;
+let sum11 = 0;
 
 for (let key in obj) {
-	sum += obj[key];
+	sum11 += obj[key];
 }
-console.log("Exercise 11: ", "Sum:", sum);
->>>>>>> Stashed changes
+console.log("Exercise 11: ", "Sum:", sum11);
+  
 console.log('- - - - - - - - - - - - - - - - - ');
 
 // 12. Write a loop that finds the average of an array of numbers.
-
-<<<<<<< Updated upstream
-const numbers = [10, 20, 30, 40, 50];
-let sumArray = 0;
-
-for (let i = 0; i < numbers.length; i++) {
-  sum += numbers[i];
-}
-
-const average = sum / numbers.length;
-console.log("Average:", averageArray);
 
 const numbers12 = [10, 20, 30, 40, 50, 100, 100, 130, 420];
 let sumArray = 0;
@@ -197,13 +140,12 @@ for (let i = 0; i < numbers12.length; i++) {
 }
 let averageArray = sumArray / numbers12.length;
 console.log("Exercise 12: ", averageArray);
->>>>>>> Stashed changes
+
 
 console.log('- - - - - - - - - - - - - - - - - ');
 
 // 13. Write a loop that prints out the sum of all even numbers between 1 and 50.
 
-<<<<<<< Updated upstream
 let sum = 0;
 
 for (let i = 2; i <= 50; i += 2) {
@@ -218,27 +160,11 @@ for (let i = 2; i <= 50; i += 2) {
 	evenSum += i;
 }
 console.log("Exercise 13: ", evenSum);
->>>>>>> Stashed changes
+
 
 console.log('- - - - - - - - - - - - - - - - - ');
 
 // 14. Write a loop that finds the second largest number in an array of numbers.
-<<<<<<< Updated upstream
-const numbers14 = [10, 5, 20, 8, 15];
-let largest = -Infinity;
-let secondLargest = -Infinity;
-
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] > largest) {
-    secondLargest = largest;
-    largest = numbers[i];
-  } else if (numbers[i] > secondLargest && numbers[i] < largest) {
-    secondLargest = numbers[i];
-  }
-}
-console.log("Second largest number:");
-
-
 const numbers14 = [10, 5, 20, 8, 15, 554352587, 234, 697, 764764];
 
 let max = Math.max(numbers14[0], numbers14[1]);
@@ -254,7 +180,6 @@ for (let i = 2; i < numbers14.length; i++) {
 }
 console.log("Exercise 14: ", "The second largest number: ", secondMax);
 
->>>>>>> Stashed changes
 
 console.log('- - - - - - - - - - - - - - - - - ');
 
@@ -264,16 +189,16 @@ const string15 = 'Hello, how are you?';
 const vowels = 'aeiouAEIOU';
 let vowelCount = 0;
 
-for (let i = 0; i < givenString.length; i++) {
-  const char = givenString[i].toLowerCase();
+for (let i = 0; i < string15.length; i++) {
+  const char = string15[i].toLowerCase();
   if (vowels.includes(char)) {
     vowelCount++;
   }
 }
 
-console.log("Number of vowels:", vowelCount sitringis15);
+console.log("Number of vowels:", vowelCount, string15);
 
-<<<<<<< Updated upstream
+
 console.log('- - - - - - - - - - - - - - - - - ');
 
 // 16. Write a loop that calculates the sum of all digits in a given number.
@@ -301,7 +226,7 @@ for (let i = 0; i < string15.length; i++) {
 
 console.log("Exercise 15: ", "The number of vowels in string15: ", vowelsCount);
 
->>>>>>> Stashed changes
+
 console.log('- - - - - - - - - - - - - - - - - ');
 
 // 16. Write a loop that calculates the sum of all digits in a given number.
