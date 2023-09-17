@@ -311,31 +311,4 @@ whichMonthName(2);
 
 // 14. Write a program that asks the user to enter a grade letter (A, B, C, D, or F)and displays a message indicating whether the grade is passing (A, B, C) or failing (D, F). Use a switch statement to handle the different cases.
 
-function checkGrade(grade) {
-	switch (grade) {
-		case 'A':
-		case 'B':
-		case 'C':
-			console.log(grade, 'passing');
-			break;
-			case "D":
-            case "F":
-		console.log(grade, 'failing');
-			break;
-	}
-}
-checkGrade('B');
-checkGrade('D');
-
-// 15. Write a program that asks the user to enter their age,and then calculates and displays their age in dog years (where one human year is equivalent to seven dog years).  If the user enters a negative number or zero, display an error message.
-
-function calculateDogYears(age) {
-	let dogYears = age * 7;
-	if (age <= 0) {
-		console.log('Error: invalid input');
-	} else {
-		console.log('Your age is equel to ' + dogYears + ' dog years');
-	}
-}
-calculateDogYears(35);
-calculateDogYears(-5);
+// 15. Write a program that asks the user to enter their age, and then calculates and displays their age in dog years (where one human year is equivalent to seven dog years). If the user enters a negative number or zero, display an error message.

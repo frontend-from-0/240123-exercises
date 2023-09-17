@@ -223,10 +223,3 @@ const personE17 = {
     city: 'New York',
   },
 };
-  
-  const { name, age, address: { city } } = personE17;
-  
-  console.log("name:", name);
-  console.log("age:", age);
-  console.log("city:", city);
-  
