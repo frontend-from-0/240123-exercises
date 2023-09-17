@@ -135,12 +135,16 @@ console.log('----------------------------');
 // Output: {name: "John", age: 30, city: "New York"}
 
 //I'm really not sure about 10-11-12-13 questions.
-const object = { name: "John", age: 30 };
-const key = "city";
-const value = "New York";
+const object10 = { name: "John", age: 30 };
+const key10 = "city";
+const value10= "New York";
+function addObjectKeyValue(object, key, value)
+{
+  return object[key] = value;
+}
+const result10 = addObjectKeyValue(object10, key10, value10);
 
-const result = addObjectKeyValue(object, key, value);
-console.log(result); 
+console.log(result10); 
    
 
 
@@ -153,11 +157,11 @@ function removeObjectKey(obj, key) {
     delete obj[key];
     return obj;
   }
-  const object = { name: "John", age: 30, city: "New York" };
-  const key = "city";
+  const object11 = { name: "John", age: 30, city: "New York" };
+  const key11 = "city";
   
-  const result = removeObjectKey(object, key);
-  console.log(result);
+  const result11 = removeObjectKey(object11, key11);
+  console.log(result11);
   
 console.log('----------------------------');
 
@@ -165,11 +169,18 @@ console.log('----------------------------');
 // Input: (["name", "age", "city"], ["John", 30, "New York"])
 // Output: {name: "John", age: 30, city: "New York"}
 
-const keys = ["name", "age", "city"];
-const values = ["John", 30, "New York"];
-
-const object = arraysToObject(keys, values);
-console.log(object);
+const keys12 = ["name", "age", "city"];
+const values12 = ["John", 30, "New York"];
+function arraysToObject(keys, values){
+  if (keys.length !== values.length) return  'Length of arrays is not a same';
+  let object= {};
+  for (let i=0; i<= keys.length-1; i++) {
+  object[keys[i]]= values[i];
+  }
+  return object;
+} 
+const object12 = arraysToObject(keys12, values12);
+console.log(object12);
 
 // 13. Array Destructuring
 // Given the following array, use array destructuring to assign the values of x, y, and z to their respective variables: 
