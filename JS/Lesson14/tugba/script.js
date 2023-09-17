@@ -118,7 +118,7 @@ console.log("Extracted word:", extractedWord);
 
 // 15. Remove extra spaces from the string stringExercise15 and print the result to the console.
 const stringExercise15 = "    Hello world    ";
-const trimmedString = stringExercise15.trim().replace(/\s+/g, ' ');
+const trimmedString = stringExercise15.trim();
 
 console.log("Trimmed string:", trimmedString);
 
