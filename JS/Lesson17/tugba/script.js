@@ -131,58 +131,48 @@ console.log("Ex 9.2:", isKeyInTheObject({name: "John", age: 30, city: "New York"
 
 console.log('----------------------------');
 // 10. Write a function that takes an object and a key-value pair, and adds the key-value pair to the object.
-const inputObject = { name: "John", age: 30 };
-const keyToAdd = "city";
-const valueToAdd = "New York";
-
-const result = addKeyValuePair(inputObject, keyToAdd, valueToAdd);
-console.log(result); // Output: { name: 'John', age: 30, city: 'New York' }
-
-//I'm really not sure about 10-11-12-13 questions.
-const object = { name: "John", age: 30 };
+const object10 = { name: "John", age: 30 };
 const key = "city";
 const value = "New York";
 
-const result = addObjectKeyValue(object, key, value);
-console.log(result); 
+function addObjectKeyValue (object, key, value) {
+  object[key] = value;
+  return object;
+}
+
+const result10 = addObjectKeyValue(object10, key, value);
+console.log(result10); 
    
-
-
 console.log('----------------------------');
 // 11. Write a function that takes an object and a key, and removes the key-value pair from the object.
 const inputObject = { name: "John", age: 30, city: "New York" };
 const keyToRemove = "city";
 
-const result = removeKey(inputObject, keyToRemove);
+function removeObjectKey(obj, key) {
+  delete obj[key];
+  return obj;
+};
+
+const result = removeObjectKey(inputObject, keyToRemove);
 console.log(result); // Output: { name: 'John', age: 30 }
 
-function removeObjectKey(obj, key) {
-    delete obj[key];
-    return obj;
-  }
-  const object = { name: "John", age: 30, city: "New York" };
-  const key = "city";
-  
-  const result = removeObjectKey(object, key);
-  console.log(result);
-  
-console.log('----------------------------');
 
 // 12. Write a function that takes two arrays of equal length and returns an object with the first array as keys and the second array as values.
-const keys = ["name", "age", "city"];
-const values = ["John", 30, "New York"];
+const keys12 = ["name", "age", "city"];
+const values12 = ["John", 30, "New York"];
 
-<<<<<<< Updated upstream
-const keys = ["name", "age", "city"];
-const values = ["John", 30, "New York"];
+function arraysToObject(keys, values) {
+  if (keys.length !== values.length) return 'Arrays are not the same length!';
+  let object = {};
+  for (let i = 0; i < keys.length; i++) {
+    object[keys[i]] = values[i];
+  }
+  return object;
+}
 
-const object = arraysToObject(keys, values);
-console.log(object);
+const result12 = arraysToObject(keys12, values12);
+console.log(result12);
 
-=======
-const result = arraysToObj(keys, values);
-console.log(result); // Output: { name: 'John', age: 30, city: 'New York' }
->>>>>>> Stashed changes
 // 13. Array Destructuring
 // Given the following array, use array destructuring to assign the values of x, y, and z to their respective variables: 
 
@@ -198,9 +188,15 @@ console.log("z:", z);
 // 14. Object Destructuring
 // Given the following object, use object destructuring to assign the values of name and age to their respective variables:
 const personE14 = {
-  name: 'John Doe',
-  age: 25,
+  name14: 'John Doe',
+  age14: 25,
 };
+
+const {name14, age14} = personE14;
+
+// Now, console.log(14, personE14.name14, personE14.age14) is the same as console.log(14, name14, age14);
+
+console.log(14, name14, age14);
 
 // 15. Array Destructuring with Default Values
 // Given the following array, use array destructuring with default values to assign the values of a, b, and c, with default values of 1, 2, and 3 respectively:
