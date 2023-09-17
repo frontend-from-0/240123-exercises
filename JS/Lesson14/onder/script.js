@@ -60,7 +60,7 @@ console.log("Exercise8: ", stringSplit);
 console.log('------------------------');
 // 9. Use the `join` method to join an array of strings into a single string and print it to the console.
 const arrayExercise9 = ["An", "array",  "of", "strings"];
-console.log("Exercise9: ", arrayJoin);
+console.log("Exercise9: ", arrayExercise9.join(" "));
 console.log('------------------------');
 // 10. Use the `replace` method to replace "can help" with "help" in the string stringExercise10 and print the result to the console.
 const removeWord = "can help";
