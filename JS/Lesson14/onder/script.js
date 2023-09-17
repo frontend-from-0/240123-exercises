@@ -101,7 +101,7 @@ console.log('------------------------');
 // 14. Use the `substring` method to extract the word "Databases" from string stringExercise14 based on two indices and print it to the console.
 // Question: What is the difference between `substring()` and `slice()`?
 const stringExercise14 = 'Databases are an essential component of many applications.';
-const stringSub = stringExercise14.substr
+const stringSub = stringExercise14.substring(0, 8);
 
 console.log('------------------------');
 // 15. Remove extra spaces from the string stringExercise15 and print the result to the console.
