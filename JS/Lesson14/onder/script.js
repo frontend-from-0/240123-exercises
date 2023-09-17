@@ -42,7 +42,7 @@ console.log("Exercise5.a: ", letterİndexOf);
 
 console.log('------------------------');
 // 5.b Use the `indexOf` method to find the index of "language" in the string stringExercise5 and print it to the console.
-
+console.log("Exercise5.b: ", stringExercise5.indexOf('language'));
 console.log('------------------------');
 // 6. Use the `lastIndexOf` method to find the last index of of "l" character in the string stringExercise5 and print it to the console.
 const letterLastİndexOf = stringExercise5.lastIndexOf("l");
@@ -51,6 +51,9 @@ console.log("Exercise6: ", letterLastİndexOf);
 console.log('------------------------');
 // 7. Use the `charAt` method to retrieve first, 10th, 3rd from the end and the last characters from the string stringExercise7 and print them to the console.
 const stringExercise7 = 'Git is a popular version control system used by developers.';
+console.log("Exercise7: ", stringExercise7.charAt(0));
+console.log("Exercise7: ", stringExercise7.charAt(9));
+console.log("Exercise7: ", stringExercise7.charAt(stringExercise7.length-3));
 
 console.log('------------------------');
 // 8. Use the `split` method to split a string into an array of substrings and print it to the console.
@@ -71,6 +74,8 @@ console.log('------------------------');
 // 11. Use the `startsWith` method to check if strings below starts with a price, and print the result to the console.
 const string1Exercise11 = "$9.99 - Sale! 50% off all items in store";
 const string2Exercise11 = "Bundle deal: Save $50 when you buy two products together";
+console.log("Exercise11: ", string1Exercise11.startsWith("$"));
+console.log("Exercise11: ", string2Exercise11.startsWith("$"));
 
 const string1Price = string1Exercise11.startsWith("$");
 console.log("Exercise11.1: ", string1Price);
