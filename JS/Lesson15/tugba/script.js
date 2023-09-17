@@ -21,7 +21,7 @@ const sumOfTwoNumber = function (parameter1, parameter2) {
 
 Arrow Function (introduced in ECMAScript 6)
 const greet = () => {
-  console.log('Hello world');
+console.log('Hello world');
 };
 
 greet();
@@ -44,23 +44,23 @@ if (condition) {
 
 if ... else Statement
 if (condition) {
- ... some code
+... some code
 } else if (another condtion) {
- ... some code
+.. some code
 } else {
- ... some code
+	... some code
 }
 
 Switch statement
 switch (day) {
   case 'Monday':  // this means that day === 'Monday'
-   console.log('It\'s Monday'); 
-   break;
-  case 'Tuesday':
+	console.log('It\'s Monday'); 
+	break;
+case 'Tuesday':
     console.log('It\'s Tuesday');
     break; // Use break key word if you don't use return key word in the statement;
     .... cases for other days of the week
-  default:
+default:
     console.log('Unknow day');
     break;
 }
@@ -224,7 +224,7 @@ function checkAgeAndStudent() {
 	const age = prompt('How old are you ?');
 	const isStudent = prompt("Are you a student?(yes or no)");
 	if (age < 18 && isStudent === 'yes') {
-		console.log("You are a student and not old enough to vote";
+		console.log("You are a student and not old enough to vote");
 	} else if (age >= 18 && age <= 65 && isStudent === "no") {
 		console.log("You are eligible to vote");
 	} else if (age > 65) {
@@ -236,9 +236,9 @@ checkAgeAndStudent();
 
 
 // 11. Write a program that asks the user to enter their salary and their years of experience. 
-If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". 
-If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". 
-If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
+//If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". 
+//If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". 
+//If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
 
 function checkSalaryAndExperience(salary, experience) {
 	if (salary < 30000 && experience < 5) {
@@ -253,9 +253,9 @@ checkSalaryAndExperience(45000, 7);
 checkSalaryAndExperience(125000, 25);
 
 // 12. Write a program that asks the user to enter their score on a test.
- If the score is less than 60, print "You failed the test". If the score is between 60 and 70 (inclusive), print "You passed the test, but your grade is not great".
-  If the score is between 71 and 80 (inclusive), print "You got a B". If the score is between 81 and 90 (inclusive), print "You got an A". 
-  If the score is greater than 90, print "You got an A+ - Great job!".
+// If the score is less than 60, print "You failed the test". If the score is between 60 and 70 (inclusive), print "You passed the test, but your grade is not great".
+ // If the score is between 71 and 80 (inclusive), print "You got a B". If the score is between 81 and 90 (inclusive), print "You got an A". 
+  //If the score is greater than 90, print "You got an A+ - Great job!".
 
 function checkScore(score) {
 	if (score < 60) {
