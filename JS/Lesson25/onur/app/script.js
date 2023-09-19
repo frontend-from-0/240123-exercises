@@ -1,7 +1,7 @@
 const configurations = {
   api_key: 'qCnxm3oi9NS9mzAkGmh7_4B6V3p6DJnyFs_wKfNQFF4',
   api_base_url: 'https://api.unsplash.com/photos/random',
-  number_of_images_to_fetch: 12,
+  number_of_images_to_fetch: 20,
 };
 
 // Parameters to use: client_id, count
