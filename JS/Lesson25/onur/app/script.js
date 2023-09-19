@@ -1,7 +1,7 @@
 const configurations = {
   api_key: 'qCnxm3oi9NS9mzAkGmh7_4B6V3p6DJnyFs_wKfNQFF4',
   api_base_url: 'https://api.unsplash.com/photos/random',
-  number_of_images_to_fetch: 20,
+  number_of_images_to_fetch: 12,
 };
 
 // Parameters to use: client_id, count
@@ -14,24 +14,26 @@ const button = document.getElementById('fetch-button');
 
 function fetchImages() {
   // TODO: Clear screen before loading new images
-  fetch(image_url)
-  .then(response => response.json())
-  .then(data => {
-    // all code goes here!
-    data.map(image => {
-      const imageContainer = document.createElement("div");
-      imageContainer.classList.add("image");
+  container.innerHTML = "";
 
-      const imageElement = document.createElement("img");
-      imageElement.src = image.urls.regular;
-      
-      imageContainer.appendChild(imageElement);
-      container.appendChild(imageContainer);
-    
-      // image class to be used for the div element
+  fetch(image_url)
+    .then(response => response.json())
+    .then(data => {
+      // all code goes here!
+      data.map(image => {
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("image");
+
+        const imageElement = document.createElement("img");
+        imageElement.src = image.urls.regular;
+
+        imageContainer.appendChild(imageElement);
+        container.appendChild(imageContainer);
+
+        // image class to be used for the div element
+      })
     })
-  })
-  .catch(err => console.log(err));
+    .catch(err => console.log(err));
   // Clear previous images
 }
 
