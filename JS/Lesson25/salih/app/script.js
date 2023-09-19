@@ -14,6 +14,10 @@ const button = document.getElementById('fetch-button');
 
 function fetchImages() {
   // TODO: Clear screen before loading new images
+  while(container.firstChild){
+    container.removeChild(container.firstChild);
+  }
+
   fetch(image_url)
   .then(response => response.json())
   .then(data => {
