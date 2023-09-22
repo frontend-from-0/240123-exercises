@@ -13,6 +13,10 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
@@ -44,15 +48,32 @@ ul {
   margin: 0;
 }
 
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.titleText{
+  margin-top: 20px;
+  height: 60px;
+}
+
+.bodyText{
+  margin-top: 20px;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
 .button {
   padding: 10px 20px;
-  
-  color: white;
-  border: none;
+  border: 1px solid gray;
+  color: gray;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 100px;
 }
 
 .button--success {
