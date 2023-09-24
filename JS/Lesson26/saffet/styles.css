@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f2f2f2;
+  display: flex;
 }
 
 .container {
@@ -73,7 +74,22 @@ ul {
   font-size: 16px;
   cursor: pointer;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.delete-btn{
   margin-bottom: 100px;
+}
+
+#successMessage{
+  width: 200px;
+  height: 100px;
+  color: black;
+}
+
+.create-btn{
+  margin-top: 50px;
+  margin-bottom: 75px;
 }
 
 .button--success {

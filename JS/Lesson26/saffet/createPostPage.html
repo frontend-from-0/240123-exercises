@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create New Post</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <h1>Posts</h1>
+
+        <form id="postForm" class="form">
+            <label for="title">Title:</label>
+            <input class="titleText" type="text" id="title" name="title">
+            <br><br>
+            <label for="body">Body:</label>
+            <textarea class="bodyText" id="body" name="body" rows="4" required></textarea><br>
+
+            <button class="button" id="saveButton">Save</button>
+        </form>
+        <div id="successMessage" style="display: none;">Post created successfully!</div>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+    <script src="createPost.js"></script>
+</body>
+
+</html>
