@@ -78,7 +78,13 @@ ul {
   margin-bottom: 10px;
 }
 
+a{
+  display: inline-block;
+  text-align: center;
+}
+
 .delete-btn{
+  margin-top: 10px;
   margin-bottom: 100px;
 }
 

@@ -28,7 +28,8 @@ function fetchPosts() {
             newPost.classList.add("post");
             newPost.setAttribute("data-post-id", post.id);
 
-            const editButton = document.createElement("button");
+            // const editButton = document.createElement("button");
+            const editButton = document.createElement("a");
             editButton.classList.add("button");
             editButton.setAttribute("data-post-id", post.id);
             editButton.innerText = "Edit";
