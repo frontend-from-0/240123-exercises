@@ -6,14 +6,20 @@ const bodyInput = document.getElementById("body");
 const saveButton = document.getElementById("saveButton");
 const successMessage = document.getElementById("successMessage");
 const urlParams = new URLSearchParams(window.location.search);
-const postId = urlParams.get("id");
+//const postId = urlParams.get("id");
+const errorMessage = document.getElementById("errorMessage");
 
 saveButton.addEventListener("click", (event) => {
 
     event.preventDefault();
 
     if(titleInput.value.trim() === "" || bodyInput.value.trim() === ""){
-        alert("Please fill out both title and body fields");
+        //alert("Please fill out both title and body fields");
+        errorMessage.style.display = "block";
+        form.style.display = "none";
+        setTimeout(() => {
+            window.location.href = "createPostPage.html";
+        },1000);
         return;
     }
 

@@ -11,7 +11,7 @@ const createButton = document.getElementById("create-btn");
 
 const URL = 'https://jsonplaceholder.typicode.com/posts';
 
-let lastPostId = 0;
+//let lastPostId = 0;
 
 function fetchPosts() {
 
@@ -21,8 +21,8 @@ function fetchPosts() {
 
         data.forEach(post => {
 
-            lastPostId = Math.max(...data.map(post => post.id));
-            console.log("Last Post id: ", lastPostId);
+            //lastPostId = Math.max(...data.map(post => post.id));
+            //console.log("Last Post id: ", lastPostId);
             
             const newPost = document.createElement("div");
             newPost.classList.add("post");
@@ -50,7 +50,7 @@ function fetchPosts() {
             deleteButton.innerText = "Delete";
 
             deleteButton.addEventListener("click", () => {
-                clearPosts(post.id);
+                deletePost(post.id);
             })
 
             postArea.appendChild(newPost);
@@ -63,7 +63,7 @@ function fetchPosts() {
 
 window.addEventListener("load", fetchPosts);
 
-function clearPosts(postId) {
+function deletePost(postId) {
     const deleteURL = `https://jsonplaceholder.typicode.com/posts/${postId}`;
 
     fetch(deleteURL, {
@@ -99,5 +99,6 @@ function removePost(postId){
 }
 
 createButton.addEventListener("click", () => {
-    window.location.href = `createPostPage.html?id=${lastPostId+1}`;
+    //window.location.href = `createPostPage.html?id=${lastPostId+1}`;
+    window.location.href = `createPostPage.html`;
 });

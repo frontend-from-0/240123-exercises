@@ -58,6 +58,7 @@ ul {
 .titleText{
   margin-top: 20px;
   height: 60px;
+  margin-bottom: 50px;
 }
 
 .bodyText{
@@ -85,6 +86,10 @@ ul {
   width: 200px;
   height: 100px;
   color: black;
+}
+
+.hidden{
+  display: none;
 }
 
 .create-btn{
