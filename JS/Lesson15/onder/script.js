@@ -21,7 +21,7 @@ const sumOfTwoNumber = function (parameter1, parameter2) {
 
 Arrow Function (introduced in ECMAScript 6)
 const greet = () => {
-  console.log('Hello world');
+console.log('Hello world');
 };
 
 greet();
@@ -44,23 +44,23 @@ if (condition) {
 
 if ... else Statement
 if (condition) {
- ... some code
+... some code
 } else if (another condtion) {
- ... some code
+.. some code
 } else {
- ... some code
+	... some code
 }
 
 Switch statement
 switch (day) {
   case 'Monday':  // this means that day === 'Monday'
-   console.log('It\'s Monday'); 
-   break;
-  case 'Tuesday':
+	console.log('It\'s Monday'); 
+	break;
+case 'Tuesday':
     console.log('It\'s Tuesday');
     break; // Use break key word if you don't use return key word in the statement;
     .... cases for other days of the week
-  default:
+default:
     console.log('Unknow day');
     break;
 }
@@ -192,10 +192,10 @@ function checkBMI(weight, height) {
 		console.log('Obesity');
 	}
 }
-checkBmi(48, 1.7);
-checkBmi(78, 1.8);
-checkBmi(78, 1.7);
-checkBmi(128, 1.6);
+checkBMI(48, 1.7);
+checkBMI(78, 1.8);
+checkBMI(78, 1.7);
+checkBMI(128, 1.6);
 
 
 // 9. Write a program that takes in a person's age and checks if they are a child (age 0-12), teenager (age 13-19), adult (age 20-64), or senior citizen (age 65 and above) using if else statement.
@@ -220,25 +220,35 @@ PersonAge(78); //senior citizen
 // 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
 
 
-function checkAgeAndStudent() {
-	const age = prompt('How old are you ?');
-	const isStudent = prompt("Are you a student?(yes or no)");
-	if (age < 18 && isStudent === 'yes') {
-		console.log("You are a student and not old enough to vote";
-	} else if (age >= 18 && age <= 65 && isStudent === "no") {
-		console.log("You are eligible to vote");
+
+function checkVotingEligibility(age, is_student) {
+	if (typeof age === 'number' && typeof is_student === 'boolean') {
+		if (age < 18 && is_student === true) {
+			console.log(10, 'You are a student and not old enough to vote.');
+	} else if (age <= 65 && is_student === false) {
+			console.log(10, 'You are eligible to vote');
 	} else if (age > 65) {
-		console.log("You are a senior citizen");
-	} else if (age >= 18 && isStudent === 'yes') {
-		console.log("You are old enough to vote");
+			console.log(10, 'You are a senior citizen.');
+	} else if (is_student === true) {
+			console.log(10, 'You are old enough to vote.');
+	}
+	} else {
+        console.log(10, 'Invalid input');
+    }
 }
-checkAgeAndStudent();
+
+checkVotingEligibility(25, true); 
+checkVotingEligibility(65, false); 
+checkVotingEligibility(18, true);
+checkVotingEligibility('sdas', 20);
+
+
 
 
 // 11. Write a program that asks the user to enter their salary and their years of experience. 
-If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". 
-If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". 
-If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
+//If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". 
+//If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". 
+//If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
 
 function checkSalaryAndExperience(salary, experience) {
 	if (salary < 30000 && experience < 5) {
@@ -248,14 +258,15 @@ function checkSalaryAndExperience(salary, experience) {
 	} else if (salary > 50000 && experience > 10) {
 		console.log('We can offer you the job at the requested salary');
 }
+}
 checkSalaryAndExperience(22000, 3);
 checkSalaryAndExperience(45000, 7);
 checkSalaryAndExperience(125000, 25);
 
 // 12. Write a program that asks the user to enter their score on a test.
- If the score is less than 60, print "You failed the test". If the score is between 60 and 70 (inclusive), print "You passed the test, but your grade is not great".
-  If the score is between 71 and 80 (inclusive), print "You got a B". If the score is between 81 and 90 (inclusive), print "You got an A". 
-  If the score is greater than 90, print "You got an A+ - Great job!".
+// If the score is less than 60, print "You failed the test". If the score is between 60 and 70 (inclusive), print "You passed the test, but your grade is not great".
+ // If the score is between 71 and 80 (inclusive), print "You got a B". If the score is between 81 and 90 (inclusive), print "You got an A". 
+  //If the score is greater than 90, print "You got an A+ - Great job!".
 
 function checkScore(score) {
 	if (score < 60) {
