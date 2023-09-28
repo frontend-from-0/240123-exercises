@@ -1,6 +1,6 @@
 //Example
 // function doSomething(parameter) {
-//   // base condition for recursive function
+//   // base condition for recursive function...
 //   if (condition) {
 //     return value;
 //   } else {
