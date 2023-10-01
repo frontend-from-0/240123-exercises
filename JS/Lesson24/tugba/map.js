@@ -1,7 +1,7 @@
 // Functional programming intro
 // [].map()
 
-// Exercise 1:
+// Exercise 1: ...
 // Given an array of strings, convert each string to uppercase using .map().
 const wordsExercise1 = [
 	'apple',

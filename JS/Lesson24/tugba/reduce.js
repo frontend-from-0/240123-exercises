@@ -1,6 +1,6 @@
 /* array.reduce(callback(accumulator, currentValue, currentIndex, array), initialValue);
   
-- callback: A function that is executed on each element of the array. It takes four arguments:
+- callback: A function that is executed on each element of the array. It takes four arguments:....
   
 - accumulator: The accumulated value that is returned after each iteration. It starts with the value of initialValue on the first iteration and is the result of the previous iteration in subsequent iterations.
 - currentValue: The current element being processed in the array. (array[i] in a loop)
