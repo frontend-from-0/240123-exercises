@@ -1,4 +1,4 @@
-// Functional programming intro
+// Functional programming intro...
 // [].map()
 
 // Exercise 1:
