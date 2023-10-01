@@ -113,6 +113,9 @@ const wordsExercise4 = [
 	'island',
 	'jungle',
 ];
+const wordLengths = wordsExercise4.map(word => word.length);
+
+console.log(wordLengths);
 
 // Exercise 5:
 // Given an array of student objects with their names and grades, extract an array of only the student names and grade using .map(). E.g. ['Alice A', ...]
@@ -178,11 +181,19 @@ const studentsExercise5 = [
 		grade: 'B-',
 	},
 ];
+const studentNamesAndGrades = studentsExercise5.map(student => `${student.name} ${student.grade}`);
+
+console.log(studentNamesAndGrades);
 
 
 // Exercise 6:
 // Given an array of numbers, convert each number to a string representation using .map().
 const numbersExercise6 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const stringRepresentation = numbersExercise6.map(number => String(number));
+
+console.log(stringRepresentation);
+
 
 // Exercise 7:
 // Given an array of sentences, split each sentence into an array of words using .map().
@@ -198,7 +209,9 @@ const sentencesExercise7 = [
 	'The mountain peaks were covered in snow.',
 	'The room was filled with laughter and joy.',
 ];
+const sentencesAsArrays = sentencesExercise7.map(sentence => sentence.split(' '));
 
+console.log(sentencesAsArrays);
 // Exercise 8:
 // Given an array of user objects, extract an array of their email addresses using .map().
 const usersExercise8 = [
@@ -263,6 +276,9 @@ const usersExercise8 = [
 		email: 'sophia@example.com',
 	},
 ];
+const emailAddresses = usersExercise8.map(user => user.email);
+
+console.log(emailAddresses);
 
 // Exercise 9:
 // Given an array of objects representing books, extract an array of book titles and authors using .map().
@@ -328,7 +344,15 @@ const booksExercise9 = [
 		price: 9.99,
 	},
 ];
+const bookTitlesAndAuthors = booksExercise9.map(book => `${book.title} by ${book.author}`);
+
+console.log(bookTitlesAndAuthors);
 
 // Exercise 10:
 // Given an array of prices, add a currency symbol to each price using .map().
 const pricesExercise10 = [1999, 899, 1499, 299, 399, 999, 499, 649, 99, 129];
+
+const pricesWithCurrencySymbol = pricesExercise10.map(price => '$' + price);
+
+console.log(pricesWithCurrencySymbol);
+
