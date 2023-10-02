@@ -153,42 +153,42 @@ console.log('----------------------------');
 const sentenceEx4 = 'Hello, how are you?';
 const vowels = ['a', 'e', 'i', 'o', 'u'];
 
-function toCountVowelsOfString(sentence, vowels) {
+function countVowels(sentence, vowels) {
 	if (sentence.length === 0) {
 		return 0;
 	}
 
 	const firstLetter = sentence[0].toLowerCase();
 	if (vowels.includes(firstLetter)) {
-		return 1 + toCountVowelsOfString(sentence.slice(1), vowels);
+		return 1 + countVowels(sentence.slice(1), vowels);
 	} else {
-		return toCountVowelsOfString(sentence.slice(1), vowels);
+		return countVowels(sentence.slice(1), vowels);
 	}
 
 }
-const countVowels = toCountVowelsOfString(sentenceEx4, vowels);
-console.log("Exercise 4: ", countVowels);
+const resultCountVowels = countVowels(sentenceEx4, vowels);
+console.log("Exercise 4: ", resultCountVowels);
 
 console.log('----------------------------');
 // 5. Write a recursive function to remove all occurrences of a specified character from a string.
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
 
-function toRemoveSpecifiedCharacter(sentence, specifiedCharacter) {
+function removeSpecifiedCharacter(sentence, specifiedCharacter) {
 	if (sentence.length === 0) {
 		return "";
 	}
 	let firstCharacter = sentence[0].toLowerCase();
 	let remainingCharacters = sentence.slice(1);
 	if (firstCharacter === specifiedCharacter) {
-		return toRemoveSpecifiedCharacter(remainingCharacters, specifiedCharacter);
+		return removeSpecifiedCharacter(remainingCharacters, specifiedCharacter);
 	} else {
-		return firstCharacter + toRemoveSpecifiedCharacter(remainingCharacters, specifiedCharacter);
+		return firstCharacter + removeSpecifiedCharacter(remainingCharacters, specifiedCharacter);
 	}
 
 }
 
-const removeCharacter = toRemoveSpecifiedCharacter(sentenceEx5, charToRemove);
+const removeCharacter = removeSpecifiedCharacter(sentenceEx5, charToRemove);
 console.log("Exercise 5: ", removeCharacter);
 
 console.log('----------------------------');
@@ -196,7 +196,7 @@ console.log('----------------------------');
 const numbers = [1, 2, 3, 4, 5];
 const valueToCheck = 3;
 
-function checkToSpesificValue(arr, value, index = 0) {
+function checkIfValueIncluded(arr, value, index = 0) {
 	if (arr === null && arr === []) {
 		return null;
 	}
@@ -207,10 +207,10 @@ function checkToSpesificValue(arr, value, index = 0) {
 	if (arr[index] === value) {
 		return true;
 	} else {
-		return checkToSpesificValue(arr, value, index + 1);
+		return checkIfValueIncluded(arr, value, index + 1);
 	}
 }
-console.log("Exercise 6: ", checkToSpesificValue(numbers, valueToCheck));
+console.log("Exercise 6: ", checkIfValueIncluded(numbers, valueToCheck));
 
 console.log('----------------------------');
 
@@ -248,13 +248,13 @@ console.log('----------------------------');
 // 8. Write a recursive function to reverse the order of words in a sentence.
 const sentenceEx8 = 'Hello, how are you?';
 
-function toReverseWordsOfString(sentence) {
+function reverseWordsInString(sentence) {
 	const words = sentence.split(' ');
 	if (sentence.length === 0) {
 		return '';
 	} else {
 		const firstWord = words.shift();
-		const remainWords = toReverseWordsOfString(words.join(' '));
+		const remainWords = reverseWordsInString(words.join(' '));
 		if (remainWords === '') {
 			return firstWord;
 		} else {
@@ -263,27 +263,27 @@ function toReverseWordsOfString(sentence) {
 
 	}
 }
-console.log("Exercise 8: ", toReverseWordsOfString(sentenceEx8));
+console.log("Exercise 8: ", reverseWordsInString(sentenceEx8));
 
 console.log('----------------------------');
 // 9. Write a recursive function to find the length of the longest word in a sentence.
 const sentenceEx9 = 'The quick brown fox jumps over the lazy dog';
 
-function toFindLongestWord(sentence) {
+function findLengthOfTheLongestWord(sentence) {
 	const wordsOfArray = sentence.split(' ');
 
-	function toFindMaxLength(wordsOfArray) {
+	function findMaxLength(wordsOfArray) {
 		if (wordsOfArray.length === 0) {
 			return 0;
 		}
 		const firstWordInArray = wordsOfArray.shift();
-		const restOfArray = toFindMaxLength(wordsOfArray);
+		const restOfArray = findMaxLength(wordsOfArray);
 		return Math.max(firstWordInArray.length, restOfArray);
 	}
-	return toFindMaxLength(wordsOfArray);
+	return findMaxLength(wordsOfArray);
 }
 
-console.log("Exercise 9: ", toFindLongestWord(sentenceEx9));
+console.log("Exercise 9: ", findLengthOfTheLongestWord(sentenceEx9));
 
 console.log('----------------------------');
 // 10. Write a recursive function to check if an object contains a specified property.
