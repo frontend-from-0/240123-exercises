@@ -15,9 +15,7 @@ const wordsExercise1 = [
 	'island',
 	'jungle',
 ];
-const fruits = wordsExercise1.map(word => {
-	return word.toUpperCase()
-});
+const fruits = wordsExercise1.map(word => word.toUpperCase());
 console.log("Exercise 1:", fruits);
 
 console.log("------------------------------------------------");
@@ -99,9 +97,7 @@ const products = [
 	},
 ];
 
-const names = products.map(product => {
-	return product.name;
-});
+const names = products.map(product => product.name);
 
 console.log("Exercise 3:", names);
 console.log("------------------------------------------------");
@@ -121,9 +117,7 @@ const wordsExercise4 = [
 	'jungle',
 ];
 
-const findLengthOfEachWords = wordsExercise4.map(
-	words => { return words.length }
-);
+const findLengthOfEachWords = wordsExercise4.map(words => words.length);
 console.log("Exercise 4:", findLengthOfEachWords)
 console.log("------------------------------------------------");
 
@@ -206,11 +200,8 @@ console.log("------------------------------------------------");
 // Given an array of numbers, convert each number to a string representation using .map().
 const numbersExercise6 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const convertToString = numbersExercise6.map(
-	numbers => {
-		return numbers.toString()
-	}
-);
+const convertToString = numbersExercise6.map(numbers => numbers.toString());
+
 console.log("Exercise 6:", convertToString);
 console.log("------------------------------------------------");
 
@@ -229,11 +220,8 @@ const sentencesExercise7 = [
 	'The room was filled with laughter and joy.',
 ];
 
-const splittedSentences = sentencesExercise7.map(
-	sentence => {
-		return sentence.split(" ")
-	}
-);
+const splittedSentences = sentencesExercise7.map(sentence => sentence.split(" "));
+
 console.log("Exercise 7:", splittedSentences);
 console.log("------------------------------------------------");
 
@@ -303,11 +291,8 @@ const usersExercise8 = [
 	},
 ];
 
-const extractUsersEmail = usersExercise8.map(
-	users => {
-		return users.email
-	}
-);
+const extractUsersEmail = usersExercise8.map(users => users.email);
+
 console.log("Exercise 8:", extractUsersEmail);
 console.log("------------------------------------------------");
 
@@ -388,9 +373,6 @@ console.log("------------------------------------------------");
 // Given an array of prices, add a currency symbol to each price using .map().
 const pricesExercise10 = [1999, 899, 1499, 299, 399, 999, 499, 649, 99, 129];
 
-const addSymbol = pricesExercise10.map(
-	prices => {
-		return '$' + prices
-	}
-);
+const addSymbol = pricesExercise10.map(prices => '$' + prices);
+
 console.log("Exercise 10:", addSymbol);

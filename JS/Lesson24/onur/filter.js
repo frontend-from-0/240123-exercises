@@ -273,11 +273,8 @@ const productsExercise6 = [
 	},
 ];
 
-const stockOfProduct = productsExercise6.filter(
-	product => {
-		return product.quantity > 0
-	}
-)
+const stockOfProduct = productsExercise6.filter(product => product.quantity > 0);
+
 console.log("Exercise 6:", stockOfProduct);
 console.log("------------------------------------------------");
 
@@ -452,8 +449,5 @@ const usersExercise10 = [
 	},
 ];
 
-const result10 = usersExercise10.filter(users => {
-	return users.name[0].toUpperCase() !== 'J'
-}
-)
+const result10 = usersExercise10.filter(users => users.name[0].toUpperCase() !== 'J')
 console.log("Exercise 10:", result10);
