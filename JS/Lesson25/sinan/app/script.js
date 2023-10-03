@@ -14,7 +14,7 @@ const button = document.getElementById('fetch-button');
 
 function fetchImages() {
   // TODO: Clear screen before loading new images
-  const container = document.getElementById("image-container");
+
   container.innerHTML = "";
   fetch(image_url)
   .then(response => response.json())
@@ -41,7 +41,7 @@ function fetchImages() {
 // Fetch images once page is loaded
 
 window.addEventListener("load", fetchImages);
-button.addEventListener('click', fetchImages,);
+button.addEventListener('click', fetchImages);
 
 // Executing function: fetchImages()
 // Passing a function: fetchImages OR (param) => fetchImages(param)
