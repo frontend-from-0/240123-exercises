@@ -84,24 +84,33 @@ p {
     margin-top: 0;
 }
 
+hr {
+    width: 960px;
+    margin: 50px auto 5px;
+    height: 1px;
+    background-color: #cbcbcb;
+    border: none;
+}
+
 /****** styles for price boxes ******/
 
 .flex-boxes {
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 0;
 }
 
 .box {
     width: 288px;
     margin: 20px;
+    box-shadow: 0 0.45rem 0.85rem rgba(0, 0, 0, .05);
 }
 
 .box2 {
     border: 1px solid #cbcbcb;
     margin: 0;
     border-top: 1px solid #fff;
+    box-shadow: 0 0.45rem 0.85rem rgba(0, 0, 0, .05);
 }
 
 h2 {
@@ -166,4 +175,32 @@ span {
 .get-contuct:hover {
     background-color: #0069d8;
     color: #fff;
+}
+
+/* footer part */
+
+img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer {
+    display: block;
+    align-items: center;
+    font-size: 13px;
+    
+}
+
+h5 {
+    font-weight: 500;
+}
+
+.footer-l {
+    display: block;
+    text-decoration: none;
+    color: #7d7d7d;
+}
+
+.footerbox {
+    margin: 50px;
 }
