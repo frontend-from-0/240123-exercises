@@ -135,7 +135,11 @@ console.log('----------------------------');
 // Output: {name: "John", age: 30, city: "New York"}
 
 function getKeyValue (obj,key,value) {
-if(obj[key]=value) return obj;
+if (obj[key]) {
+  return obj
+} else {
+ return obj[key] = value;
+}
 } 
 
 const newValue = getKeyValue({name: "John", age: 30}, "city", "New York");
@@ -159,12 +163,15 @@ console.log('----------------------------');
 // 12. Write a function that takes two arrays of equal length and returns an object with the first array as keys and the second array as values.
 // Input: (["name", "age", "city"], ["John", 30, "New York"])
 // Output: {name: "John", age: 30, city: "New York"}
-function concatKeyValue(list1,list2,) {
-  const unifiedList = [];
+function concatKeyValue(list1,list2) {
+  if(list1.length===list2.length) {
+  let unifiedList = {};
   for(let i = 0; i<list1.length; i++){
     unifiedList[list1[i]] = list2[i];
   }
   return unifiedList;
+}
+  else console.error('provided arrays are not of equal length!');
 }
   const twoList  = concatKeyValue(["name", "age", "city"], ["John", 30, "New York"]);
   console.log('Exercise 12:',twoList);
@@ -172,7 +179,7 @@ function concatKeyValue(list1,list2,) {
 // 13. Array Destructuring
 // Given the following array, use array destructuring to assign the values of x, y, and z to their respective variables: 
 const coordinates = [10, 20, 30];
-let chars = ['x','y','z'];
+const [x, y, z] = coordinates;
 function concatTwoList(list1,list2) {
   const unify = [];
   for(i in list1) {
