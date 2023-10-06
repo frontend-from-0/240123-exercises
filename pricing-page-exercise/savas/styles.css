@@ -13,7 +13,7 @@ body {
     background-color: #fff;
 }
 
-/****** styles for for top menu ******/
+/****** styles for top menu ******/
 
 .flex-topmenu {
     display: inline-flex;
@@ -54,3 +54,6 @@ h5 {
     background-color: #007bff;
     color: #fff;
 }
+
+/****** styles for Pricing heading ******/
+
