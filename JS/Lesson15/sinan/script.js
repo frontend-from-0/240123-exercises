@@ -135,7 +135,7 @@ checkIfStringIsUpperCase('Exercise 4.2:','write a program that takes in');
 // 5. Write a program that takes in a number and checks if it's positive, negative, or zero using if else statement.
 function numberSign(number) {
 	if (number > 0){
-		return 'number is positive';
+		return 'The number is positive';
 	}
 	else if (number < 0){
 		return 'The number is negative';
@@ -151,9 +151,9 @@ console.log('Exercise 5:',numberSign(-55));
 
 
 // 6. Write a program that takes in a year and checks if it's a leap year (is divisible by 4 and not divisible by 100 OR divisible by 400) or not using if else statement.
-function isLeapYear(checkYear) {
+function isLeapYear(year) {
 
-  if ((checkYear % 4 === 0 && checkYear % 100 !== 0) || checkYear % 400 === 0) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
 	return true;
 } else {
 	return false;
