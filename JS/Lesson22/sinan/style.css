@@ -6,7 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-}
+
 
 body {
 
@@ -60,4 +60,5 @@ background: #bedfe8;
 .accordion .contentBx.active .content{
     height: 150px;
     padding: 10px;
+}
 }
