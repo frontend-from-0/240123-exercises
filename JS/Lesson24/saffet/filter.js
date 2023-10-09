@@ -195,6 +195,15 @@ const sentencesExercise5 = [
 	'The butterfly gracefully fluttered its wings, showcasing vibrant colors in a delicate dance.',
 ];
 
+const sentencesOver10Words = sentencesExercise5.filter(sentence => {
+	
+	if(sentence.split(" ").length>10){
+		return sentence;
+	}
+
+});
+
+console.log(sentencesOver10Words);
 
 // Exercise 6:
 // Given an array of products, filter out the products that are out of stock (where the quantity is 0).
@@ -261,9 +270,25 @@ const productsExercise6 = [
 	},
 ];
 
+const outOfStock = productsExercise6.filter(product => {
+	if(product.quantity > 0){
+		return product;
+	}
+});
+
+console.log(outOfStock);
+
 // Exercise 7:
 // Given an array of numbers, filter out the numbers that are divisible by 3.
 const numbersExercise7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const divisibleBy3 = numbersExercise7.filter(number => {
+	if(number%3 !== 0){
+		return number;
+	}
+});
+
+console.log(divisibleBy3);
 
 // Exercise 8:
 // Given an array of strings, filter out the strings that have more than 5 characters.
@@ -279,6 +304,14 @@ const wordsExercise8 = [
 	'island',
 	'jungle',
 ];
+
+const stringsHaveMore5Characters = wordsExercise8.filter(string => {
+	if(string.length<=5){
+		return string;
+	}
+});
+
+console.log(stringsHaveMore5Characters);
 
 // Exercise 9:
 // Given an array of objects representing students, filter out the students who have a grade lower than C.
@@ -345,6 +378,14 @@ const studentsExercise9 = [
 	},
 ];
 
+const lowerThenC = studentsExercise9.filter(student => {
+	if(student.grade !== "D+" || student.grade !== "D" || student.grade !== "C-" ||student.grade !== "D-" || student.grade !== "F+" || student.grade !== "F" || student.grade !== "F-"){
+		return student;
+	}
+});
+
+console.log(lowerThenC);
+
 // Exercise 10:
 // Given an array of user objects, filter out the users who have a name starting with the letter "J".
 const usersExercise10 = [
@@ -409,3 +450,11 @@ const usersExercise10 = [
 		email: 'sophia@example.com',
 	},
 ];
+
+const startWithJ = usersExercise10.filter(user => {
+	if(user.name.charAt(0).toLowerCase() !== "j" ){
+		return user;
+	}
+});
+
+console.log(startWithJ);

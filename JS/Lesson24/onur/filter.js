@@ -5,6 +5,7 @@ const numbersExercise1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const evenNumbers = numbersExercise1.filter(number => number % 2 !== 0);
 console.log("Exercise 1:", evenNumbers);
 console.log("Exercise 1, numbersExercise1:", numbersExercise1);
+console.log("------------------------------------------------");
 
 // Exercise 2:
 // Given an array of strings, filter out the strings that contain the letter "a".
@@ -21,8 +22,9 @@ const wordsExercise2 = [
 	'jungle',
 ];
 
-const wordsWithoutA= wordsExercise2.filter(word => !word.includes("a"));
-console.log(wordsExercise2, wordsWithoutA);
+const wordsWithoutA = wordsExercise2.filter(word => !word.includes("a"));
+console.log("Exercise 4:", wordsExercise2, wordsWithoutA);
+console.log("------------------------------------------------");
 
 // Exercise 3:
 // Given an array of objects representing books, filter out the books with a price less than $10.
@@ -89,13 +91,14 @@ const booksExercise9 = [
 	},
 ];
 
-const bookWithPriceOver10 = booksExercise9.filter( book => {
-	if(book.price > 10){
+const bookWithPriceOver10 = booksExercise9.filter(book => {
+	if (book.price > 10) {
 		return book;
 	}
 });
 
-console.log(bookWithPriceOver10);
+console.log("Exercise 3:", bookWithPriceOver10);
+console.log("------------------------------------------------");
 
 // Exercise 4:
 // Given an array of user objects, filter out the users who are below 25 years old.
@@ -163,11 +166,12 @@ const usersExercise4 = [
 ];
 
 const userOver25 = usersExercise4.filter(user => {
-	if(user.age>=25){
+	if (user.age >= 25) {
 		return user;
 	}
 });
-console.log(userOver25, usersExercise4);
+console.log("Exercise 4:", userOver25, usersExercise4);
+console.log("------------------------------------------------");
 
 
 // Exercise 5:
@@ -195,6 +199,14 @@ const sentencesExercise5 = [
 	'The butterfly gracefully fluttered its wings, showcasing vibrant colors in a delicate dance.',
 ];
 
+const sentencesLessThan10Words = sentencesExercise5.filter(
+	sentence => {
+		const splittedSentence = sentence.split(" ");
+		return splittedSentence.length <= 10;
+	}
+)
+console.log("Exercise 5:", sentencesLessThan10Words);
+console.log("------------------------------------------------");
 
 // Exercise 6:
 // Given an array of products, filter out the products that are out of stock (where the quantity is 0).
@@ -261,9 +273,20 @@ const productsExercise6 = [
 	},
 ];
 
+const stockOfProduct = productsExercise6.filter(product => product.quantity > 0);
+
+console.log("Exercise 6:", stockOfProduct);
+console.log("------------------------------------------------");
+
 // Exercise 7:
 // Given an array of numbers, filter out the numbers that are divisible by 3.
 const numbersExercise7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const result7 = numbersExercise7.filter(numbers => numbers % 3 !== 0);
+
+console.log("Exercise 7:", result7);
+
+console.log("------------------------------------------------");
 
 // Exercise 8:
 // Given an array of strings, filter out the strings that have more than 5 characters.
@@ -279,6 +302,13 @@ const wordsExercise8 = [
 	'island',
 	'jungle',
 ];
+
+const wordsLessThan5Characters = wordsExercise8.filter(words => words.length <= 5);
+
+console.log("Exercise 8:", wordsLessThan5Characters);
+
+console.log("------------------------------------------------");
+
 
 // Exercise 9:
 // Given an array of objects representing students, filter out the students who have a grade lower than C.
@@ -344,6 +374,15 @@ const studentsExercise9 = [
 		grade: 'B-',
 	},
 ];
+const gradesMoreThanC = studentsExercise9.filter(students => {
+	const allGrades = ['A', 'A-', 'A+', 'B', 'B-', 'B+', 'C', 'C-', 'C+', 'D', 'D+', 'D-'];
+	return allGrades.indexOf(students.grade) <= allGrades.indexOf('C');
+}
+)
+console.log("Exercise 9:", gradesMoreThanC)
+
+console.log("------------------------------------------------");
+
 
 // Exercise 10:
 // Given an array of user objects, filter out the users who have a name starting with the letter "J".
@@ -409,3 +448,6 @@ const usersExercise10 = [
 		email: 'sophia@example.com',
 	},
 ];
+
+const result10 = usersExercise10.filter(users => users.name[0].toUpperCase() !== 'J')
+console.log("Exercise 10:", result10);
