@@ -20,7 +20,7 @@ class Student extends Person {
     }
 
     greet() {
-        console.log(`Hello, My name is ${this._name}.My gender is ${this._gender}.I am ${this._age} years old.My job is ${this._major} `)
+        console.log(`Hello, my name is ${this._name}. My gender is ${this._gender}. I am ${this._age} years old. My job is ${this._major}.`);
     }
 }
 
