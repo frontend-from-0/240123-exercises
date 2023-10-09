@@ -1,4 +1,4 @@
-// Exercise 1:..
+// Exercise 1:
 // Given an array of numbers, filter out the even numbers.
 const numbersExercise1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
