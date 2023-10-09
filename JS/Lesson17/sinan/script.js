@@ -134,19 +134,60 @@ console.log('----------------------------');
 // Input: ({name: "John", age: 30}, "city", "New York")
 // Output: {name: "John", age: 30, city: "New York"}
 
+function getKeyValue (obj,key,value) {
+if (obj[key]) {
+  return obj
+} else {
+ return obj[key] = value;
+}
+} 
+
+const newValue = getKeyValue({name: "John", age: 30}, "city", "New York");
+console.log('Exercise 10:',newValue);
+
 console.log('----------------------------');
 // 11. Write a function that takes an object and a key, and removes the key-value pair from the object.
 // Input: ({name: "John", age: 30, city: "New York"}, "city")
 // Output: {name: "John", age: 30}
 
+function removeKeyValue(testObject, key) {
+  if (testObject.hasOwnProperty(key)) {
+    delete testObject[key];
+    return testObject;
+  } 
+}
+  const ourList = removeKeyValue({name: "John", age: 30, city: "New York"}, "city");
+  console.log('Exercise 11:',ourList);
+
 console.log('----------------------------');
 // 12. Write a function that takes two arrays of equal length and returns an object with the first array as keys and the second array as values.
 // Input: (["name", "age", "city"], ["John", 30, "New York"])
 // Output: {name: "John", age: 30, city: "New York"}
+function concatKeyValue(list1,list2) {
+  if(list1.length===list2.length) {
+  let unifiedList = {};
+  for(let i = 0; i<list1.length; i++){
+    unifiedList[list1[i]] = list2[i];
+  }
+  return unifiedList;
+}
+  else console.error('provided arrays are not of equal length!');
+}
+  const twoList  = concatKeyValue(["name", "age", "city"], ["John", 30, "New York"]);
+  console.log('Exercise 12:',twoList);
 
 // 13. Array Destructuring
 // Given the following array, use array destructuring to assign the values of x, y, and z to their respective variables: 
 const coordinates = [10, 20, 30];
+const [x, y, z] = coordinates;
+function concatTwoList(list1,list2) {
+  const unify = [];
+  for(i in list1) {
+    unify[list1[i]] = list2[i];
+  }
+  return  unify;
+}
+console.log('Exercise 13:',concatTwoList(chars,coordinates));
 
 // 14. Object Destructuring
 // Given the following object, use object destructuring to assign the values of name and age to their respective variables:
@@ -154,18 +195,30 @@ const personE14 = {
   name: 'John Doe',
   age: 25,
 };
+let {name,age} = personE14;
+console.log('Exercise 14:','The name is', name, 'and he is',age,' years old.');
+console.log('----------------------------');
 
 // 15. Array Destructuring with Default Values
 // Given the following array, use array destructuring with default values to assign the values of a, b, and c, with default values of 1, 2, and 3 respectively:
 const numbers = [4];
+const [a = 1, b=2, c=3] = numbers;
+console.log('Exercise 15:');
+console.log('a: ', a);
+console.log('b: ', b);
+console.log('c: ', c);
 
+console.log('----------------------------');
 
 // 16. Object Destructuring with Renaming
 // Given the following object, use object destructuring with renaming to assign the value of name to a variable named fullName:
 const personE16 = {
   name: 'John Doe',
 };
+let {name: fullName} = personE16;
+console.log('Exercise 16:',fullName);
 
+console.log('----------------------------');
 
 // 17. Nested Object Destructuring
 // Given the following nested object, use object destructuring to assign the values of name, age, and city to their respective variables:
@@ -176,3 +229,5 @@ const personE17 = {
     city: 'New York',
   },
 };
+let {name: newName, age: newAge, address:{city: newCity}} = personE17;
+console.log('Exercise 17:',newName,newAge,newCity);
