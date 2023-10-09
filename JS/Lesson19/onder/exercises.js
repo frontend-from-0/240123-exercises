@@ -165,5 +165,3 @@ myAccount.withdraw(525);
 console.log("Current account balance: ", myAccount.currentBalance);
 
 console.log("Transaction history: ", myAccount.transactionHistory);
-
-//..
