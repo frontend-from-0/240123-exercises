@@ -105,13 +105,73 @@ const nestedObj = {
 const sentenceEx4 = 'Hello, how are you?';
 const vowels = ['a', 'e', 'i', 'o', 'u'];
 
+
+function countVowelsInString(inputStr, vowels) {
+	if (inputStr === '') {
+	  return 0;
+	}
+  
+	const firstChar = inputStr[0].toLowerCase();
+  
+	
+	if (vowels.includes(firstChar)) {
+	 
+	  return 1 + countVowelsInString(inputStr.slice(1), vowels);
+	} else {
+	  
+	  return countVowelsInString(inputStr.slice(1), vowels);
+	}
+  }
+ const vowelCount = countVowelsInString(sentenceEx4, vowels);
+  console.log(`Number of vowels: ${vowelCount}`);
+  
+
 // 5. Write a recursive function to remove all occurrences of a specified character from a string.
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
 
+function removeCharFromString(inputStr, charToRemove) {
+	
+	if (inputStr === '') {
+	  return '';
+	}
+  
+	if (inputStr[0] === charToRemove) {
+	
+	  return removeCharFromString(inputStr.slice(1), charToRemove);
+	} else {
+	  return inputStr[0] + removeCharFromString(inputStr.slice(1), charToRemove);
+	}
+  }
+  
+  
+  const result = removeCharFromString(sentenceEx5, charToRemove);
+  console.log(result);
+  
+
 // 6. Write a recursive function to check if an array includes a specific value.
-const numbers = [1, 2, 3, 4, 5];
-const valueToCheck = 3;
+function includesValue(arr, value, index = 0) {
+	if (index >= arr.length) {
+	  return false;
+	}
+
+	if (arr[index] === value) {
+	  return true; 
+	}
+  
+	
+	return includesValue(arr, value, index + 1);
+  }
+  
+  const numbers = [1, 2, 3, 4, 5];
+  const valueToCheck = 3;
+  
+  if (includesValue(numbers, valueToCheck)) {
+	console.log(`${valueToCheck} is in the array.`);
+  } else {
+	console.log(`${valueToCheck} is not in the array.`);
+  }
+  
 
 // 7. Write a recursive function to find the maximum depth of a nested object.
 const nestedObjEx7 = {
@@ -129,6 +189,19 @@ const nestedObjEx7 = {
 };
 // 8. Write a recursive function to reverse the order of words in a sentence.
 const sentenceEx8 = 'Hello, how are you?';
+
+function reverseSentence(sentence){
+	const wordsArray = sentence.split(' ');
+	console.log(wordsArray);
+	if(wordsArray.length <= 1){
+		return sentence;
+	}
+
+	let lastWord = wordsArray.pop();
+	reversedRest = reverseSentence(wordsArray.join(" "));
+
+	return lastWord + " " + reversedRest;
+}
 // 9. Write a recursive function to find the length of the longest word in a sentence.
 const sentenceEx9 = 'The quick brown fox jumps over the lazy dog';
 // 10. Write a recursive function to check if an object contains a specified property.
