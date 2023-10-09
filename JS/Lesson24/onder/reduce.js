@@ -29,6 +29,12 @@ console.log(sumAllNums);
 // Find the maximum value in the given array. (Hint: Use -Infinity to compare values to)
 const numbersEx2 = [8, 3, 11, 6, 4];
 
+const max = numbersEx2.reduce((accumulator, currentValue) => {
+  return Math.max(accumulator, currentValue);
+})
+
+console.log("example2", max);
+
 // Exercise 3: Explain the code
 // Count the occurrences of each element in the given array and return an object with the counts.
 const elements = ['a', 'b', 'a', 'c', 'b', 'a'];
@@ -51,6 +57,19 @@ console.log(elementCounts); // Output: { a: 3, b: 2, c: 1 }
 // Calculate the average of all numbers in the given array.
 const numbersEx4 = [10, 20, 30, 40, 50];
 
+const {sum, count} = numbersEx4.reduce((accumulator, currentValue) => ({
+
+  sum: accumulator.sum + currentValue,
+  count: accumulator.count + 1
+
+}), 
+{sum: 0, count: 0}
+);
+
+const average = sum / count;
+
+console.log(average);
+
 
 // Exercise 5: Explain the code below
 // Count the number of unique elements in the array.
@@ -66,10 +85,5 @@ const uniqueCount = numbers.reduce((accumulator, currentValue) => {
 
 console.log(uniqueCount); // Output: 5
 
-
-
-
-
-
-
-
+// It has same logic with the example 3. The accumulator starts as an empty array. The if condition checks if currentValue exist in the accumulator array.
+// if currentValue is not in accumulator array, it pushed into. And last step is using lenght method to count accumulator's members.
