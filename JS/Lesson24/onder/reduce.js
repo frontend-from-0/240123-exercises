@@ -5,7 +5,7 @@
 - accumulator: The accumulated value that is returned after each iteration. It starts with the value of initialValue on the first iteration and is the result of the previous iteration in subsequent iterations.
 - currentValue: The current element being processed in the array. (array[i] in a loop)
 - currentIndex: The index of the current element being processed. (i in a loop)
-- array: The array on which reduce() was called.
+- array: The array on which reduce() was called..
 
 
 - initialValue: An optional initial value for the accumulator. If not provided, the first element of the array is used as the initial value and the iteration starts from the second element.
