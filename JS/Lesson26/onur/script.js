@@ -32,18 +32,9 @@ async function fetchPosts() {
             editLink.classList.add('button');
             editLink.classList.add('edit-button');
             editLink.textContent = 'Edit';
+            editLink.href = `./editPost/index.html?$&title=${post.title}&body=${post.body}`;
 
             listItem.appendChild(editLink);
-
-            editLink.addEventListener('click', editPost);
-
-            function editPost() {
-                selectedPost = post;
-
-                const editURL = `./editPost/index.html?title=${selectedPost.title}&body=${selectedPost.body}`;
-
-                window.location.href = editURL;
-            }
 
             allPosts.appendChild(listItem);
         })
