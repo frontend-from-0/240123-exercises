@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/JS/Lesson25/sinan/app/index.html"
+    "livePreview.defaultPreviewPath": "/JS/Lesson25/sinan/app/index.html",
+    "liveServer.settings.port": 5501
 }

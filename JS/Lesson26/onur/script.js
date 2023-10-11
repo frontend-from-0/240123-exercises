@@ -32,7 +32,7 @@ async function fetchPosts() {
             editLink.classList.add('button');
             editLink.classList.add('edit-button');
             editLink.textContent = 'Edit';
-            editLink.href = `./editPost/index.html?$&title=${post.title}&body=${post.body}`;
+            editLink.href = `./editPost/index.html?$&postId=${post.id}`;
 
             listItem.appendChild(editLink);
 

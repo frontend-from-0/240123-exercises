@@ -1,12 +1,19 @@
 
 
 const urlParams = new URLSearchParams(window.location.search);
-const titleParam = urlParams.get('title');
-const bodyParam = urlParams.get('body');
+const postId = urlParams.get('postId');
+;
 
-if (titleParam && bodyParam) {
-    document.getElementById('edit-title').value = titleParam;
-    document.getElementById('edit-body').value = bodyParam;
+if (postId) {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        .then(response => response.json())
+        .then(post => {
+            document.getElementById('edit-title').value = post.title;
+            document.getElementById('edit-body').value = post.body;
+        })
+        .catch(error => {
+            console.error('Error: ', error);
+        });
 }
 
 document.getElementById('edit-form').addEventListener('submit', async (e) => {
