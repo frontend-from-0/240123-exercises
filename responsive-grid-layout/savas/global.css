@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+body {
+    background-color: #f1f2f3;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+}
+
+.header {
+    background-color: #006c67;
+    color: white;
+}
+
+.sidebar-left {
+    background-color: #003844;
+    color: white;
+}
+
+.content {
+    background-color: #ffebc6;
+}
+
+.sidebar-right {
+    background-color: #ffb100;
+}
+
+.footer {
+    background-color: #006c67;
+    color: white;
+}
+
+@media all and (max-width: 768px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px auto 300px;
+        grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    }
+
+    .header {
+        grid-area: header;
+    }
+    
+    .sidebar-left {
+        grid-area: sidebar-left;
+        display: none;
+    }
+    
+    .content {
+        grid-area: content;
+    }
+    
+    .sidebar-right {
+        grid-area: sidebar-right;
+        display: none;
+    }
+    
+    .footer {
+        grid-area: footer;
+    }
+}
+
+@media all and (min-width: 769px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: 100px auto 100px 200px;
+        grid-template-areas:
+        "header header"
+        "sidebar-left content"
+        "sidebar-right sidebar-right"
+        "footer footer";
+    }
+
+    .header {
+        grid-area: header;
+    }
+    
+    .sidebar-left {
+        grid-area: sidebar-left;
+    }
+    
+    .content {
+        grid-area: content;
+    }
+    
+    .sidebar-right {
+        grid-area: sidebar-right;
+    }
+    
+    .footer {
+        grid-area: footer;
+    }
+}
+
+@media all and (min-width: 1201px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 250px 1fr 200px;
+        grid-template-rows: 100px auto 300px;
+        grid-template-areas:
+        "header header header"
+        "sidebar-left content sidebar-right"
+        "sidebar-left footer footer";
+    }
+
+    .header {
+        grid-area: header;
+    }
+    
+    .sidebar-left {
+        grid-area: sidebar-left;
+    }
+    
+    .content {
+        grid-area: content;
+    }
+    
+    .sidebar-right {
+        grid-area: sidebar-right;
+    }
+    
+    .footer {
+        grid-area: footer;
+    }
+}
