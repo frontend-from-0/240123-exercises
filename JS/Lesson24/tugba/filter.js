@@ -263,16 +263,16 @@ const productsExercise6 = [
 		quantity: 14,
 	},
 ];
-const inStockProducts = productsExercise6.filter(product => product.quantity > 0);
+const stockOfProduct = productsExercise6.filter(product => product.quantity > 0);
 
-console.log(inStockProducts);
+console.log("Exercise 6:", stockOfProduct);
 
 // Exercise 7:
 // Given an array of numbers, filter out the numbers that are divisible by 3.
 const numbersExercise7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const numbersDivisibleBy3 = numbersExercise7.filter(number => number % 3 === 0);
+const numbersDivisibleBy3 = numbersExercise7.filter(number => number % 3 !== 0);
 
-console.log(numbersDivisibleBy3);
+
 // Exercise 8:
 // Given an array of strings, filter out the strings that have more than 5 characters.
 const wordsExercise8 = [
@@ -356,9 +356,13 @@ const studentsExercise9 = [
 		grade: 'B-',
 	},
 ];
-const filteredStudents = studentsExercise9.filter(student => student.grade >= 'C');
+const gradesMoreThanC = studentsExercise9.filter(students => {
+	const allGrades = ['A', 'A-', 'A+', 'B', 'B-', 'B+', 'C', 'C-', 'C+', 'D', 'D+', 'D-'];
+	return allGrades.indexOf(students.grade) <= allGrades.indexOf('C');
+}
+)
+console.log("Exercise 9:", gradesMoreThanC)
 
-console.log(filteredStudents);
 
 // Exercise 10:
 // Given an array of user objects, filter out the users who have a name starting with the letter "J".
@@ -424,6 +428,5 @@ const usersExercise10 = [
 		email: 'sophia@example.com',
 	},
 ];
-const filteredUsers = usersExercise10.filter(user => user.name.startsWith('J'));
-
-console.log(filteredUsers);
+const result10 = usersExercise10.filter(users => users.name[0].toUpperCase() !== 'J')
+console.log("Exercise 10:", result10);
