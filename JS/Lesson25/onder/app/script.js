@@ -13,6 +13,7 @@ const button = document.getElementById('fetch-button');
 // Function to fetch images from Unsplash
 
 function fetchImages() {
+  container.innerHTML = '';
   // TODO: Clear screen before loading new images
   fetch(image_url)
   .then(response => response.json())
