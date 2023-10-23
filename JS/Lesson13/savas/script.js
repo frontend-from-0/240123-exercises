@@ -16,8 +16,9 @@ console.log('------------------------');
 // Add name and age to the sentence above. "Hello, world! My name is (name). I'm (age) years old.".
 let name = 'Savas';
 let age = 43;
-let phrase = 'Hello, world!';
-console.log("Exercise 2:", phrase, "My name is", name, ". I'm", age, "years old.");
+let phrase = "Hello World!"
+let myAge = `${phrase} My name is ${name}. I'm ${age} years old.`
+console.log("Exercise 2:", myAge);
 
 console.log('------------------------');
 // ---
