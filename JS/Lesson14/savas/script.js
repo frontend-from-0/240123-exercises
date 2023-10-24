@@ -88,7 +88,9 @@ console.log('------------------------');
 // 14. Use the `substring` method to extract the word "Databases" from string stringExercise14 based on two indices and print it to the console.
 // Question: What is the difference between `substring()` and `slice()`?
 const stringExercise14 = 'Databases are an essential component of many applications.';
-console.log("Exercise 14: ", stringExercise14.substring(0, 8));
+console.log("Exercise 14a: ", stringExercise14.substring(0, 8));
+const stringExercise14b = 'The essential component of many applications are Databases';
+console.log("Exercise 14b: ", stringExercise14b.substring(stringExercise14b.indexOf("D"), stringExercise14b.length));
 
 console.log('------------------------');
 // 15. Remove extra spaces from the string stringExercise15 and print the result to the console.
@@ -98,4 +100,5 @@ console.log("Exercise 15: ", stringExercise15.trim());
 console.log('------------------------');
 // 16. Extract the price and currency from a string below using "slice" method and print it to console.
 const planPriceString = "Premium plan - 9.99 USD/month."; // Should return "9.99 USD"
-console.log("Exercise 16: ", planPriceString.slice(15, 23));
+console.log("Exercise 16a: ", planPriceString.slice(15, 23));
+console.log("Exercise 16b: ", planPriceString.slice(planPriceString.indexOf("-") + 2, planPriceString.indexOf("/")));
