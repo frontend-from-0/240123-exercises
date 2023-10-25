@@ -90,7 +90,7 @@ console.log('------------------------');
 const stringExercise14 = 'Databases are an essential component of many applications.';
 console.log("Exercise 14a: ", stringExercise14.substring(0, 8));
 const stringExercise14b = 'The essential component of many applications are Databases';
-console.log("Exercise 14b: ", stringExercise14b.substring(stringExercise14b.indexOf("D"), stringExercise14b.length));
+console.log("Exercise 14b: ", stringExercise14b.substring(stringExercise14b.indexOf("Databases"), stringExercise14b.indexOf("Databases") + "Databases".length));
 
 console.log('------------------------');
 // 15. Remove extra spaces from the string stringExercise15 and print the result to the console.
