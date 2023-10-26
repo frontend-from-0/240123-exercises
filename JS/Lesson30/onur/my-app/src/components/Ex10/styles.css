@@ -1,0 +1,14 @@
+.btn {
+    padding: 7px;
+    background-color: #367539;
+    border:none;
+    border-radius: 4px;
+}
+
+.alert-text {
+    background-color: #790a0a;
+    color: #fff;
+    padding: 7px;
+    text-align: center;
+    border-radius: 5px;
+}
