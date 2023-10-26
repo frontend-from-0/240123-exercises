@@ -214,15 +214,16 @@ isFreezing(0);
 console.log("---------------------- Excersise 8: ----------------------")
 
 function testBMI(height, weight) {
-    if ((weight/(height ** 2)) < 18.5) {
+    const BMI = weight/(height ** 2)
+    if (BMI < 18.5) {
         console.log("You are underweight.")
     }
 
-    else if (((weight/(height ** 2)) >= 18.5) && ((weight/(height ** 2)) <= 24.9)) {
+    else if (BMI >= 18.5 && BMI <= 24.9) {
         console.log("You are healty weight.")
     }
 
-    else if (((weight/(height ** 2)) >= 25) && ((weight/(height ** 2)) <= 29.9)) {
+    else if (BMI >= 25 && BMI <= 29.9) {
         console.log("You are overweight.")
     }
 
@@ -271,12 +272,12 @@ checkAge(-3);
 // 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
 console.log("---------------------- Excersise 10: ---------------------")
 
-function appropriateForVote(age, student) {
-    if ((age < 18) && (student === "yes")) {
+function appropriateForVote(age, isStudent) {
+    if (age < 18 && isStudent) {
         console.log("You are a student and not old enough to vote.")
     }
 
-    else if ((age >= 18) && (age <= 65) && (student === "no")) {
+    else if (age >= 18 && age <= 65 && !isStudent) {
         console.log("You are eligible to vote.")
     }
 
@@ -284,7 +285,7 @@ function appropriateForVote(age, student) {
         console.log("You are a senior citizen.")
     }
 
-    else if ((age >= 18) && (student === "yes")) {
+    else if (age >= 18 && isStudent) {
         console.log("You are old enough to vote.")
     }
     else {
@@ -292,18 +293,22 @@ function appropriateForVote(age, student) {
     }
 }
 
-appropriateForVote(18, "yes");
-appropriateForVote(24, "no");
-appropriateForVote(76, "no");
-appropriateForVote(50, "yes");
-appropriateForVote(8, "yes");
-appropriateForVote(-3, "no");
+appropriateForVote(18, true);
+appropriateForVote(24, false);
+appropriateForVote(76, false);
+appropriateForVote(50, true);
+appropriateForVote(8, true);
+appropriateForVote(-3, false);
 
 // 11. Write a program that asks the user to enter their salary and their years of experience. If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
 console.log("---------------------- Excersise 11: ---------------------")
 
 function offerSalary(salary, experience) {
-    if (salary < 30000 && experience < 5) {
+    if (typeof salary !== 'number' || typeof experience !== 'number') { // should be the very first check
+        console.log("Invalid input. Both salary and experience must be numbers.");
+      }
+      
+    else if (salary < 30000 && experience < 5) {
         console.log("Sorry, we cannot offer you the job at this time.")
     }
 
@@ -316,15 +321,15 @@ function offerSalary(salary, experience) {
     }
 
     else {
-        console.log("Invalid value.")
+        console.log("Invalid input.")
     }
 }
 
-offerSalary(20000, "3");
-offerSalary(52000, "12");
-offerSalary(45000, "7");
-offerSalary(55000, "5");
-offerSalary(35000, "4");
+offerSalary(20000, 3);
+offerSalary(52000, 12);
+offerSalary(45000, 7);
+offerSalary(55000, 5);
+offerSalary(35000, 4);
 
 // 12. Write a program that asks the user to enter their score on a test. If the score is less than 60, print "You failed the test". If the score is between 60 and 70 (inclusive), print "You passed the test, but your grade is not great". If the score is between 71 and 80 (inclusive), print "You got a B". If the score is between 81 and 90 (inclusive), print "You got an A". If the score is greater than 90, print "You got an A+ - Great job!".
 console.log("---------------------- Excersise 12: ---------------------")
@@ -397,6 +402,7 @@ whichMonthName(2);
 console.log("---------------------- Excersise 14: ---------------------")
 
 function result(gradeLetter) {
+    gradeLetter = gradeLetter.toUpperCase()
     switch (gradeLetter) {
         case "A":
         case "B":
@@ -417,6 +423,8 @@ result("C");
 result("F");
 result("B");
 result("D");
+result("b");
+result("d");
 
 // 15. Write a program that asks the user to enter their age, and then calculates and displays their age in dog years (where one human year is equivalent to seven dog years). If the user enters a negative number or zero, display an error message.
 console.log("---------------------- Excersise 15: ---------------------")
