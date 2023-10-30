@@ -402,8 +402,7 @@ whichMonthName(2);
 console.log("---------------------- Excersise 14: ---------------------")
 
 function result(gradeLetter) {
-    gradeLetter = gradeLetter.toUpperCase()
-    switch (gradeLetter) {
+        switch (gradeLetter.toUpperCase()) {
         case "A":
         case "B":
         case "C":
