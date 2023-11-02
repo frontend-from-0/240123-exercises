@@ -20,11 +20,11 @@ for (let i =2; i<=20; i+=2) {
 
 console.log('- - - - - - - - - - - - - - - - - EXERCISE 4 - - - - - - - - - - - - - - - - - ');
 // 4. Write a loop that finds the maximum number in an array of numbers.
-const findMaxNumberInArray = [300, 10, 23, 42, 505, 12, 7, 4, 900];
+const findMaxNumberInArray = [300, 10, 23, 42, 505, 12, 7, 4, 900, 1200];
 let num = findMaxNumberInArray[0];
-for (let i = 0; i < findMaxNumberInArray.length; i++) {
-	if (num < findMaxNumberInArray[i+1]) {
-		num = findMaxNumberInArray[i+1];
+for (let i = 1; i < findMaxNumberInArray.length; i++) {
+	if (num < findMaxNumberInArray[i]) {
+		num = findMaxNumberInArray[i];
 	}
 }
 
