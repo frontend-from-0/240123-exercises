@@ -150,14 +150,10 @@ console.log('- - - - - - - - - - - - - - - - - EXERCISE 15 - - - - - - - - - - -
 const string15 = 'Hello, how are you?';
 const vowels = 'aeiouAEIOU';
 let countsNumVovels = 0;
-for (let i = 0; i < string15.length; i++) {
-	for (let ii = 0; ii < vowels.length; ii++) {
-		if ( string15[i].includes(vowels[ii])) {
-			countsNumVovels++;
-		}
-	}
-}
-console.log(`The number of vowels in "${string15}" is ${countsNumVovels}.`);
+for (let i = 0; i < string15.length; i++) {  
+    if (vowels.includes(string15[i])) countsNumVovels++;  
+}  
+console.log(`The number of vowels in "${string15}" is ${countsNumVovels}.`);  
 
 console.log('- - - - - - - - - - - - - - - - - EXERCISE 16 - - - - - - - - - - - - - - - - ');
 // 16. Write a loop that calculates the sum of all digits in a given number.
