@@ -37,29 +37,29 @@ console.log('----------------------------');
 // Output: "Hello World !"
 let stringE3 = ["Hello", "World", "!"];
 
-function sumStrings(givenStrings) {
-  let sumWords = "";
-  for (i = 0; i < givenStrings.length; i++) {
-    sumWords += " " + stringE3[i];
+function concatStrings(array) {
+  let newString = "";
+  for (i = 0; i < array.length; i++) {
+    newString += " " + stringE3[i];
   }
-  return sumWords;
+  return newString;
 }
 
-console.log(`Exersise 3: ${sumStrings(stringE3)}`);
+console.log(`Exersise 3: ${concatStrings(stringE3)}`);
 
 console.log('----------------------------');
 // 4. Write a function that takes an array of integers and returns a new array with odd numbers only.
 // Input: [1, 2, 3, 4, 7, 10]
 // Output: [1, 3, 7]
 let arrayEx = [1, 2, 3, 4, 7, 10];
-function findOddNumbers(num) {
-  let newOddArray = [];
-  for (let i = 0; i < num.length; i++) {
-    if (num[i] % 2 !== 0) {
-    newOddArray.push(num[i]);
+function findOddNumbers(array) {
+  let oddNumbers = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 !== 0) {
+    oddNumbers.push(array[i]);
     }
   }
-  return newOddArray; 
+  return oddNumbers; 
 }
 
 console.log("Exercise 4.1: ", findOddNumbers(arrayEx));
@@ -70,14 +70,14 @@ console.log('----------------------------');
 // Input: [1, 2, 3, 4, 7, 10]
 // Output: [1, 2, 4, 10]
 
-function findEvenNumbers(num) {
-  let newEvenArray = [];
-  for (let i = 0; i < num.length; i++) {
-  if (num[i] % 2 === 0) {
-    newEvenArray.push(num[i]);
+function findEvenNumbers(array) {
+  let evenNumbers = [];
+  for (let i = 0; i < array.length; i++) {
+  if (array[i] % 2 === 0) {
+    evenNumbers.push(array[i]);
     }
   }
-  return newEvenArray; 
+  return evenNumbers; 
 }
 
 console.log("Exercise 5: ", findEvenNumbers(arrayEx));
@@ -87,14 +87,14 @@ console.log('----------------------------');
 // Input: ([1, 2, 3, 4, 2], 2)
 // Output: [1, 3, 4]
 
-function removeNumber(num, removeNum) {
-  let remainArray = [];
-  for (let i = 0; i < num.length; i++) {
-    if (num[i] !== removeNum) {
-      remainArray.push(num[i]);
+function removeNumber(array, numberToRemove) {
+  let valuesToKeep = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== numberToRemove) {
+      valuesToKeep.push(array[i]);
     }
   }
-  return remainArray
+  return valuesToKeep;
 }
 
 console.log("Exercise 6: ", removeNumber([1, 2, 3, 4, 2], 2));
@@ -104,22 +104,22 @@ console.log('----------------------------');
 // Input: {name: "John", age: 30, city: "New York"}
 // Output: ["name", "age", "city"]
 
-function objectKeys(givenObjects) {
+function getObjectKeys(givenObjects) {
   return Object.keys(givenObjects);
 }
 
-console.log("Exercise 7: ", objectKeys({name: "John", age: 30, city: "New York"}));
+console.log("Exercise 7: ", getObjectKeys({name: "John", age: 30, city: "New York"}));
 
 console.log('----------------------------');
 // 8. Write a function that takes an object and returns the values as an array.
 // Input: {name: "John", age: 30, city: "New York"}
 // Output: ["John", 30, "New York"]
 
-function objectValues(givenObjects) {
+function getObjectValues(givenObjects) {
   return Object.values(givenObjects);
 }
 
-console.log("Exercise 8: ", objectValues({name: "John", age: 30, city: "New York"}));
+console.log("Exercise 8: ", getObjectValues({name: "John", age: 30, city: "New York"}));
 
 console.log('----------------------------');
 // 9. Write a function that takes an object and a key, and returns true if the key exists in the object, otherwise false.
@@ -128,20 +128,20 @@ console.log('----------------------------');
 // Input: ({name: "John", age: 30, city: "New York"}, "surname")
 // Output: false
 
-function isKeyHere(givenObjects, givenKeys) {
+function isKeyInObject(givenObjects, givenKeys) {
     if (typeof givenObjects !== "object") {
-      console.log("Provide value is not an object");
+      console.log("Provided value is not an object");
     } else {
-      if (givenKeys in givenObjects) {
+      if (givenObjects.hasOwnProperty(givenKeys)) {
         return true;
       } else {
-        return false
+        return false;
       }
     };
 }
 
-console.log("Exercise 9.1: ", isKeyHere({name: "John", age: 30, city: "New York"}, "age"));
-console.log("Exercise 9.2: ", isKeyHere({name: "John", age: 30, city: "New York"}, "surname"));
+console.log("Exercise 9.1: ", isKeyInObject({name: "John", age: 30, city: "New York"}, "age"));
+console.log("Exercise 9.2: ", isKeyInObject({name: "John", age: 30, city: "New York"}, "surname"));
 
 console.log('----------------------------');
 // 10. Write a function that takes an object and a key-value pair, and adds the key-value pair to the object.
@@ -150,7 +150,7 @@ console.log('----------------------------');
 
 function addKeyValue(object, key, value) {
   object[key] = value;
-  return object
+  return object;
 }
 
 console.log("Exercise 10: ", addKeyValue({name: "John", age: 30}, "city", "New York"));
@@ -162,7 +162,7 @@ console.log('----------------------------');
 
 function removeKeyValue(object, key) {
   delete object[key];
-  return object
+  return object;
 }
 
 console.log("Exercise 11: ", removeKeyValue({name: "John", age: 30, city: "New York"}, "city"));
