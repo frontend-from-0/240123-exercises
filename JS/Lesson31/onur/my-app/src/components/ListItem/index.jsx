@@ -5,7 +5,7 @@ export const ListItem = ({ id, title, handleDelete }) => {
 
 	const [completed, setCompleted] = useState(false);
 
-	const className = (completed === false) ? '' : 'completed';
+	const className = (!completed) ? '' : 'completed';
 
 	const changeClassName = () => {
 		return (className === '') ? setCompleted(true) : setCompleted(false);
