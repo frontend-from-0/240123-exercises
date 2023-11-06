@@ -29,3 +29,18 @@ return (
   </ul>
 )
 };
+return (
+  <>
+    <CreateTask onCreateProps={addTask} />{" "}
+    <ul className="todo-list">
+      {todoItems.map((listItem) => (
+        <ListItem
+          handleDelete={handleDelete}
+          key={listItem.id}
+          id={listItem.id}
+          title={listItem.title}
+        />
+      ))}
+    </ul>
+  </>
+);
