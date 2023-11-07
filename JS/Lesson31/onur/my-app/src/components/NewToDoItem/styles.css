@@ -25,3 +25,7 @@ body {
 .form-btn:hover {
     background-color: #017911;
 }
+.alert-text {
+    color: #fff;
+    background-color: #630303;
+}
