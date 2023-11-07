@@ -32,7 +32,7 @@ export const List = () => {
 
   return (
     <>
-      <CreateTask onCreateProps={addTask} />{" "}
+      <CreateTask handleCreateTodo={addTask} />{" "}
       <ul className="todo-list">
         {todoItems.map((listItem) => (
           <ListItem
