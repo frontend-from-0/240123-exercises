@@ -32,7 +32,7 @@ export const NewToDoItem = ({ handleCreateTodo }) => {
         <>
             <h2>Create a new todo</h2>
             {alert && <p className="alert-text">Please enter a todo</p>}
-            <form onClick={handleSubmit} className="form-container" >
+            <form onSubmit={handleSubmit} className="form-container" >
                 <input className="form-input" type="text" onChange={handleInput} value={newItem} />
                 <button className="form-btn" type="submit" >Add</button>
             </form>
