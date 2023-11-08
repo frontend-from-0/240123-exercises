@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #44095d;
+  color: #fff;
+}
+
+h1{
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 3rem;
+}
+
+.accordion{
+    width: 90%;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.accordion-item{
+    background-color: #fff;
+    color: #111;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+}
+
+.accordion-item-header{
+    padding: 1.3rem;
+    font-weight: bold;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f6f6f6;
+    border-radius: 0.5rem;
+    display: flex;
+    position: relative;
+}
+
+.accordion-item-header::after{
+    content: "+";
+    font-size: 2rem;
+    position: absolute;
+    right: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordion-item-header.active::after{
+    content: "-";
+    font-size: 2.4rem;
+    position: absolute;
+    right: 2rem;
+    transform: rotate(180deg);
+    /* when toggle the header to expand details. Icon becomes minus */
+}
+
+.accordion-item-body{
+    max-height: 0;
+    /* padding: 1rem; */
+    /* display: none; */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in;
+}
+
+.accordion-item-body-content{
+    padding: 1rem;
+}
+
+/* .accordion-item-header.active + .accordion-item-body{
+    display: block;
+} */
