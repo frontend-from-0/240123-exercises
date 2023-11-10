@@ -5,14 +5,9 @@ export const ListItem = ({ id, title, handleDelete }) => {
 
 	const [completed, setCompleted] = useState(false);
 
-	const className = (!completed) ? '' : 'completed';
-
-	const changeClassName = () => {
-		return (className === '') ? setCompleted(true) : setCompleted(false);
-	}
 	return (
-		<li onClick={changeClassName}>
-			<span className={className}>{title}</span>
+		<li onClick={() => setCompleted(prev => !prev)}>
+			<span className={completed ? 'completed' : ''}>{title}</span>
 			<button onClick={() => handleDelete(id)}>Delete Button</button>
 		</li>
 	);

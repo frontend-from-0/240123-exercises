@@ -16,7 +16,7 @@ export const List = () => {
   const [todoItems, setTodoItems] = useState(data);
 
   const handleCreateTodo = (newItem) => {
-    const newTodoId = (todoItems.length) + 1;
+    const newTodoId = Math.max(...todoItems.map((item) => item.id)) + 1;
 
     const updatedTodo = [
       ...todoItems,
