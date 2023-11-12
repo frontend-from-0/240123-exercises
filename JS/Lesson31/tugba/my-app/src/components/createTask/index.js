@@ -11,17 +11,19 @@ export const CreateTask = ({ onCreateProps }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(task);
 
-    onCreateProps(task);
-    setTask("");
-  }
+    if (task.length > 0) {
+      onCreateProps(task);
+      setTask("");
+    }
+  };
 
   return (
     <>
       <h2>Create task </h2>
-      <form className="form" action="">
-        <input onChange={InputChange} className="form-input" type="text" />
+     
+      <form className="form" onSubmit={handleSubmit}>
+      <button type="submit" className="create-btn">Save</button>
         <button onClick={Submit} className="create-btn">Save</button>
       </form>
     </>

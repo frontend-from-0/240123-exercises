@@ -3,7 +3,6 @@ import "./App.css";
 import { List } from "./components/List";
 import { PerformanceState } from "./components/PerformanceState";
 import { Navbar } from "./components/Navbar";
-import { CreateTask } from "./components/CreateTask";
 export const TodoContext = createContext();
 
 export const App = () => {
