@@ -12,8 +12,8 @@ async function createPost(e) {
         const response = await fetch(URL, {
             method: 'POST',
             body: JSON.stringify({
-                title: Title.value,
-                body: Body.value,
+                title: title.value,
+                body: body.value,
                 userId: 1,
             }),
             headers: {
@@ -29,5 +29,4 @@ async function createPost(e) {
     }
 
 }
-
-newForm.addEventListener('submit', (e) => createNewPost(e))
+newForm.addEventListener('submit', (e) => createPost(e))
