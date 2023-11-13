@@ -56,9 +56,9 @@ console.log('Exercise 2: This exercise was done in the lesson-------------------
 const ex2sentence =
 	'a recursive function to capitalize the first letter of each word in a sentence.  ';
 
-function toCapitalizeEachWord(givenString) {
+function capitalizeEachWordwould (givenString) {
 	if (typeof givenString !== 'string') {
-		console.log('Invalid Type or input');
+		console.log('Invalid type of the input. Please provide a value in a string format.');
 		return '';
 	} else if (givenString === ''){ // this should be a separate case so we do not log 'Invalid Type or input' message after capitalazing all the words in the sentense.
     return '';
@@ -71,20 +71,19 @@ function toCapitalizeEachWord(givenString) {
 		if (indexOfFirstSpace === -1) {
 			restOfFirstWord = givenString.slice(1);
 		} else {
-			// 'afaasdas sfdsds'
-			const firstWord = givenString.slice(0, indexOfFirstSpace); // afaasdas
-			const restOfSentence = givenString.slice(indexOfFirstSpace + 1); // sfdsds
+			const firstWord = givenString.slice(0, indexOfFirstSpace);
+			const restOfSentence = givenString.slice(indexOfFirstSpace + 1);
 
 			restOfFirstWord = firstWord.slice(1);
-			restOfTheSentense = toCapitalizeEachWord(restOfSentence);
+			restOfTheSentense = capitalizeEachWordwould (restOfSentence);
 		}
 		return firstLetter + restOfFirstWord + ' ' + restOfTheSentense;
 	}
 }
 
-console.log(toCapitalizeEachWord('a'));
-console.log(toCapitalizeEachWord('afaasdas sfdsds sfasf asdsa'));
-console.log(toCapitalizeEachWord(ex2sentence));
+console.log(capitalizeEachWordwould ('a'));
+console.log(capitalizeEachWordwould ('afaasdas sfdsds sfasf asdsa'));
+console.log(capitalizeEachWordwould (ex2sentence));
 
 console.log('Exercise 3: ----------------------------------------------------------');
 // 3. Write a recursive function to flatten an object with nested objects into a single-level object.
@@ -103,18 +102,21 @@ const nestedObj = {
 	},
 };
 
-function flattenObject(obj) {
-	for (key in obj) {
-	  if (typeof obj[key] === 'object') {
-		console.log(`${key}:`);
-		flattenObject(obj[key], key + 1);
-	  } else {
-		console.log(`${key}: ${obj[key]}`);
-	  }
-	}
-  }
+function flattenObject(obj, prefix = '') {  
+    let flattened = {};
+
+    for (let key in obj) {  
+        if (typeof obj[key] === 'object' && obj[key] !== null) {  
+            let nested = flattenObject(obj[key], `${prefix}${key}.`);
+            flattened = { ...flattened, ...nested };
+        } else {  
+            flattened[`${prefix}${key}`] = obj[key];
+        }  
+    }  
+    return flattened;  
+}  
   
-flattenObject(nestedObj);
+console.log(flattenObject(nestedObj));
 
 console.log('Exercise 4: ----------------------------------------------------------');
 // 4. Write a recursive function to count the number of vowels in a string.
@@ -142,39 +144,41 @@ console.log('Exercise 5: -------------------------------------------------------
 const sentenceEx5 = 'Hello, how are you?';
 const charToRemove = 'o';
 
-function removeO(sentence, index = 0, result = "") {
-	if (index >= sentence.length) {
-		console.log(result);
-		return;
-	}
+function removeCharacter(sentence, indexToRemove = 0, result = "") {
+    if (indexToRemove >= sentence.length) {
+        console.log(result);
+        return;
+    }
 
-	const char = sentence.charAt(index).replace(charToRemove, '');
-	if (vowels.includes(charToRemove)) {
-		result += char; 
-	}
-	removeO(sentence, index + 1, result);
+    const char = sentence.charAt(indexToRemove);
+    if (char !== charToRemove) {
+        result += char;
+    }
+
+    removeCharacter(sentence, indexToRemove + 1, result);
 }
-removeO(sentenceEx5);
+
+removeCharacter(sentenceEx5);
 
 console.log('Exercise 6: ----------------------------------------------------------');
 // 6. Write a recursive function to check if an array includes a specific value.
 const numbers = [1, 2, 3, 4, 5];
 const valueToCheck = 3;
 const valueToCheck2 = 6;
-function valueToCheckArray (array, givenValue, index = 0, result = "") {
-	if (index >= array.length) {
-		console.log(result);
-		return;
-	}
-	
-	if (array.includes(givenValue)) {
-		result = givenValue;
-	}
-	valueToCheckArray(array, givenValue, index + 1, result);
-}
-valueToCheckArray(numbers, valueToCheck);
-valueToCheckArray(numbers, valueToCheck2);
-valueToCheckArray(numbers, 17);
+
+function valueToCheckArray(array, givenValue, index = 0) {  
+    if (index >= array.length) {  
+        return false;  
+    }  
+
+    if (array[index] === givenValue) {  
+        return true;  
+    }  
+    return valueToCheckArray(array, givenValue, index + 1);  
+}  
+console.log(valueToCheckArray(numbers, valueToCheck));
+console.log(valueToCheckArray(numbers, valueToCheck2));
+console.log(valueToCheckArray(numbers, 17));
 
 console.log('Exercise 7: ----------------------------------------------------------');
 // 7. Write a recursive function to find the maximum depth of a nested object.
@@ -192,21 +196,18 @@ const nestedObjEx7 = {
 	h: 5,
 };
 
-function findMaxDepth(obj) {
-	for (key in obj) {
-	  if (typeof obj[key] === 'object') {
-		findMaxDepth(obj[key], key + 1);
-		return;
-	  } else {
-		const lastKey = Object.keys(obj).pop()
-		const lastValue = obj[Object.keys(obj).pop()]
-		console.log(`${lastKey}: ${lastValue}`);
-	  }
-	}
-  }
+function findMaxDepth(obj) {  
+    let maxDepth = 1;
+    for (let key in obj) {
+            if (typeof obj[key] === 'object' && obj[key] !== null) { 
+                    const depth = findMaxDepth(obj[key]) + 1;
+                    maxDepth = Math.max(maxDepth, depth);
+            }  
+    }  
+    return maxDepth;  
+}  
   
-findMaxDepth(nestedObjEx7);
-// I couldn't get only the last key (g: 4) :/
+console.log(findMaxDepth(nestedObjEx7));
 
 console.log('Exercise 8: ----------------------------------------------------------');
 // 8. Write a recursive function to reverse the order of words in a sentence.
@@ -215,11 +216,12 @@ function reverseSentence(sentence) {
 	if (!sentence || sentence.indexOf(' ') === -1) {
 	  return sentence;
 	}
-	return reverseSentence(sentence.slice(sentence.indexOf(' ') + 1)) + ' ' + sentence.slice(0, sentence.indexOf(' '));
+	const firstWord = sentence.slice(0, sentence.indexOf(' '));  
+    const restOfTheSentense = sentence.slice(sentence.indexOf(' ') + 1);  
+    return (reverseSentence(restOfTheSentense) + ' ' + firstWord);  
   }
   
-  const reversedSentence = reverseSentence(sentenceEx8);
-  console.log(reversedSentence);
+  console.log(reverseSentence(sentenceEx8));
 
 console.log('Exercise 9: ----------------------------------------------------------');
 // 9. Write a recursive function to find the length of the longest word in a sentence.
