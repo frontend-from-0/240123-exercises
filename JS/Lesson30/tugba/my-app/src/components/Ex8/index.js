@@ -26,7 +26,7 @@ export const Ex8 = () => {
         {list.map((item) => (
           <li key={item.id}>
             <span>{item.label}</span>
-            <button onClick={() => deleteButton(item.id)}>Click to Delete</button>
+            <button onClick={() => deleteButton(item.id)}>handleDeleteClick</button>
           </li>
         ))}
       </ul>

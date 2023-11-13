@@ -4,13 +4,9 @@ export const Ex10 = () => {
   // useState hook
   const [clickCount, setClickCount] = useState(0);
 
-  function handleClick () {
-    if(clickCount % 10){
-      alert("double-clicked");
-    }
-    setClickCount(clickCount + 1);
-  };
-
+  function handleClick (event) {
+    if (event.detail === 2) alert("double-clicked");
+  }
   return (
     <>
       <p>{clickCount}</p>
