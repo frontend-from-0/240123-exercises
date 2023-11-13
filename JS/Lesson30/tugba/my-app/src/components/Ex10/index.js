@@ -13,6 +13,6 @@ export const Ex10 = () => {
       <button onClick={handleClick}>Counter button</button>
     </>
 
-  );
+  ) 
 
 }
