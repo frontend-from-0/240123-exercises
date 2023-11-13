@@ -10,7 +10,7 @@ export const Ex10 = () => {
   return (
     <>
       <p>{clickCount}</p>
-      <button onClick={handleClick}>Counter button</button>
+      <button onClick={handleClick}>Counter Button</button>
     </>
 
   ) 
