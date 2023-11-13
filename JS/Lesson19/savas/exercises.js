@@ -13,11 +13,11 @@ class Person {
     }
 
     get age () {
-        return this._firstName;
+        return this._age;
     }
 
     get gender () {
-        return this._firstName;
+        return this._gender;
     }
 
     set firstName (firstNameParam) {
