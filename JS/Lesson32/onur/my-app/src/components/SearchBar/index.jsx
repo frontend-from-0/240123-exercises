@@ -23,10 +23,12 @@ export const SearchBar = ({ setRecipes }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input onChange={(event) => setValue(event.target.value)} value={value} type="text" />
-      <button type="submit">Search</button>
-    </form>
+    <div className='form-container'>
+      <form onSubmit={handleSubmit}>
+        <input onChange={(event) => setValue(event.target.value)} value={value} type="text" />
+        <button type="submit">Search</button>
+      </form>
+    </div>
   )
 
 };

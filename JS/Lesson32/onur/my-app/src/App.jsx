@@ -19,12 +19,12 @@ export const App = () => {
         console.log(data)
       })
       .catch(error => console.error('Request canceled!'));
-  }, [RecipeList, SearchBar, RecipeDetail]);
+  }, []);
 
   return (
     <div className='container'>
-      <div className='searchbar'><SearchBar setRecipes={setRecipes} /></div>
-      <div><RecipeList recipes={recipes} /></div>
+      <SearchBar setRecipes={setRecipes} />
+      <RecipeList recipes={recipes} />
     </div>
   );
 };

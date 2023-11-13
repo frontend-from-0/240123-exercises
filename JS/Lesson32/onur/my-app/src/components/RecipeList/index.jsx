@@ -5,18 +5,20 @@ import './styles.css'
 
 export const RecipeList = ({ recipes }) => {
 
-	const [recipe, setRecipe] = useState(false);
-	const [SelectedRecipe, setSelectedRecipe] = useState(null);
+	const [selectedRecipe, setSelectedRecipe] = useState(null);
 
 	const selectRecipe = (recipe) => {
-		setRecipe(true);
 		setSelectedRecipe(recipe);
 	}
+	const handleCloseRecipeDetail = () => {
+		setSelectedRecipe(null);
+	}
+
 
 	return (
 		<div className="list-container">
 			<div className="main">
-				<h2>Search Results</h2>
+				<h2>Recipes</h2>
 				<ul>
 					{recipes.map((recipe) => {
 						return <li key={recipe.idMeal} onClick={() => selectRecipe(recipe)}>{recipe.strMeal}</li>
@@ -24,7 +26,7 @@ export const RecipeList = ({ recipes }) => {
 				</ul>
 			</div>
 			<div className="detail">
-				{recipe && <RecipeDetail selected={SelectedRecipe} />}
+				{selectedRecipe ? <RecipeDetail closeRecipe={handleCloseRecipeDetail} selected={selectedRecipe} /> : null}
 			</div>
 		</div>
 	);
