@@ -159,15 +159,24 @@ class BankAccount {
         }
     }
 
+    get transactionHistory() {
+        return this._transactionHistory;
+    }
+
+    get currentBalance() {
+        return this._balance;
+    }
+
 }
 
 const bankAccount1 = new BankAccount (1000, 0.05);
 console.log(`Bank Account 1' balance is: $${bankAccount1._balance}`)
 bankAccount1.deposit(300);
-console.log("Transaction History: ", bankAccount1._transactionHistory);
-
+console.log(bankAccount1.transactionHistory);
+console.log('Your current balance is  $', bankAccount1._balance);
 console.log('--------');
 
 console.log(`Bank Account 1' balance is: $${bankAccount1._balance}`)
 bankAccount1.withdraw(500);
-console.log("Transaction History: ", bankAccount1._transactionHistory);
+console.log(bankAccount1.transactionHistory);
+console.log('Your current balance is  $', bankAccount1._balance);
