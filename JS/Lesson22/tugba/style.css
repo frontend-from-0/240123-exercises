@@ -1,0 +1,35 @@
+.accordion {
+    cursor: pointer;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.panel p {
+    margin: 10px 0;
+}
+
+.panel p.best-author {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.active {
+    max-height: 1000px;
+    transition: max-height 0.3s ease;
+}

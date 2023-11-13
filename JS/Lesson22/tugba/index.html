@@ -1,11 +1,56 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accordion</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Accordion</title>
+  </head>
+<style>
+body {
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  border: 1px solid #aca8a8;
+  margin-bottom: 10px;
+}
+
+.accordion-header {
+  background-color: #988f8f;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+}
+</style>
 <body>
-  
+    <div class="accordion">Section 1</div>
+    <div class="panel">
+        <p>Content for Section 1</p>
+        <p class="best-author">Best Author: John Doe</p>
+    </div>
+    <div class="accordion">Section 2</div>
+    <div class="panel">
+        <p>Content for Section 2</p>
+        <p class="best-author">Best Author: Jane Smith</p>
+    </div>
+    <div class="accordion">Section 3</div>
+    <div class="panel">
+        <p>Content for Section 3</p>
+        <p class="best-author">Best Author: James Johnson</p>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
