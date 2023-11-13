@@ -16,3 +16,7 @@ export const Ex10 = () => {
   ) 
 
 }
+
+
+
+/* corrected */
