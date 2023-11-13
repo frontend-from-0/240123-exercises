@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.accordion-container {
+    width: 60%;
+    max-width: 600px;
+}
+
+.accordion {
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 80%;
+    text-align: left;
+    border-color:rgb(229, 229, 233);
+    outline: none;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.accordion:hover {
+    background-color: #619ecd;
+}
+
+.active, .accordion.active:hover {
+    background-color: #ffffff;
+}
+
+.panel {
+    display: none;
+  }
+ 
+  .panel.active {
+    display: block;
+  }
