@@ -12,10 +12,10 @@ export const Ex7 = () => {
   }
 
   return (
-    <>
+    
       <div className="parent" onClick={parentHandleClick}>
         <div className="child" onClick={childHandleClick}>Child-Parent Ex7</div>
       </div>
-    </>
+  
   );
 };
