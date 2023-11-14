@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export const Ex6 = () => {
   function handleClick(event) {
