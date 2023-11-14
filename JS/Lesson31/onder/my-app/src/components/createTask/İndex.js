@@ -23,8 +23,9 @@ export const CreateTask = ({ onCreateProps }) => {
       <h2>Create task </h2>
      
       <form className="form" onSubmit={handleSubmit}>
+      <input type="text" onChange={handleInputChange} />
       <button type="submit" className="create-btn">Save</button>
-        <button onClick={Submit} className="create-btn">Save</button>
+        <button onSubmit={Submit} className="create-btn">Save</button>
       </form>
     </>
   );

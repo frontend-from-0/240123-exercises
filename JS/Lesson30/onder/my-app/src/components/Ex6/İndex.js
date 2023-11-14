@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export const Ex6 = () => {
   function handleClick(event) {
@@ -8,7 +8,7 @@ export const Ex6 = () => {
 
   return (
     <>
-      <a href="https://github.com/TugbaMartin" rel="noreferrer" target='_blank' onClick={handleClick}>Click Here</a>
+      <a href="https://github.com/OnderMartin" rel="noreferrer" target='_blank' onClick={handleClick}>Click Here</a>
     </>
   );
   }; 
