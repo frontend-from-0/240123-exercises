@@ -41,8 +41,8 @@ h1, h2, h3 {
 }
 
 .accordion {
-    min-width: 300px;  
-
+    min-width: 300px;
+    max-width: 800px;
 }
 
 .accordion .boxes {
