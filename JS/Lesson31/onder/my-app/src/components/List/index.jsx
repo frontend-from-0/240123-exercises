@@ -16,6 +16,13 @@ export const List = () => {
       { id: newId, title: newTodo, completed: false }, // add a new item
     ];
     setTodoItems(updatedTasks); // update state
+    function handleToggleComplete(id) {
+      setTodoItems(prevList =>
+        prevList.map(item =>
+          item.id === id ? { ...item, completed: !item.completed } : item
+        )
+      );
+    }
   }
 
 return (
@@ -28,6 +35,8 @@ return (
           key={listItem.id}
           id={listItem.id}
           title={listItem.title}
+          completed={listItem.completed}
+          handleToggleComplete={handleToggleComplete}
         />
       ))}
     </ul>
