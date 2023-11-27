@@ -1,148 +1,352 @@
-// From Lesson13: generate random number in a range from 0 to 10
-// BONUS: generate random number in a range from 0 to 10
-// Use Math.floor() and Math.random() to do that.
-// Math.random() generate random number between 0 and 1 (not including 1)
-// Math.floor() 
+/*  
+Functions
 
-const randomNumberFrom0To10 = Math.floor(Math.random() * 10 + 1);
-console.log(randomNumberFrom0To10);
+Functions are one of the fundamental building blocks of the language. They are reusable blocks of code that can be executed when needed. Functions encapsulate a set of statements and can be called or invoked to perform a specific task or calculation. 
 
-// 1. Use the `length` property to find the length of a string and print it to the console.
-const stringExercise1 = 'Object-oriented programming is a powerful paradigm.';
-console.log("Exercise1: ", stringExercise1.length);
-console.log('------------------------');
+Function Declaration
+function (parameter1, parameter2) {
+  return parameter1 * parameter2;
+}
 
-console.log('Object-oriented programming is'.length);
-console.log('------------------------');
+Named function:
+function multiplyTwoNumbers(parameter1, parameter2) {
+  return parameter1 * parameter2;
+}
+multiplyTwoNumbers(1, 4);
 
-// 2. Use the `slice` method to extract 'Debugging code' from the string below and print it to the console.
-const stringExercise2 = 'Debugging code can be a frustrating but necessary task.';
-const sliceMethod = stringExercise2.slice(0, 14);
-console.log("Exercise2: ", sliceMethod);
+Function Expression
+const sumOfTwoNumber = function (parameter1, parameter2) {
+  return parameter1 * parameter2;
+};
 
-console.log('------------------------');
+Arrow Function (introduced in ECMAScript 6)
+const greet = () => {
+console.log('Hello world');
+};
 
-// 3. Use the `toUpperCase` method to convert a string to uppercase and print it to the console.
-const stringExercise3 = 'Python is a popular language for data analysis and machine learning.';
-const stringToUpperCase = stringExercise3.toUpperCase();
-console.log("Exercise3: ", stringToUpperCase);
+greet();
+*/
 
-// 4. Use the `toLowerCase` method to convert a string to lowercase and print it to the console.
-const stringExercise4 = 'Functional programing emphasizes pure functions and immutable data.';
-const stringToLowerCase = stringExercise4.toLocaleLowerCase();
-console.log("Exercise4: ", stringToLowerCase);
+function multiplyTwoNumbers(parameter1, parameter2) {
+	return parameter1 * parameter2;
+}
+console.log(multiplyTwoNumbers(1, 4));
 
-console.log('------------------------');
+/* 
+Conditional statements (if...else, switch)
 
-// 5.a Use the `indexOf` method to find the index of "l" character in the string stringExercise5 and print it to the console.
-const stringExercise5 = 'JavaScript is a versatile language used for web development and beyond.';
-const letterİndexOf = stringExercise5.indexOf("l");
-console.log("Exercise5.a: ", letterİndexOf);
+Conditional statements in JavaScript are used to make decisions and execute different blocks of code based on certain conditions. They allow you to control the flow of your program and determine which code should be executed depending on whether a condition evaluates to true or false.
 
-console.log('------------------------');
+if Statement
+if (condition) {
 
-// 5.b Use the `indexOf` method to find the index of "language" in the string stringExercise5 and print it to the console.
-const wordİndexOf = stringExercise5.indexOf("language");
-console.log("Exercise5.b: ", wordİndexOf);
+}
 
-console.log('------------------------');
+if ... else Statement
+if (condition) {
+... some code
+} else if (another condtion) {
+.. some code
+} else {
+	... some code
+}
 
-// 6. Use the `lastIndexOf` method to find the last index of of "l" character in the string stringExercise5 and print it to the console.
-const letterLastİndexOf = stringExercise5.lastIndexOf("l");
-console.log("Exercise6: ", letterLastİndexOf);
+Switch statement
+switch (day) {
+  case 'Monday':  // this means that day === 'Monday'
+	console.log('It\'s Monday'); 
+	break;
+case 'Tuesday':
+    console.log('It\'s Tuesday');
+    break; // Use break key word if you don't use return key word in the statement;
+    .... cases for other days of the week
+default:
+    console.log('Unknow day');
+    break;
+}
+*/
 
-console.log('------------------------');
+// 1. Write a program that takes in a number and checks if it's even or odd using if else statement.
+function isEvenOrOdd(number) {
+	if (number % 2 === 0) {
+		console.log('it is even');
+	} else {
+		console.log('it is odd');
+	}
+}
 
-// 7. Use the `charAt` method to retrieve first, 10th, 3rd from the end and the last characters from the string stringExercise7 and print them to the console.
-const stringExercise7 = 'Git is a popular version control system used by developers.';
-const letterCharAt1 = stringExercise7.charAt(1);
-const letterCharAt10 = stringExercise7.charAt(10);
-const letterCharAt3 = stringExercise7.charAt(stringExercise7.length - 3);
-const letterCharAtend = stringExercise7.charAt(stringExercise7.length - 1);
-console.log("Exercise7.1: ", letterCharAt1);
-console.log("Exercise7.2: ", letterCharAt10);
-console.log("Exercise7.3: ", letterCharAt3);
-console.log("Exercise7.4: ", letterCharAtend);
+isEvenOrOdd(4);
+isEvenOrOdd(7);
+
+// 2. Write a program that takes age as input. If the age is less than 18, print "Sorry, you are not old enough to vote". If the age is between 18 and 65 (inclusive), print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen".
+
+function checkAge(age) {
+	if (age < 18) {
+		console.log('Sorry, you are not old enough to vote');
+	} else if (age >= 18 && age <= 65) {
+		console.log('You are eligible to vote');
+	} else {
+		console.log('you are a citizen');
+	}
+
+	// if (age < 18) {
+	// 	console.log('Sorry, you are not old enough to vote');
+	// } else if (age > 65) {
+	//   console.log('You are a citizen');
+	// } else {
+	// 	console.log('You are eligible to vote');
+	// }
+}
+
+checkAge(15);
+checkAge(53);
+checkAge(90);
+checkAge(18);
+checkAge(65);
+
+// 3. Write a program that asks the user to enter two numbers and checks if the first number is greater than, less than, or equal to the second number using if else statement.
+
+function isGreaterOrLess(num1, num2) {
+	if (num1 > num2) {
+		console.log('First number is greater than second number')
+	} else if (num1 < num2) {
+		console.log('First number is less than second number')
+	} else {
+		console.log('First number is equal to second number')
+	}
+}
+isGreaterOrLess(65, 54);
+isGreaterOrLess(44, 87);
+isGreaterOrLess(34, 34);
+
+// 4. Write a program that takes in a string and checks if the first letter is uppercase using if else statement.
+
+function checkIfStringIsUpperCase(stringToCheck) {
+	if (stringToCheck[0] === stringToCheck[0].toUpperCase()) {
+		console.log('first letter is uppercase');
+	} else {
+		console.log('is not uppercase');
+	}
+}
+
+checkIfStringIsUpperCase('Write a program that takes in');
+checkIfStringIsUpperCase('write a program that takes in');
+
+// 5. Write a program that takes in a number and checks if it's positive, negative, or zero using if else statement.
+
+function isNumberPositiveOrNegative(numbervalue) {
+	if (numbervalue > 0) {
+		console.log('Number is positive');
+	} else if (numbervalue < 0) {
+		console.log('Number is negative');
+	} else {
+		console.log('Number is equel to zero');
+	}
+}
+isNumberPositiveOrNegative(69);
+isNumberPositiveOrNegative(-29);
+isNumberPositiveOrNegative(0);
+
+// 6. Write a program that takes in a year and checks if it's a leap year (is divisible by 4 and not divisible by 100 OR divisible by 400) or not using if else statement.
+
+function isLeapYear(yearNumber) {
+	if ((yearNumber % 4 === 0 && yearNumber % 100 !== 0) || yearNumber % 400 === 0) {
+		console.log('İt is a leap year')
+	} else {
+		console.log('İt is not a leap year');
+	}
+}
+isLeapYear(2000);
+isLeapYear(2023);
+
+// 7. Write a program that takes in a temperature and checks if it's above or below freezing using if else statement.
+
+function isTemperatureCheckFreezing(temperature) {
+	if (temperature < 0) {
+		console.log('temperature is below freezing');
+	} else if (temperature > 0) {
+		console.log('temperature is above freezing');
+	}
+}
+isTemperatureCheckFreezing(0); //  The temperature is exactly at freezing point.
+isTemperatureCheckFreezing(-5);
+isTemperatureCheckFreezing(51);
+
+// 8. Write a program that takes in a person's height and weight and checks if they are considered underweight, normal, overweight, or obese using if else statement.
+// Body Mass Index (BMI) is a person’s weight in kilograms (or pounds) divided by the square of height in meters (or feet). A high BMI can indicate high body fatness.
+//Formula: weight (kg) / [height (m)]2
+// Below 18.5	Underweight
+// 18.5 – 24.9	Healthy Weight
+// 25.0 – 29.9	Overweight
+// 30.0 and Above	Obesity
+
+function checkBMI(weight, height) {
+	const BMI = weight / (height ** 2);
+	if (BMI < 18.5) {
+		console.log('Underweight');
+	} else if (BMI >= 18.5 && BMI <= 24.9) {
+		console.log('Healthy Weight');
+	} else if (BMI >= 25.0 && BMI <= 29.9) {
+		console.log('Overweigh');
+	} else {
+		console.log('Obesity');
+	}
+}
+checkBMI(48, 1.7);
+checkBMI(78, 1.8);
+checkBMI(78, 1.7);
+checkBMI(128, 1.6);
 
 
-console.log('------------------------');
+// 9. Write a program that takes in a person's age and checks if they are a child (age 0-12), teenager (age 13-19), adult (age 20-64), or senior citizen (age 65 and above) using if else statement.
 
-// 8. Use the `split` method to split a string into an array of substrings and print it to the console.
-const stringExercise8 = 'Algorithms are a fundamental part of computer science.';
-const stringSplit = stringExercise8.split(" ");
-console.log("Exercise8: ", stringSplit);
+function PersonAge(age) {
+	if (age >= 0 && age <= 12) {
+		console.log("child");
+	} else if (age >= 13 && age <= 19) {
+		console.log("teenager");
+	} else if (age >= 20 && age <= 64) {
+		console.log("Adult");
+	} else {
+		console.log("Senior citizen")
+	}
+}
 
-console.log('------------------------');
+PersonAge(8); //child
+PersonAge(16); //teenager
+PersonAge(42); //adult
+PersonAge(78); //senior citizen
 
-// 9. Use the `join` method to join an array of strings into a single string and print it to the console.
-const arrayExercise9 = ["An", "array", "of", "strings"];
-const arrayJoin = arrayExercise9.join("-");
-console.log("Exercise9: ", arrayJoin);
+// 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
 
-console.log('------------------------');
 
-// 10. Use the `replace` method to replace "can help" with "help" in the string stringExercise10 and print the result to the console.
-const stringExercise10 = "Software design patterns can help simplify complex can help systems.";
-const stringReplace = stringExercise10.replace("can help", "help");
-console.log("Exercise10: ", stringReplace);
 
-// What's the best approach to find and replace all occurences?
-const removeWord = "can help";
-const addWord = "help";
-const replaceWords = stringExercise10.split(removeWord).join(addWord);
-console.log(replaceWords);
+function checkVotingEligibility(age, is_student) {
+	if (typeof age === 'number' && typeof is_student === 'boolean') {
+		if (age < 18 && is_student === true) {
+			console.log(10, 'You are a student and not old enough to vote.');
+	} else if (age <= 65 && is_student === false) {
+			console.log(10, 'You are eligible to vote');
+	} else if (age > 65) {
+			console.log(10, 'You are a senior citizen.');
+	} else if (is_student === true) {
+			console.log(10, 'You are old enough to vote.');
+	}
+	} else {
+        console.log(10, 'Invalid input');
+    }
+}
 
-console.log('------------------------');
-// 11. Use the `startsWith` method to check if strings below starts with a price, and print the result to the console.
-const string1Exercise11 = "$9.99 - Sale! 50% off all items in store";
-const string2Exercise11 = "Bundle deal: Save $50 when you buy two products together";
+checkVotingEligibility(25, true); 
+checkVotingEligibility(65, false); 
+checkVotingEligibility(18, true);
+checkVotingEligibility('sdas', 20);
 
-const string1Price = string1Exercise11.startsWith("$");
-console.log("Exercise11.1: ", string1Price);
-const string2Price = string2Exercise11.startsWith("$");
-console.log("Exercise11.2: ", string2Price);
 
-console.log('------------------------');
-// 12. Use the `endsWith` method to check if a string ends with a "!" (exclamation mark), and print the result to the console.
-const string1Exercise12 = "$9.99 - Sale! 50% off all items in store";
-const string2Exercise12 = "Bundle deal: Save $50 when you buy two products together!";
 
-const string1Signal = string1Exercise12.endsWith("!");
-const string2Signal = string2Exercise12.endsWith("!");
 
-console.log("Exercise12.1: ", string1Signal);
-console.log("Exercise12.2: ", string2Signal);
+// 11. Write a program that asks the user to enter their salary and their years of experience. 
+//If the salary is less than $30,000 and the years of experience are less than 5, print "Sorry, we cannot offer you the job at this time". 
+//If the salary is less than $50,000 and the years of experience are between 5 and 10 (inclusive), print "We can offer you the job at a lower salary". 
+//If the salary is greater than or equal to $50,000 or the years of experience are greater than or equal to 10, print "We can offer you the job at the requested salary".
 
-console.log('------------------------');
+function checkSalaryAndExperience(salary, experience) {
+	if (salary < 30000 && experience < 5) {
+		console.log('Sorry, we cannot offer you the job at this time');
+	} else if (salary < 50000 && experience >= 5 && experience <= 10) {
+		console.log('We can offer you the job at a lower salary')
+	} else if (salary > 50000 && experience > 10) {
+		console.log('We can offer you the job at the requested salary');
+}
+}
+checkSalaryAndExperience(22000, 3);
+checkSalaryAndExperience(45000, 7);
+checkSalaryAndExperience(125000, 25);
 
-// 13. Use the `includes` method to check if a string includes a "%" character and print the result to the console.
-const string1Exercise13 = "$9.99 - Sale! 50% off all items in store";
-const string2Exercise13 = "Bundle deal: Save $50 when you buy two products together!";
+// 12. Write a program that asks the user to enter their score on a test.
+// If the score is less than 60, print "You failed the test". If the score is between 60 and 70 (inclusive), print "You passed the test, but your grade is not great".
+ // If the score is between 71 and 80 (inclusive), print "You got a B". If the score is between 81 and 90 (inclusive), print "You got an A". 
+  //If the score is greater than 90, print "You got an A+ - Great job!".
 
-const string1İncludes = string1Exercise13.includes("%");
-const string2İncludes = string2Exercise13.includes("%");
+function checkScore(score) {
+	if (score < 60) {
+		console.log('You failed the test');
+	} else if (score >= 60 && score <= 70) {
+		console.log('You passed the test, but your grade is not great');
+	} else if (score >= 71 && score <= 80) {
+		console.log('You got a B');
+	} else if (score >= 81 && score <= 90) {
+		console.log('You got an A');
+	} else {
+		console.log('You got an A+ - Great job!');
+	};
+}
+checkScore(45);
+checkScore(65);
+checkScore(72);
+checkScore(86);
+checkScore(98);
 
-console.log("Exercise13.1: ", string1İncludes);
-console.log("Exercise13.2: ", string2İncludes);
+// 13. Write a program that asks the user to enter a month number (1-12) and displays the corresponding season name. Use a switch statement to handle the different cases.
 
-console.log('------------------------');
+function whichMonthName(monthNumber) {
+	switch (monthNumber) {
+		case 12:
+		case 1:
+		case 2:
+			console.log('Winter');
+			break;
+		case 3:
+		case 4:
+		case 5:
+			console.log('Spring');
+			break;
+		case 6:
+		case 7:
+		case 8:
+			console.log('Summer');
+			break;
+		case 9:
+		case 10:
+		case 11:
+			console.log('Autumn');
+			break;
+		default:
+			console.log('Invalid Input');
+	}
+}
 
-// 14. Use the `substring` method to extract the word "Databases" from string stringExercise14 based on two indices and print it to the console.
-// Question: What is the difference between `substring()` and `slice()`?
-const stringExercise14 = 'Databases are an essential component of many applications.';
-const stringSub = stringExercise14.substring(0, 9);
-console.log("Excercise14: ", stringSub);
+whichMonthName(5);
+whichMonthName(10);
+whichMonthName(2);
 
-console.log('------------------------');
+// 14. Write a program that asks the user to enter a grade letter (A, B, C, D, or F)and displays a message indicating whether the grade is passing (A, B, C) or failing (D, F). Use a switch statement to handle the different cases.
 
-// 15. Remove extra spaces from the string stringExercise15 and print the result to the console.
-const stringExercise15 = "    Hello world    ";
-const stringSpaceDelete = stringExercise15.trim();
-console.log("Exercise15: ", stringSpaceDelete);
+function checkGrade(grade) {
+	switch (grade) {
+		case 'A':
+		case 'B':
+		case 'C':
+			console.log(grade, 'passing');
+			break;
+			case "D":
+            case "F":
+		console.log(grade, 'failing');
+			break;
+	}
+}
+checkGrade('B');
+checkGrade('D');
 
-console.log('------------------------');
+// 15. Write a program that asks the user to enter their age,and then calculates and displays their age in dog years (where one human year is equivalent to seven dog years).  If the user enters a negative number or zero, display an error message.
 
-// 16. Extract the price and currency from a string below using "slice" method and print it to console.
-const planPriceString = "Premium plan - 9.99 USD/month."; // Should return "9.99 USD"
-const removeWords = planPriceString.slice(15, 23);
-console.log("Exercise16: ", removeWords);
+function calculateDogYears(age) {
+	let dogYears = age * 7;
+	if (age <= 0) {
+		console.log('Error: invalid input');
+	} else {
+		console.log('Your age is equel to ' + dogYears + ' dog years');
+	}
+}
+calculateDogYears(35);
+calculateDogYears(-5);
