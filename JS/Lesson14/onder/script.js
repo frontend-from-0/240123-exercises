@@ -28,7 +28,7 @@ const stringToUpperCase = stringExercise3.toUpperCase();
 console.log("Exercise3: ", stringToUpperCase);
 
 // 4. Use the `toLowerCase` method to convert a string to lowercase and print it to the console.
-const stringExercise4 = 'FUNCTIONAL PROGRAMMING EMPHASIZES PURE FUNCTIONS AND IMMUTABLE DATA.';
+const stringExercise4 = 'Functional programing emphasizes pure functions and immutable data.';
 const stringToLowerCase = stringExercise4.toLocaleLowerCase();
 console.log("Exercise4: ", stringToLowerCase);
 
