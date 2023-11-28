@@ -4,7 +4,7 @@
 
 :root {
     --main-color1: rgb(255, 0, 0);
-    --main-color2: blueviolet;
+    --main-color2: rgb(138,43,226);
     --main-color3: rgb(65, 65, 65);
 }
 
@@ -40,17 +40,17 @@ h1, h2, h3 {
     text-align: center;
 }
 
-.accordion {
+.container {
     min-width: 300px;
     max-width: 800px;
 }
 
-.accordion .boxes {
+.container .accordion-item {
     position: relative;
     margin: 10px 20px;
 }
 
-.accordion .boxes .label {
+.container .accordion-item .accordion-header {
     position: relative;
     padding: 10px;
     background-color: var(--main-color1);
@@ -58,7 +58,7 @@ h1, h2, h3 {
     cursor: pointer;
 }
 
-.accordion .boxes .label::before {
+.container .accordion-item .accordion-header::before {
     content: "+";
     position: absolute;
     top: 50%;
@@ -67,12 +67,12 @@ h1, h2, h3 {
     font-size: 1.5rem;
 }
 
-.accordion .boxes.active .label::before {
+.container .accordion-item.active .accordion-header::before {
     content: "-";
     transform: translateY(-55%);
 }
 
-.accordion .boxes .content {
+.container .accordion-item .accordion-content {
     position: relative;
     font-size: 0.8rem;
     border: 1px solid rgb(228, 228, 228);
@@ -85,12 +85,12 @@ h1, h2, h3 {
     overflow-y: auto;
 }
 
-.accordion .boxes.active .content {
+.container .accordion-item.active .accordion-content {
     height: 120px;
     padding: 10px;
 }
 
-.accordion .boxes .content .quote {
+.container .accordion-item .accordion-content .quote {
     font-style: italic;
     font-weight: bold;
     color: var(--main-color2);
