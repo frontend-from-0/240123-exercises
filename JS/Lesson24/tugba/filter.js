@@ -1,5 +1,5 @@
 // Exercise 1:
-// Given an array of numbers, filter out the even numbers.
+// Given an array of numbers, filter out the even numbers.........
 const numbersExercise1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const evenNumbers = numbersExercise1.filter(number => number % 2 !== 0);
@@ -195,6 +195,9 @@ const sentencesExercise5 = [
 	'The butterfly gracefully fluttered its wings, showcasing vibrant colors in a delicate dance.',
 ];
 
+const sentencesWith10OrFewerWords = sentencesExercise5.filter(sentence => sentence.split(' ').length <= 10);
+
+console.log(sentencesWith10OrFewerWords);
 
 // Exercise 6:
 // Given an array of products, filter out the products that are out of stock (where the quantity is 0).
@@ -260,10 +263,15 @@ const productsExercise6 = [
 		quantity: 14,
 	},
 ];
+const stockOfProduct = productsExercise6.filter(product => product.quantity > 0);
+
+console.log("Exercise 6:", stockOfProduct);
 
 // Exercise 7:
 // Given an array of numbers, filter out the numbers that are divisible by 3.
 const numbersExercise7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbersDivisibleBy3 = numbersExercise7.filter(number => number % 3 !== 0);
+
 
 // Exercise 8:
 // Given an array of strings, filter out the strings that have more than 5 characters.
@@ -279,6 +287,10 @@ const wordsExercise8 = [
 	'island',
 	'jungle',
 ];
+const filteredWords = wordsExercise8.filter(word => word.length <= 5);
+
+console.log(filteredWords);
+
 
 // Exercise 9:
 // Given an array of objects representing students, filter out the students who have a grade lower than C.
@@ -344,6 +356,13 @@ const studentsExercise9 = [
 		grade: 'B-',
 	},
 ];
+const gradesMoreThanC = studentsExercise9.filter(students => {
+	const allGrades = ['A', 'A-', 'A+', 'B', 'B-', 'B+', 'C', 'C-', 'C+', 'D', 'D+', 'D-'];
+	return allGrades.indexOf(students.grade) <= allGrades.indexOf('C');
+}
+)
+console.log("Exercise 9:", gradesMoreThanC)
+
 
 // Exercise 10:
 // Given an array of user objects, filter out the users who have a name starting with the letter "J".
@@ -409,3 +428,5 @@ const usersExercise10 = [
 		email: 'sophia@example.com',
 	},
 ];
+const result10 = usersExercise10.filter(users => users.name[0].toUpperCase() !== 'J')
+console.log("Exercise 10:", result10);
