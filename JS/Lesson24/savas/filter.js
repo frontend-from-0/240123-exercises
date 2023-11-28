@@ -348,7 +348,7 @@ const studentsExercise9 = [
 	},
 ];
 
-const successfulStudents = studentsExercise9.filter(student => student.grade == "A" || student.grade == "A+" || student.grade == "A-" || student.grade == "B" || student.grade == "B+" || student.grade == "B-" || student.grade == "C" || student.grade == "C+" || student.grade == "C-");
+const successfulStudents = studentsExercise9.filter(student => student.grade.includes("A") || student.grade.includes("B") || student.grade.includes("C"));
 console.log("Exercise 9:", successfulStudents);
 
 // Exercise 10:
