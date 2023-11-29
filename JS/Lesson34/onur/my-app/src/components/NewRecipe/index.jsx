@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import './styles.css';
+import { useState } from 'react';
 
 // const useMyHook = () => {
 //   const myData = {id: 'xxxx', name:'Data name'};
@@ -9,10 +10,10 @@ import './styles.css';
 // }
 
 export const NewRecipe = () => {
-  // const [data,  setData] = useMyHook();
+	// const [data,  setData] = useMyHook();
 
-  // console.log(data);
-  // setData();
+	// console.log(data);
+	// setData();
 	const {
 		register,
 		handleSubmit,
@@ -22,56 +23,195 @@ export const NewRecipe = () => {
 
 	const strCategory = watch('strCategory');
 
-	const onSubmit = (data) => console.log(data);
+
+
+
+	const onSubmit = (data) => {
+
+		if (data.strDrinkAlternate.trim() === '') {
+			data.strDrinkAlternate = null;
+		}
+		if (data.strImageSource.trim() === '') {
+			data.strImageSource = null;
+		}
+		if (data.strCreativeCommonsConfirmed.trim() === '') {
+			data.strCreativeCommonsConfirmed = null;
+		}
+		if (data.dateModified.trim() === '') {
+			data.dateModified = null;
+		}
+
+
+
+
+
+		const ingredientsArray = data.ingredients.split(",").map((ingredient) => ingredient.trim());
+		ingredientsArray.map((ingredient, index) => {
+			for (let i = 1; i <= 20; i++) {
+				if (ingredient.trim().length > 0 && (i <= ingredientsArray.length)) {
+					data[`strIngredient${index + 1}`] = ingredient;
+				} else {
+					data[`strIngredient${i}`] = "";
+				}
+			}
+		});
+		delete data.ingredients;
+
+		const measuresArray = data.measures.split(",").map((ingredient) => ingredient.trim());
+		measuresArray.map((measure, index) => {
+			for (let i = 1; i <= 20; i++) {
+				if (measure.trim().length > 0 && (i <= measuresArray.length)) {
+					data[`strMeasure${index + 1}`] = measure;
+				} else {
+					data[`strMeasure${i}`] = "";
+				}
+			}
+
+		});
+		delete data.measures
+
+
+
+
+		console.log(data);
+
+	}
 
 	return (
-		<form
-			className='new-recipe-form'
-			onSubmit={handleSubmit(onSubmit)}
-			noValidate
-		>
-			<label htmlFor='strMeal'>Meal name</label>
-			<input
-				required
-				id='strMeal'
-				type='text'
-				{...register('strMeal', { required: true })}
-				placeholder='Please enter meal type...'
-			/>
-			{errors.strMeal && (
-				<span className='input-error'>Meal name is required</span>
-			)}
-
-			<label htmlFor='strDrinkAlternate'>Drink alternate</label>
-			<input
-				id='strDrinkAlternate'
-				type='text'
-				{...register('strDrinkAlternate')}
-			/>
-
-			<label htmlFor='strCategory'> Meal category</label>
-			<select
-				id='strCategory'
-				{...register('strCategory', { required: true, minLength: 1 })}
+		<>
+			<form
+				className='new-recipe-form'
+				onSubmit={handleSubmit(onSubmit)}
+				noValidate
 			>
-				<option value=''>Select category</option>
-				<option value='Side'>Side</option>
-				<option value='Main'>Main</option>
-				<option value='Dessert'>Dessert</option>
-				<option value='Other'>Other</option>
-			</select>
-			{errors.strCategory && (
-				<span className='input-error'>Category is required</span>
-			)}
-			{strCategory === 'Other' && (
-				<input
-					type='text'
-					{...register('strCategoryOther', { required: true, minLength: 3 })}
-					placeholder='Please enter category...'
-				/>
-			)}
 
-			<button type='Submit'>Submit</button>
-		</form>
+				<label className='form-label' htmlFor='strMeal'>Meal Name :</label>
+				<input
+					className='form-input'
+					required
+					id='strMeal'
+					type='text'
+					{...register('strMeal', { required: true, minLength: 2 })}
+					placeholder='Please enter meal type...'
+				/>
+				{errors.strMeal && (
+					<span className='input-error'>Meal name is required</span>
+				)}
+
+				<label className='form-label' htmlFor='strDrinkAlternate'>Drink Alternate :</label>
+				<input
+					className='form-input'
+					id='strDrinkAlternate'
+					type='text'
+					{...register('strDrinkAlternate')}
+				/>
+
+				<label className='form-label' htmlFor='strCategory'>Meal Category :</label>
+				<select
+					className='form-input'
+					id='strCategory'
+					{...register('strCategory', { required: true, minLength: 1 })}
+				>
+					<option value=''>Select category</option>
+					<option value='Side'>Side</option>
+					<option value='Main'>Main</option>
+					<option value='Dessert'>Dessert</option>
+					<option value='Other'>Other</option>
+				</select>
+				{errors.strCategory && (
+					<span className='input-error'>Category is required</span>
+				)}
+				{strCategory === 'Other' && (
+					<input
+						className='form-input'
+						type='text'
+						{...register('strCategoryOther', { required: true, minLength: 2 })}
+						placeholder='Please enter category...'
+					/>
+				)}
+
+				<label className='form-label' htmlFor='strArea'>Area Name :</label>
+				<input
+					className='form-input'
+					id='strArea'
+					type='text'
+					{...register('strArea', { required: true, minLength: 2 })}
+				/>
+				{errors.strArea && (
+					<span className='input-error'>Area name is required</span>
+				)}
+
+				<label className='form-label' htmlFor='strInstructions'>Instructions :</label>
+				<textarea
+					className='form-input'
+					id='strInstructions'
+					{...register('strInstructions', { required: true, minLength: 10 })}
+				></textarea>
+				{errors.strInstructions && (
+					<span className='input-error'>Instructions are required</span>
+				)}
+
+				<label className='form-label' htmlFor="strMealThumb">Meal Thumb :</label>
+				<input type="text" id='strMealThumb' className='form-input' {...register("strMealThumb", {
+					required: true,
+					pattern: /\.(jpg|jpeg)$/
+				})} />
+				{errors.strMealThumb && (
+					<span className='input-error'>Please enter a valid URL</span>
+				)}
+
+				<label className='form-label' htmlFor='strTags'>Tag Name :</label>
+				<input
+					className='form-input'
+					id='strTags'
+					type='text'
+					{...register('strTags', { required: true, minLength: 2 })}
+				/>
+				{errors.strTags && (
+					<span className='input-error'>Tag name is required</span>
+				)}
+
+				<label className='form-label' htmlFor="strYoutube">Youtube video :</label>
+				<input type="text" id='strYoutube' className='form-input' {...register("strYoutube", {
+					required: true,
+					pattern: /^(https?:\/\/)?(www\.)?(youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+				})} />
+				{errors.strYoutube && (
+					<span className='input-error'>Please enter a valid Youtube URL</span>
+				)}
+
+				<label className='form-label'>Ingredients : </label>
+				<textarea className='form-input' placeholder='Please separate by commos' {...register("ingredients", { required: true, minLength: 1 })} />
+				{errors.ingredients && (
+					<span className='input-error'>Ingredients are required</span>
+				)}
+
+				<label className='form-label'>Measures : </label>
+				<textarea className='form-input' placeholder='Please separate by commos' {...register("measures", { required: true, minLength: 1 })} />
+				{errors.measures && (
+					<span className='input-error'>Measures is required</span>
+				)}
+
+				<label className='form-label' htmlFor="strSource">Source :</label>
+				<input className='form-input' type="text" id='strSource' {...register("strSource", {
+					required: true,
+					pattern: /^https:\/\//
+				})} />
+				{errors.strSource && (
+					<span className='input-error'>Please enter a valid  address</span>
+				)}
+
+				<label className='form-label' htmlFor="strImageSource">Image source :</label>
+				<input className='form-input' type="text" id='strImageSource' {...register("strImageSource", { pattern: /^https:\/\// })} />
+
+				<label className='form-label' htmlFor="strCreativeCommonsConfirmed">Creative Commons :</label>
+				<input className='form-input' type="text" id='strCreativeCommonsConfirmed' {...register("strCreativeCommonsConfirmed")} />
+
+				<label className='form-label' htmlFor="dateModified">Date Modified :</label>
+				<input className='form-input' type="text" id='dateModified' {...register("dateModified")} />
+
+				<button className='form-btn' type='Submit'>Submit</button>
+			</form>
+		</>
 	);
 };
