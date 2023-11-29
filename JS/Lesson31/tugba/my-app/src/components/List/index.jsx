@@ -1,31 +1,36 @@
 import './styles.css';
 import {ListItem} from '../ListItem';
 import {useState} from 'react';
+import {CreateTask} from '../createTask';
 
 export const List = () => {
-  const data = [
-    {id: 1, title: "Do dishes", completed: false},
-    {id: 2, title: "Do homework", completed: false},
-    {id: 3, title: "Go running", completed: false},
-    {id: 4, title: "Do dishes 2", completed: false},
-    {id: 5, title: "Do homework 3", completed: false},
-    {id: 6, title: "Go running 4", completed: false},
-  ];
-
-  const [todoItems, setTodoItems] = useState(data);
-
+  const [todoItems, setTodoItems] = useState([]);
 
   function handleDelete(id) {
     setTodoItems(prevList => prevList.filter(prevItem => prevItem.id !== id));
   }
+  function handleAddTodo (newTodo) {
+    const newId = Math.max(...todoItems.map((item) => item.id)) + 1; // Create an index for the todo item that was not used before by any other todo item
+    const updatedTasks = [
+      ...todoItems, // copy all already existing items
+      { id: newId, title: newTodo, completed: false }, // add a new item
+    ];
+    setTodoItems(updatedTasks); // update state
+  }
 
 return (
-  <ul className='todo-list'>
-      {
-        todoItems.map(
-          listItem => <ListItem handleDelete={handleDelete} key={listItem.id} id={listItem.id} title={listItem.title} />
-        )
-      }
-  </ul>
+  <>
+    <CreateTask onCreateProps={handleAddTodo} />
+    <ul className="todo-list">
+      {todoItems.map((listItem) => (
+        <ListItem
+          handleDelete={handleDelete}
+          key={listItem.id}
+          id={listItem.id}
+          title={listItem.title}
+        />
+      ))}
+    </ul>
+  </>
 )
 };
