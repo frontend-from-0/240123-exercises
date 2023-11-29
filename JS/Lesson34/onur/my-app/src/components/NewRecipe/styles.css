@@ -35,3 +35,13 @@
 .input-error {
   color: #ff0000;
 }
+
+.form-checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-checkbox-input {
+  width: 2rem;
+  height: 2rem;
+}

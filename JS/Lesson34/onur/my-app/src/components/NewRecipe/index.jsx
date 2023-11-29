@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import './styles.css';
-import { useState } from 'react';
+
 
 // const useMyHook = () => {
 //   const myData = {id: 'xxxx', name:'Data name'};
@@ -15,33 +15,24 @@ export const NewRecipe = () => {
 	// console.log(data);
 	// setData();
 	const {
+		reset,
 		register,
 		handleSubmit,
 		watch,
 		formState: { errors },
-	} = useForm();
+	} = useForm({
+		strMeal: "", strDrinkAlternate: "", strCategoryOther: "", strArea: "", strCategory: "", strCreativeCommonsConfirmed: "",
+		strImageSource: "", strSource: "", strTags: "", strYoutube: ""
+	});
 
 	const strCategory = watch('strCategory');
 
-
+	const combinedPattern = /^(https:\/\/|\S+)$/;
 
 
 	const onSubmit = (data) => {
 
-		if (data.strDrinkAlternate.trim() === '') {
-			data.strDrinkAlternate = null;
-		}
-		if (data.strImageSource.trim() === '') {
-			data.strImageSource = null;
-		}
-		if (data.strCreativeCommonsConfirmed.trim() === '') {
-			data.strCreativeCommonsConfirmed = null;
-		}
-		if (data.dateModified.trim() === '') {
-			data.dateModified = null;
-		}
-
-
+		const processedData = { ...data };
 
 
 
@@ -49,31 +40,33 @@ export const NewRecipe = () => {
 		ingredientsArray.map((ingredient, index) => {
 			for (let i = 1; i <= 20; i++) {
 				if (ingredient.trim().length > 0 && (i <= ingredientsArray.length)) {
-					data[`strIngredient${index + 1}`] = ingredient;
+					processedData[`strIngredient${index + 1}`] = ingredient;
 				} else {
-					data[`strIngredient${i}`] = "";
+					processedData[`strIngredient${i}`] = "";
 				}
 			}
 		});
-		delete data.ingredients;
+		delete processedData.ingredients;
 
 		const measuresArray = data.measures.split(",").map((ingredient) => ingredient.trim());
 		measuresArray.map((measure, index) => {
 			for (let i = 1; i <= 20; i++) {
 				if (measure.trim().length > 0 && (i <= measuresArray.length)) {
-					data[`strMeasure${index + 1}`] = measure;
+					processedData[`strMeasure${index + 1}`] = measure;
 				} else {
-					data[`strMeasure${i}`] = "";
+					processedData[`strMeasure${i}`] = "";
 				}
 			}
 
 		});
-		delete data.measures
+		delete processedData.measures
 
 
+		processedData.dateModified = new Date().toString();
 
+		reset();
 
-		console.log(data);
+		console.log(processedData);
 
 	}
 
@@ -88,7 +81,6 @@ export const NewRecipe = () => {
 				<label className='form-label' htmlFor='strMeal'>Meal Name :</label>
 				<input
 					className='form-input'
-					required
 					id='strMeal'
 					type='text'
 					{...register('strMeal', { required: true, minLength: 2 })}
@@ -103,7 +95,7 @@ export const NewRecipe = () => {
 					className='form-input'
 					id='strDrinkAlternate'
 					type='text'
-					{...register('strDrinkAlternate')}
+					{...register('strDrinkAlternate', { pattern: /\S+/ })}
 				/>
 
 				<label className='form-label' htmlFor='strCategory'>Meal Category :</label>
@@ -125,7 +117,7 @@ export const NewRecipe = () => {
 					<input
 						className='form-input'
 						type='text'
-						{...register('strCategoryOther', { required: true, minLength: 2 })}
+						{...register('	', { required: true, minLength: 2 })}
 						placeholder='Please enter category...'
 					/>
 				)}
@@ -181,13 +173,13 @@ export const NewRecipe = () => {
 				)}
 
 				<label className='form-label'>Ingredients : </label>
-				<textarea className='form-input' placeholder='Please separate by commos' {...register("ingredients", { required: true, minLength: 1 })} />
+				<textarea className='form-input' placeholder='Please separate by commas' {...register("ingredients", { required: true, minLength: 1 })} />
 				{errors.ingredients && (
 					<span className='input-error'>Ingredients are required</span>
 				)}
 
 				<label className='form-label'>Measures : </label>
-				<textarea className='form-input' placeholder='Please separate by commos' {...register("measures", { required: true, minLength: 1 })} />
+				<textarea className='form-input' placeholder='Please separate by commas' {...register("measures", { required: true, minLength: 1 })} />
 				{errors.measures && (
 					<span className='input-error'>Measures is required</span>
 				)}
@@ -202,13 +194,14 @@ export const NewRecipe = () => {
 				)}
 
 				<label className='form-label' htmlFor="strImageSource">Image source :</label>
-				<input className='form-input' type="text" id='strImageSource' {...register("strImageSource", { pattern: /^https:\/\// })} />
+				<input className='form-input' type="text" id='strImageSource' {...register("strImageSource", { pattern: combinedPattern })} />
 
-				<label className='form-label' htmlFor="strCreativeCommonsConfirmed">Creative Commons :</label>
-				<input className='form-input' type="text" id='strCreativeCommonsConfirmed' {...register("strCreativeCommonsConfirmed")} />
+				<div className='form-checkbox'>
+					<label className='form-label' htmlFor="strCreativeCommonsConfirmed">Creative Commons :</label>
+					<input className='form-checkbox-input' type="checkbox" id='strCreativeCommonsConfirmed' {...register("strCreativeCommonsConfirmed")} />
+				</div>
 
-				<label className='form-label' htmlFor="dateModified">Date Modified :</label>
-				<input className='form-input' type="text" id='dateModified' {...register("dateModified")} />
+
 
 				<button className='form-btn' type='Submit'>Submit</button>
 			</form>
