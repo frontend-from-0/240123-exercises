@@ -15,10 +15,21 @@
 // Calculate the sum of all numbers in the given array.
 const numbersEx1 = [1, 2, 3, 4, 5];
 
+const sumOfNumbers = numbersEx1.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+
+console.log("Exercise 1:", sumOfNumbers);
 
 // Exercise 2:
 // Find the maximum value in the given array. (Hint: Use -Infinity to compare values to)
 const numbersEx2 = [8, 3, 11, 6, 4];
+
+const maxValue = numbersEx2.reduce((accumulator, currentValue) => {
+  return currentValue > accumulator ? currentValue : accumulator;
+}, -Infinity);
+
+console.log("Exercise 2:", maxValue);
 
 // Exercise 3: Explain the code
 // Count the occurrences of each element in the given array and return an object with the counts.
@@ -35,13 +46,17 @@ const elementCounts = elements.reduce((accumulator, currentValue) => {
 }, {});
 
 
-console.log(elementCounts); // Output: { a: 3, b: 2, c: 1 }
+console.log("Exercise 3:", elementCounts); // Output: { a: 3, b: 2, c: 1 }
 
 
 // Exercise 4:
 // Calculate the average of all numbers in the given array.
 const numbersEx4 = [10, 20, 30, 40, 50];
 
+const sum = numbersEx4.reduce((accumulator, currentValue) => {return accumulator + currentValue}, 0);
+const averageOfNumbers = sum / numbersEx4.length;
+
+console.log("Exercise 4:", averageOfNumbers); 
 
 // Exercise 5: Explain the code below
 // Count the number of unique elements in the array.
@@ -55,7 +70,7 @@ const uniqueCount = numbers.reduce((accumulator, currentValue) => {
   return accumulator;
 }, []).length;
 
-console.log(uniqueCount); // Output: 5
+console.log("Exercise 5:", uniqueCount); // Output: 5
 
 
 
