@@ -70,7 +70,25 @@ export const NewRecipe = () => {
 					placeholder='Please enter category...'
 				/>
 			)}
-
+				<label htmlFor='strInstructions'>Instructions</label>
+      <textarea
+        id='strInstructions'
+        {...register('strInstructions', { required: true })}
+        placeholder='Enter instructions...'
+      />
+			<label>Ingredients</label>
+      {Array.from({ length: 20 }).map((_, index) => (
+        <div key={index}>
+          <input
+            type='text'
+            {...register(`strIngredient${index + 1}`, { required: true })}
+            placeholder={`Enter ingredient #${index + 1}...`}
+          />
+          {errors[`strIngredient${index + 1}`] && (
+            <span className='input-error'>Ingredient is required</span>
+          )}
+        </div>
+      ))}
 			<button type='Submit'>Submit</button>
 		</form>
 	);
