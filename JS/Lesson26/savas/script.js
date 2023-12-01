@@ -8,32 +8,18 @@ p (.post-body)
 const URL = 'https://jsonplaceholder.typicode.com/posts';
 
 document.addEventListener("DOMContentLoaded", function() {
-    const getPostsButton = document.getElementById("get-posts");
-    if (getPostsButton) {
-      getPostsButton.addEventListener("click", fetchPosts);
-    }
+    document.getElementById("get-posts").addEventListener("click", fetchPosts);
   
-    const createPostButton = document.getElementById("create-a-post");
-    if (createPostButton) {
-      createPostButton.addEventListener("click", function() {
+    document.getElementById("create-a-post").addEventListener("click", function() {
         window.location.href = "create-a-post.html";
       });
-    }
   
-    const clearPostsButton = document.getElementById("clear-posts");
-    if (clearPostsButton) {
-      clearPostsButton.addEventListener("click", function() {
+    document.getElementById("clear-posts").addEventListener("click", function() {
         const postsContainer = document.getElementById("posts-container");
-        if (postsContainer) {
-          postsContainer.innerHTML = "";
-        }
+        postsContainer.innerHTML = "";
       });
-    }
   
-    const submitButton = document.getElementById("submit");
-    if (submitButton) {
-      submitButton.addEventListener("click", createANewPost);
-    }
+    document.getElementById("submit").addEventListener("click", createANewPost);
   });
 
 //-----------------FUNCTION FOR GET AND EDIT POSTS-----------------
@@ -43,7 +29,6 @@ function fetchPosts() {
     .then(response => response.json())
     .then(json => {
         let posts = "";
-
         json.forEach(element => {
             posts += `<div class="post">
                 <h2 class="post-title"><span>Post ${element.id}</span> - ${element.title}</h2>
@@ -63,8 +48,7 @@ function fetchPosts() {
             });
         });
 
-        const deleteButtons = document.querySelectorAll(".button--danger");
-        deleteButtons.forEach(button => {
+        document.querySelectorAll(".button--danger").forEach(button => {
             button.addEventListener("click", function(event) {
                 const postId = event.target.getAttribute("data-id");
                 deletePost(postId);
