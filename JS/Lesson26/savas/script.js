@@ -8,10 +8,11 @@ p (.post-body)
 const URL = 'https://jsonplaceholder.typicode.com/posts';
 
 document.addEventListener("DOMContentLoaded", function() {
+    
     document.getElementById("get-posts").addEventListener("click", fetchPosts);
   
     document.getElementById("create-a-post").addEventListener("click", function() {
-        window.location.href = "create-a-post.html";
+        window.location.href = "create-post-folder/index.html";
       });
   
     document.getElementById("clear-posts").addEventListener("click", function() {
@@ -28,27 +29,51 @@ function fetchPosts() {
     fetch(URL)
     .then(response => response.json())
     .then(json => {
-        let posts = "";
+
+        const postsContainer = document.getElementById("posts-container");
         json.forEach(element => {
-            posts += `<div class="post">
-                <h2 class="post-title"><span>Post ${element.id}</span> - ${element.title}</h2>
-                <p class="post-body">${element.body}</p>
-                <button class="button--edit" data-id="${element.id}">Edit Post</button>
-                <button class="button--danger" data-id="${element.id}">Delete Post</button>
-            </div>`;
+            
+
+            const postDiv = document.createElement("div");
+            postDiv.classList.add("post");
+
+            const headingOfPost = document.createElement("h2");
+            headingOfPost.classList.add("post-title");
+            headingOfPost.innerHTML = `<span>Post ${element.id}</span> - ${element.title}`;
+
+            const bodyOfPost = document.createElement("p");
+            bodyOfPost.classList.add("post-body");
+            bodyOfPost.textContent = element.body;
+
+            const editPostButton = document.createElement("button");
+            editPostButton.classList.add("button--edit");
+            editPostButton.textContent = "Edit Post";
+            editPostButton.dataset.id = element.id;
+
+            const deletePostButton = document.createElement("button");
+            deletePostButton.classList.add("button--danger");
+            deletePostButton.textContent = "Delete Post";
+            deletePostButton.dataset.id = element.id;
+
+
+            postDiv.appendChild(headingOfPost);
+            postDiv.appendChild(bodyOfPost);
+            postDiv.appendChild(editPostButton);
+            postDiv.appendChild(deletePostButton);
+
+            postsContainer.appendChild(postDiv);
         });
 
-        document.getElementById("posts-container").innerHTML = posts;
+        
 
-        const editButtons = document.querySelectorAll(".button--edit");
-        editButtons.forEach(button => {
+        document.querySelectorAll(".button--edit").forEach(button => {
             button.addEventListener("click", function(event) {
-                const postId = event.target.getAttribute("data-id");
-                window.location.href = "edit-a-post.html?id=" + postId;
+                const postId = event.target.dataset.id;
+                window.location.href = `edit-post-folder/index.html?id=${postId}`;
             });
         });
 
-        document.querySelectorAll(".button--danger").forEach(button => {
+                document.querySelectorAll(".button--danger").forEach(button => {
             button.addEventListener("click", function(event) {
                 const postId = event.target.getAttribute("data-id");
                 deletePost(postId);
@@ -58,29 +83,6 @@ function fetchPosts() {
     .catch(err => console.log(err));
 }
 
-//----------------FUNCTION FOR CREATE A NEW POST----------------
-
-function createANewPost(event) {
-    event.preventDefault();
-
-    const newTitle = document.getElementById("new-title").value;
-    const newBody = document.getElementById("new-body").value;
-
-    fetch(URL, {
-        method: "POST",
-        body: JSON.stringify({
-            title: newTitle,
-            body: newBody,
-            userId: 1
-        }),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
-}
 
 //----------------FUNCTION FOR DELETE A POST----------------
 
