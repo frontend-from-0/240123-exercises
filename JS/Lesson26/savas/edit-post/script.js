@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(err => console.log(err));
 
-    const form = document.getElementById("edit-post-form");
+    const form = document.getElementById("edit-form");
 
     form.addEventListener("submit", function(event) {
         event.preventDefault();

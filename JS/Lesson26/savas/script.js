@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("get-posts").addEventListener("click", fetchPosts);
   
     document.getElementById("create-a-post").addEventListener("click", function() {
-        window.location.href = "create-post-folder/index.html";
+        window.location.href = "create-post/index.html";
       });
   
     document.getElementById("clear-posts").addEventListener("click", function() {
@@ -69,7 +69,7 @@ function fetchPosts() {
         document.querySelectorAll(".button--edit").forEach(button => {
             button.addEventListener("click", function(event) {
                 const postId = event.target.dataset.id;
-                window.location.href = `edit-post-folder/index.html?id=${postId}`;
+                window.location.href = `edit-post/index.html?id=${postId}`;
             });
         });
 
