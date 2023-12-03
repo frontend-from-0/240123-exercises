@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         postsContainer.innerHTML = "";
       });
   
-    document.getElementById("submit").addEventListener("click", createANewPost);
+    //document.getElementById("submit").addEventListener("click", createANewPost);
   });
 
 //-----------------FUNCTION FOR GET AND EDIT POSTS-----------------
