@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Posts</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Posts</h1>
+    <hr>
+    <h3>Edit The Post "<span id="edited-post"></span>"</h3>
+    <div id="form-container" class="posts-container">
+        <form id="edit-form">
+            <label for="edit-title">Title:</label>
+            <input type="text" id="edit-title" name="edit-title" class="new-title">
+            <label for="edit-body">Body:</label>
+            <textarea id="edit-body" name="edit-body" class="new-body"></textarea>
+            <button id="edit-post-form" type="submit" class="button--success">Edit The Post</button>
+            <a href="../index.html" class="button--success">Home Page</a>
+          </form>
+    </div>
+    <div id="posts-container" class="posts-container">
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
