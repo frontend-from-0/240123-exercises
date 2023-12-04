@@ -218,9 +218,6 @@ PersonAge(42); //adult
 PersonAge(78); //senior citizen
 
 // 10. Write a program that takes age as a number and whether they are a student (yes or no). If the age is less than 18 and the user is a student, print "You are a student and not old enough to vote". If the age is between 18 and 65 (inclusive) and the user is not a student, print "You are eligible to vote". If the age is greater than 65, print "You are a senior citizen". If the user is a student but their age is greater than or equal to 18, print "You are old enough to vote".
-
-
-
 function checkVotingEligibility(age, is_student) {
 	if (typeof age === 'number' && typeof is_student === 'boolean') {
 		if (age < 18 && is_student === true) {
