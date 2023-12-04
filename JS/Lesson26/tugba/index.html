@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Posts</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
   <div class="container">
     <h1>Posts</h1>
+    <div class="button-container">
+      <button id="fetch-button" class="button button--success">Show All Posts</button>
+      <button id="clear-button" class="button button--danger">Clear All Posts</button>
+      <a href="./createPost/index.html" class="button button--newpost">Create Post</a>
+    </div>
   </div>
 
+  <ul id="all-posts" class="container"></ul>
   <script src="script.js"></script>
 </body>
+
 </html>

@@ -41,12 +41,16 @@ ul {
 
 .post-body {
   color: #666;
-  margin: 0;
+  margin: 0 0 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .button {
   padding: 10px 20px;
-  
   color: white;
   border: none;
   border-radius: 4px;
@@ -54,6 +58,7 @@ ul {
   cursor: pointer;
   margin-bottom: 20px;
 }
+
 
 .button--success {
   background-color: #4CAF50;
@@ -65,9 +70,28 @@ ul {
 
 
 .button--danger {
-  background-color: #7a0916;
+  background-color: #386aab;
 }
 
 .button--danger:hover {
-  background-color: #79000cf4;
+  background-color: #7197b7f4;
+}
+
+.button--newpost {
+  background-color: #19477a;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button--newpost:hover {
+  background-color: #084080;
+}
+
+.edit-button {
+  background-color: #64abd7;
+  text-decoration: none;
+}
+
+.edit-button:hover {
+  background-color: #3bdfe8;
 }
