@@ -37,8 +37,8 @@ export const App = () => {
 
   // },[recipes, searchResult]);
   
-	return (
-		<div className='container'>
+  return (
+    <div className='container'>
       <SearchBar setRecipes={setRecipes} />
       {/* Conditionally render RecipeDetail if a recipe is selected, otherwise render RecipeList */}
       {selectedRecipe ? (
@@ -47,6 +47,5 @@ export const App = () => {
         <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
       )}
     </div>
-	);
+  );
 };
-

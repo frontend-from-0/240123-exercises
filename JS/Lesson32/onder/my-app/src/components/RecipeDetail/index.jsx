@@ -1,16 +1,11 @@
-import React from 'react';
+import React from "react";
 
-export const RecipeList = ({ recipes, onRecipeClick }) => {
+const RecipeDetail = ({ recipe, onClearSelection }) => {
   return (
     <div>
-      <h2>Search Results</h2>
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id} onClick={() => onRecipeClick(recipe)}>
-            {recipe.strMeal}
-          </li>
-        ))}
-      </ul>
+      <h2>Recipe Details</h2>
+      <p>{recipe.strMeal}</p>
+      <button onClick={onClearSelection}>Go Back to Recipes</button>
     </div>
   );
 };
