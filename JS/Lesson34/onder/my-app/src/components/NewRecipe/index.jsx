@@ -1,95 +1,218 @@
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import './styles.css';
-
-// const useMyHook = () => {
-//   const myData = {id: 'xxxx', name:'Data name'};
-//   const deleteMyData = () => {console.log('Deleting data...')};
-
-//   return [ myData, deleteMyData ];
-// }
 
 export const NewRecipe = () => {
-  // const [data,  setData] = useMyHook();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm();
 
-  // console.log(data);
-  // setData();
-	const {
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm();
+  const [formData, setFormData] = useState(recipeData);
 
-	const strCategory = watch('strCategory');
+  const strCategory = watch('strCategory');
 
-	const onSubmit = (data) => console.log(data);
+  Object.keys(formData).forEach((key) => {
+    setValue(key, formData[key]);
+  });
 
-	return (
-		<form
-			className='new-recipe-form'
-			onSubmit={handleSubmit(onSubmit)}
-			noValidate
-		>
-			<label htmlFor='strMeal'>Meal name</label>
-			<input
-				required
-				id='strMeal'
-				type='text'
-				{...register('strMeal', { required: true })}
-				placeholder='Please enter meal type...'
-			/>
-			{errors.strMeal && (
-				<span className='input-error'>Meal name is required</span>
-			)}
+  const onSubmit = (data) => {
+    const {
+        strMealThumb,
+        strTags,
+        strYoutube,
+        strIngredient1,
+        strIngredient2,
+        strIngredient3,
+        strIngredient4,
+        strIngredient5,
+        strIngredient6,
+        strIngredient7,
+        strIngredient8,
+        strIngredient9,
+        strIngredient10,
+        strIngredient11,
+        strIngredient12,
+        strIngredient13,
+        strIngredient14,
+        strIngredient15,
+        strIngredient16,
+        strIngredient17,
+        strIngredient18,
+        strIngredient19,
+        strIngredient20,
+        strMeasure1,
+        strMeasure2,
+        strMeasure3,
+        strMeasure4,
+        strMeasure5,
+        strMeasure6,
+        strMeasure7,
+        strMeasure8,
+        strMeasure9,
+        strMeasure10,
+        strMeasure11,
+        strMeasure12,
+        strMeasure13,
+        strMeasure14,
+        strMeasure15,
+        strMeasure16,
+        strMeasure17,
+        strMeasure18,
+        strMeasure19,
+        strMeasure20,
+        strSource,
+        strImageSource,
+        strCreativeCommonsConfirmed,
+    } = data;
 
-			<label htmlFor='strDrinkAlternate'>Drink alternate</label>
-			<input
-				id='strDrinkAlternate'
-				type='text'
-				{...register('strDrinkAlternate')}
-			/>
+    setFormData((prevData) => ({
+      ...prevData,
+      strMealThumb,
+      strTags,
+      strYoutube,
+      strIngredient1,
+      strIngredient2,
+      strIngredient3,
+      strIngredient4,
+      strIngredient5,
+      strIngredient6,
+      strIngredient7,
+      strIngredient8,
+      strIngredient9,
+      strIngredient10,
+      strIngredient11,
+      strIngredient12,
+      strIngredient13,
+      strIngredient14,
+      strIngredient15,
+      strIngredient16,
+      strIngredient17,
+      strIngredient18,
+      strIngredient19,
+      strIngredient20,
+      strMeasure1,
+      strMeasure2,
+      strMeasure3,
+      strMeasure4,
+      strMeasure5,
+      strMeasure6,
+      strMeasure7,
+      strMeasure8,
+      strMeasure9,
+      strMeasure10,
+      strMeasure11,
+      strMeasure12,
+      strMeasure13,
+      strMeasure14,
+      strMeasure15,
+      strMeasure16,
+      strMeasure17,
+      strMeasure18,
+      strMeasure19,
+      strMeasure20,
+      strSource,
+      strImageSource,
+      strCreativeCommonsConfirmed,
+    }));
 
-			<label htmlFor='strCategory'> Meal category</label>
-			<select
-				id='strCategory'
-				{...register('strCategory', { required: true, minLength: 1 })}
-			>
-				<option value=''>Select category</option>
-				<option value='Side'>Side</option>
-				<option value='Main'>Main</option>
-				<option value='Dessert'>Dessert</option>
-				<option value='Other'>Other</option>
-			</select>
-			{errors.strCategory && (
-				<span className='input-error'>Category is required</span>
-			)}
-			{strCategory === 'Other' && (
-				<input
-					type='text'
-					{...register('strCategoryOther', { required: true, minLength: 3 })}
-					placeholder='Please enter category...'
-				/>
-			)}
-				<label htmlFor='strInstructions'>Instructions</label>
-      <textarea
-        id='strInstructions'
-        {...register('strInstructions', { required: true })}
-        placeholder='Enter instructions...'
+    console.log(data);
+  };
+
+  return (
+    <form className='new-recipe-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+      <label htmlFor='strMeal'>Meal name</label>
+      <input
+        required
+        id='strMeal'
+        type='text'
+        {...register('strMeal', { required: true })}
+        placeholder='Please enter meal type...'
       />
-			<label>Ingredients</label>
-      {Array.from({ length: 20 }).map((_, index) => (
-        <div key={index}>
-          <input
-            type='text'
-            {...register(`strIngredient${index + 1}`, { required: true })}
-            placeholder={`Enter ingredient #${index + 1}...`}
-          />
-          {errors[`strIngredient${index + 1}`] && (
-            <span className='input-error'>Ingredient is required</span>
-          )}
-        </div>
-      ))}
-			<button type='Submit'>Submit</button>
-		</form>
-	);
+      {errors.strMeal && (
+        <span className='input-error'>Meal name is required</span>
+      )}
+
+      <label htmlFor='strDrinkAlternate'>Drink alternate</label>
+      <input
+        id='strDrinkAlternate'
+        type='text'
+        {...register('strDrinkAlternate')}
+      />
+
+      <label htmlFor='strCategory'> Meal category</label>
+      <select
+        id='strCategory'
+        {...register('strCategory', { required: true, minLength: 1 })}
+      >
+        <option value=''>Select category</option>
+        <option value='Side'>Side</option>
+        <option value='Main'>Main</option>
+        <option value='Dessert'>Dessert</option>
+        <option value='Other'>Other</option>
+      </select>
+      {errors.strCategory && (
+        <span className='input-error'>Category is required</span>
+      )}
+      {strCategory === 'Other' && (
+        <input
+          type='text'
+          {...register('strCategoryOther', { required: true, minLength: 3 })}
+          placeholder='Please enter category...'
+        />
+      )}
+
+      <label htmlFor='strMealThumb'>Meal Thumbnail URL</label>
+      <input
+        id='strMealThumb'
+        type='text'
+        {...register('strMealThumb')}
+        placeholder='https://www.themealdb.com\/images\/media\/meals\/58oia61564916529.jpg'
+      />
+
+      <label htmlFor='strTags'>Tags</label>
+      <input
+        id='strTags'
+        type='text'
+        {...register('strTags')}
+        placeholder='Soup'
+      />
+
+      <label htmlFor='strYoutube'>YouTube Link</label>
+      <input
+        id='strYoutube'
+        type='text'
+        {...register('strYoutube')}
+        placeholder='https://www.youtube.com\/watch?v=VVnZd8A84z4'
+      />
+
+      <label htmlFor='strSource'>Recipe Source</label>
+      <input
+        id='strSource'
+        type='text'
+        {...register('strSource')}
+        placeholder='https://findingtimeforcooking.com\/main-dishes\/red-lentil-soup-corba/"'
+      />
+
+      <label htmlFor='strImageSource'>Image Source</label>
+      <input
+        id='strImageSource'
+        type='text'
+        {...register('strImageSource')}
+        placeholder='null'
+      />
+
+      <label htmlFor='strCreativeCommonsConfirmed'>Creative Commons Confirmation</label>
+      <input
+        id='strCreativeCommonsConfirmed'
+        type='text'
+        {...register('strCreativeCommonsConfirmed')}
+        placeholder='Enter Creative Commons confirmation...'
+      />
+
+      <button type='submit'>Submit</button>
+    </form>
+  );
 };
