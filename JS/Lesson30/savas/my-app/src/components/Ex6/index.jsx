@@ -5,10 +5,10 @@ export const Ex6 = () => {
 
     function handleClick (event) {
         event.preventDefault();
-        console.log("Button Clicked!")
+        console.log("Link Clicked!")
     }
 
     return (
-        <button onClick={handleClick}>Prevent Default</button>
+        <a href="#" onClick={handleClick}>Prevent Default</a>
     )
 };

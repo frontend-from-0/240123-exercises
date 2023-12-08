@@ -8,6 +8,7 @@ export const Ex10 = () => {
     }
 
     return (
-        <button onDoubleClick={handleDoubleClick}>Prevent Default</button>
+        <button onDoubleClick={handleDoubleClick}>Double Click Button</button>
     )
 };
+
