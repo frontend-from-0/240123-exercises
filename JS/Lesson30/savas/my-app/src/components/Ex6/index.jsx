@@ -9,6 +9,6 @@ export const Ex6 = () => {
     }
 
     return (
-        <a href="#" onClick={handleClick}>Prevent Default</a>
+        <a href='https://https://google.com' onClick={handleClick}>Link to Google</a>
     )
 };
