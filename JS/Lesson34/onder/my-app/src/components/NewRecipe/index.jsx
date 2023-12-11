@@ -19,107 +19,29 @@ export const NewRecipe = () => {
   });
 
   const onSubmit = (data) => {
-    const {
-        strMealThumb,
-        strTags,
-        strYoutube,
-        strIngredient1,
-        strIngredient2,
-        strIngredient3,
-        strIngredient4,
-        strIngredient5,
-        strIngredient6,
-        strIngredient7,
-        strIngredient8,
-        strIngredient9,
-        strIngredient10,
-        strIngredient11,
-        strIngredient12,
-        strIngredient13,
-        strIngredient14,
-        strIngredient15,
-        strIngredient16,
-        strIngredient17,
-        strIngredient18,
-        strIngredient19,
-        strIngredient20,
-        strMeasure1,
-        strMeasure2,
-        strMeasure3,
-        strMeasure4,
-        strMeasure5,
-        strMeasure6,
-        strMeasure7,
-        strMeasure8,
-        strMeasure9,
-        strMeasure10,
-        strMeasure11,
-        strMeasure12,
-        strMeasure13,
-        strMeasure14,
-        strMeasure15,
-        strMeasure16,
-        strMeasure17,
-        strMeasure18,
-        strMeasure19,
-        strMeasure20,
-        strSource,
-        strImageSource,
-        strCreativeCommonsConfirmed,
-    } = data;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      strMealThumb,
-      strTags,
-      strYoutube,
-      strIngredient1,
-      strIngredient2,
-      strIngredient3,
-      strIngredient4,
-      strIngredient5,
-      strIngredient6,
-      strIngredient7,
-      strIngredient8,
-      strIngredient9,
-      strIngredient10,
-      strIngredient11,
-      strIngredient12,
-      strIngredient13,
-      strIngredient14,
-      strIngredient15,
-      strIngredient16,
-      strIngredient17,
-      strIngredient18,
-      strIngredient19,
-      strIngredient20,
-      strMeasure1,
-      strMeasure2,
-      strMeasure3,
-      strMeasure4,
-      strMeasure5,
-      strMeasure6,
-      strMeasure7,
-      strMeasure8,
-      strMeasure9,
-      strMeasure10,
-      strMeasure11,
-      strMeasure12,
-      strMeasure13,
-      strMeasure14,
-      strMeasure15,
-      strMeasure16,
-      strMeasure17,
-      strMeasure18,
-      strMeasure19,
-      strMeasure20,
-      strSource,
-      strImageSource,
-      strCreativeCommonsConfirmed,
-    }));
+    Object.keys(data).forEach((key) => {
+      setFormData((prevData) => ({
+        ...prevData,
+        [key]: data[key],
+      }));
+    });
 
     console.log(data);
   };
+
+  const inputFields = [
+    'strMeal',
+    'strDrinkAlternate',
+    'strCategory',
+    'strMealThumb',
+    'strTags',
+    'strYoutube',
+    'strSource',
+    'strImageSource',
+    'strCreativeCommonsConfirmed',
+  ]
+
+};
 
   return (
     <form className='new-recipe-form' onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -133,7 +55,7 @@ export const NewRecipe = () => {
       />
       {errors.strMeal && (
         <span className='input-error'>Meal name is required</span>
-      )}
+	  )}
 
       <label htmlFor='strDrinkAlternate'>Drink alternate</label>
       <input
@@ -215,4 +137,3 @@ export const NewRecipe = () => {
       <button type='submit'>Submit</button>
     </form>
   );
-};
