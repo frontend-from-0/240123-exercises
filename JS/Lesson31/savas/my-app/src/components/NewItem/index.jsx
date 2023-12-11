@@ -15,18 +15,16 @@ export const NewItem = ({ handleNewTodo }) => {
     };
   
     return (
-      <>
-        <form className="form" onSubmit={handleSubmit}>
-          <input
+      <form className="form" onSubmit={handleSubmit}>
+        <input
             value={item}
             onChange={handleInputChange}
             type="text"
-          />
-          <button type="submit">
+        />
+        <button type="submit">
             Add new task
-          </button>
+        </button>
           <hr />
-        </form>
-      </>
+      </form>
     );
   };
