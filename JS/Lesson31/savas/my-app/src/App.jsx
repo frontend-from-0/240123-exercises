@@ -19,6 +19,8 @@ export const App = () => {
     <TodoContext.Provider value={loggedInUser}>
       <div className="app">
         <Navbar />
+        <h1>TODO LIST</h1>
+        <h3>Write a new task:</h3>
         <List />
         <PerformanceState completedTodos={'x'} totalTodos={'x'} />
       </div>
