@@ -1,6 +1,7 @@
 import './styles.css';
 import {ListItem} from '../ListItem';
 import {useState} from 'react';
+import { NewItem } from '../NewItem';
 
 export const List = () => {
   const data = [
@@ -19,13 +20,39 @@ export const List = () => {
     setTodoItems(prevList => prevList.filter(prevItem => prevItem.id !== id));
   }
 
+  function handleCompleted(id) {
+	  setTodoItems((prevList) =>
+		prevList.map((prevItem) => {
+		  if (prevItem.id === id) {
+			return { ...prevItem, completed: !prevItem.completed };
+		  }
+		  return prevItem;
+		}));
+  }
+
+  const addItem = (newItem) => {
+    const newId = Math.max(...todoItems.map((item) => item.id)) * 100;
+    const updatedItems = [...todoItems, { id: newId, title: newItem }];
+    setTodoItems(updatedItems);
+  };
+
 return (
-  <ul className='todo-list'>
-      {
-        todoItems.map(
-          listItem => <ListItem handleDelete={handleDelete} key={listItem.id} id={listItem.id} title={listItem.title} />
+  <div>
+      <NewItem handleNewTodo={addItem} />{" "}
+      <ul className='todo-list'>
+        {todoItems.map((listItem) => (
+          <ListItem
+            key={listItem.id}
+            id={listItem.id}
+            title={listItem.title}
+            handleDelete={handleDelete}
+            handleCompleted={handleCompleted}
+            completed={listItem.completed}
+          />
+          )
         )
-      }
-  </ul>
-)
+        }</ul>
+        <hr />
+  </div>
+);
 };
