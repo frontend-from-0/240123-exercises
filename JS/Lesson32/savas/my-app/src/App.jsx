@@ -38,7 +38,7 @@ export const App = () => {
 	return (
 		<div className='container'>
       <SearchBar setRecipes={setRecipes} />
-      <div className='content'>
+      <div className='sub-container'>
         <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
         {selectedRecipe && <RecipeDetail recipe={selectedRecipe} />}
       </div>
