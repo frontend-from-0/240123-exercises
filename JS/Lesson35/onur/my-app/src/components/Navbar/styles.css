@@ -1,0 +1,29 @@
+nav {
+  border: 1px solid rgb(66, 155, 150, 0.4);
+  box-shadow: 0px 2px 3px rgb(66, 155, 150, 0.4);
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-right {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+nav ul .nav-link a {
+  color: #fff;
+}
+nav ul .nav-link {
+  display: inline-block;
+  background-color: #429b96;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+nav ul .nav-link:hover {
+  background-color: #358f8a;
+}

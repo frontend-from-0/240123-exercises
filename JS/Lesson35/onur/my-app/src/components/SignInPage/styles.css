@@ -1,0 +1,16 @@
+.btn {
+  display: block;
+  width: 200px;
+  margin: 0.5rem auto;
+  padding: 7px;
+  font-size: inherit;
+  border: none;
+  border-radius: 5px;
+}
+.sign-in {
+  background-color: #3dc722;
+  color: #fff;
+}
+.sign-in:hover {
+  background-color: #2fbd13;
+}
