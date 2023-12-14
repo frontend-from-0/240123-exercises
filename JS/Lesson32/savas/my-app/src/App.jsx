@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import {BD_SEARCH_BASE_URL} from './urls.js';
 import {RecipeList} from './components/RecipeList';
 import {SearchBar} from './components/SearchBar';
+import { RecipeDetail } from './components/RecipeDetail';
 
 export const App = () => {
   // 1. Fetch recipes data from an API (Get request, API key, useState to store data, useEffect)
@@ -10,6 +11,7 @@ export const App = () => {
   // 3. Search recipe (A new component SearchBar with a <form> element, text input, and submit functionality)
 
 	const [recipes, setRecipes] = useState([]);
+  
     // If you want to keep both initial recipes and recipes from search  on the screen at the same time use code below:
   // const [searchResult, setSearchResult] = useState([]);
 
@@ -28,11 +30,18 @@ export const App = () => {
   //   });
 
   // },[recipes, searchResult]);
-  
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const handleRecipeClick = (recipe) => {
+  setSelectedRecipe(recipe);
+}
+
 	return (
 		<div className='container'>
-      <SearchBar setRecipes={setRecipes}/>
-      <RecipeList recipes={recipes} />
+      <SearchBar setRecipes={setRecipes} />
+      <div className='sub-container'>
+        <RecipeList recipes={recipes} onRecipeClick={handleRecipeClick} />
+        {selectedRecipe && <RecipeDetail recipe={selectedRecipe} />}
+      </div>
 		</div>
 	);
 };
