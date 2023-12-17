@@ -4,6 +4,13 @@ import { RecipeList } from './components/RecipeList';
 import { SearchBar } from './components/SearchBar';
 import { RecipeDetail } from './components/RecipeDetail';
 
+import {BD_SEARCH_BASE_URL} from './urls.js';
+import {RecipeList} from './components/RecipeList';
+import {SearchBar} from './components/SearchBar';
+import { RecipeDetail } from './components/RecipeDetail';
+
+
+
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
@@ -35,7 +42,7 @@ export const App = () => {
   //   });
 
   // },[recipes, searchResult]);
-  
+
   return (
     <div className='container'>
       <SearchBar setRecipes={setRecipes} />
