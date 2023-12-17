@@ -1,6 +1,6 @@
 import React from "react";
 
-const RecipeDetail = ({ recipe, onClearSelection }) => {
+export const RecipeDetail = ({ recipe, onClearSelection }) => {
   return (
     <div>
       <h2>Recipe Details</h2>
