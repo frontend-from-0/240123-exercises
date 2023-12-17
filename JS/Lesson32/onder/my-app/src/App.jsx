@@ -1,4 +1,4 @@
-
+import './App.css';
 import { useEffect, useState } from 'react';
 import { BD_SEARCH_BASE_URL } from './urls.js';
 import { RecipeList } from './components/RecipeList';
