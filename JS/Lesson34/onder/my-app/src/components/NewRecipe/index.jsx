@@ -1,50 +1,31 @@
-import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import './styles.css';
 
 export const NewRecipe = () => {
   const {
     register,
     handleSubmit,
     watch,
-    setValue,
     formState: { errors },
-  } = useForm();
-
-  const [formData, setFormData] = useState(recipeData);
+  } = useForm({
+    defaultValues: {
+      strMeal: '', // Set your initial value for strMeal here
+      strDrinkAlternate: '', // Set your initial value for strDrinkAlternate here
+      strCategory: '', // Set your initial value for strCategory here
+      strCategoryOther: '', // Set your initial value for strCategoryOther here
+    },
+  });
 
   const strCategory = watch('strCategory');
 
-  Object.keys(formData).forEach((key) => {
-    setValue(key, formData[key]);
-  });
-
-  const onSubmit = (data) => {
-    Object.keys(data).forEach((key) => {
-      setFormData((prevData) => ({
-        ...prevData,
-        [key]: data[key],
-      }));
-    });
-
-    console.log(data);
-  };
-
-  const inputFields = [
-    'strMeal',
-    'strDrinkAlternate',
-    'strCategory',
-    'strMealThumb',
-    'strTags',
-    'strYoutube',
-    'strSource',
-    'strImageSource',
-    'strCreativeCommonsConfirmed',
-  ]
-
-};
+  const onSubmit = (data) => console.log(data);
 
   return (
-    <form className='new-recipe-form' onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form
+      className='new-recipe-form'
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+    >
       <label htmlFor='strMeal'>Meal name</label>
       <input
         required
@@ -55,7 +36,7 @@ export const NewRecipe = () => {
       />
       {errors.strMeal && (
         <span className='input-error'>Meal name is required</span>
-	  )}
+      )}
 
       <label htmlFor='strDrinkAlternate'>Drink alternate</label>
       <input
@@ -64,7 +45,7 @@ export const NewRecipe = () => {
         {...register('strDrinkAlternate')}
       />
 
-      <label htmlFor='strCategory'> Meal category</label>
+      <label htmlFor='strCategory'>Meal category</label>
       <select
         id='strCategory'
         {...register('strCategory', { required: true, minLength: 1 })}
@@ -86,54 +67,7 @@ export const NewRecipe = () => {
         />
       )}
 
-      <label htmlFor='strMealThumb'>Meal Thumbnail URL</label>
-      <input
-        id='strMealThumb'
-        type='text'
-        {...register('strMealThumb')}
-        placeholder='https://www.themealdb.com\/images\/media\/meals\/58oia61564916529.jpg'
-      />
-
-      <label htmlFor='strTags'>Tags</label>
-      <input
-        id='strTags'
-        type='text'
-        {...register('strTags')}
-        placeholder='Soup'
-      />
-
-      <label htmlFor='strYoutube'>YouTube Link</label>
-      <input
-        id='strYoutube'
-        type='text'
-        {...register('strYoutube')}
-        placeholder='https://www.youtube.com\/watch?v=VVnZd8A84z4'
-      />
-
-      <label htmlFor='strSource'>Recipe Source</label>
-      <input
-        id='strSource'
-        type='text'
-        {...register('strSource')}
-        placeholder='https://findingtimeforcooking.com\/main-dishes\/red-lentil-soup-corba/"'
-      />
-
-      <label htmlFor='strImageSource'>Image Source</label>
-      <input
-        id='strImageSource'
-        type='text'
-        {...register('strImageSource')}
-        placeholder='null'
-      />
-
-      <label htmlFor='strCreativeCommonsConfirmed'>Creative Commons Confirmation</label>
-      <input
-        id='strCreativeCommonsConfirmed'
-        type='text'
-        {...register('strCreativeCommonsConfirmed')}
-        placeholder='Enter Creative Commons confirmation...'
-      />
-
-      <button type='submit'>Submit</button>
+      <button type='Submit'>Submit</button>
     </form>
   );
+};
