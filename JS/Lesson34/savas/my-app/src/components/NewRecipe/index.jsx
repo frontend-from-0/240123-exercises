@@ -46,7 +46,8 @@ export const NewRecipe = () => {
         data[`strMeasure${i + 1}`] = "";
       }
     }
-    console.log(data);
+    const { strIngredient, strMeasure, ...cleanData } = data;
+    console.log(cleanData);
   };
 
   return (
