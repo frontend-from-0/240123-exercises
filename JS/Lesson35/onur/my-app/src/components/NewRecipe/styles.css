@@ -1,10 +1,50 @@
 .new-recipe-form {
   margin: 20px auto;
-  max-width: 680px;
+  max-width: 600px;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-form-bg);
   display: flex;
   flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-btn {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--btn-radius);
+  background-color: var(--color-form-btn);
+  color: var(--color-link-text);
+}
+
+.form-btn:hover {
+  background-color: var(--color-form-btnHover);
+}
+
+.form-input {
+  font-size: 1rem;
+  padding: 7px;
+}
+.form-input:focus {
+  outline: 0;
+  border: 1px solid var(--color-input-focus);
+}
+.form-label {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .input-error {
   color: #ff0000;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-checkbox-input {
+  width: 2rem;
+  height: 2rem;
 }

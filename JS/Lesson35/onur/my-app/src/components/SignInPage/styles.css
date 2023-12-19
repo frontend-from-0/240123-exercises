@@ -1,0 +1,16 @@
+.btn {
+  display: block;
+  width: 200px;
+  margin: 0.5rem auto;
+  padding: 7px;
+  font-size: inherit;
+  border: none;
+  border-radius: var(--btn-radius);
+}
+.sign-in {
+  background-color: var(--color-form-btn);
+  color: var(--color-link-text);
+}
+.sign-in:hover {
+  background-color: var(--color-form-btnHover);
+}

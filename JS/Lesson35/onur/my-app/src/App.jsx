@@ -1,7 +1,8 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { BD_SEARCH_BASE_URL } from './urls.js';
-import {AppRouter} from './AppRouter.jsx';
+import { AppRouter } from './AppRouter.jsx';
+import { Navbar } from './components/Navbar'
 
 export const App = () => {
 	// 1. Fetch recipes data from an API (Get request, API key, useState to store data, useEffect)
@@ -31,8 +32,10 @@ export const App = () => {
 	return (
 		<div className='container'>
 
-      <AppRouter recipes={recipes} setRecipes={setRecipes} />
-			
+			<Navbar />
+
+			<AppRouter recipes={recipes} setRecipes={setRecipes} />
+
 		</div>
 	);
 };

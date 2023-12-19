@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import './styles.css'
 
 export const RecipeList = ({ recipes }) => {
 	return (
-		<div>
-			<h2>Search Results</h2>
+		<div className='recipe-list-container'>
+			<h2>Recipes</h2>
 			<ul>
 				{recipes.map((recipe) => {
 					return (
