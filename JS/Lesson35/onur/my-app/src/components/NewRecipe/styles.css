@@ -2,8 +2,8 @@
   margin: 20px auto;
   max-width: 600px;
   padding: 1rem;
-  border-radius: 10px;
-  background-color: #acb4af;
+  border-radius: var(--border-radius);
+  background-color: var(--color-form-bg);
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -13,13 +13,13 @@
   padding: 10px;
   font-size: 1rem;
   border: none;
-  border-radius: 4px;
-  background-color: #3dc722;
-  color: #fff;
+  border-radius: var(--btn-radius);
+  background-color: var(--color-form-btn);
+  color: var(--color-link-text);
 }
 
 .form-btn:hover {
-  background-color: #2fbd13;
+  background-color: var(--color-form-btnHover);
 }
 
 .form-input {
@@ -28,7 +28,7 @@
 }
 .form-input:focus {
   outline: 0;
-  border: 1px solid #7eb6b8;
+  border: 1px solid var(--color-input-focus);
 }
 .form-label {
   font-size: 1rem;

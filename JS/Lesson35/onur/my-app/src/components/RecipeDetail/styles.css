@@ -10,6 +10,6 @@
   text-align: center;
 }
 .detail-left img {
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin-bottom: 1rem;
 }

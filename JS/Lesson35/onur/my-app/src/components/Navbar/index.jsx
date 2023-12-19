@@ -6,7 +6,7 @@ export const Navbar = () => {
     return (
         <nav>
             <ul>
-                <div><li className='nav-link'><NavLink to='/'>Go Home Page</NavLink></li></div>
+                <div><li className='nav-link'><NavLink to='/'>Go to Home Page</NavLink></li></div>
                 <div className='nav-right'>
                     <li className='nav-link '><NavLink to='/recipes/new'>New Recipe Form</NavLink></li>
                     <li className='nav-link'><NavLink to='/signInPage'>Sign In</NavLink></li>

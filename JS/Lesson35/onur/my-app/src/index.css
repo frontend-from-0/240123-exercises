@@ -2,10 +2,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-bg1: #4d7196;
+  --color-bg2: #ced1d3;
+  --color-link-text: #fff;
+  --color-link-bg: #429b96;
+  --color-linkHover-bg: #358f8a;
+  --color-form-bg: #acb4af;
+  --color-input-focus: #7eb6b8;
+  --color-form-btn: #3dc722;
+  --color-form-btnHover: #2fbd13;
+  --color-text-darker: #191818;
+  --border-radius: 10px;
+  --btn-radius: 5px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,8 +30,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-
