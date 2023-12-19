@@ -1,39 +1,33 @@
-import { RecipeList } from './components/RecipeList';
-import { SearchBar } from './components/SearchBar';
-import { NewRecipe } from './components/NewRecipe';
-import {UserPage} from './components/UserPage';
-import { RecipeDetail } from './components/RecipeDetail';
-import { Routes, Route } from 'react-router-dom';
+import "./AppRouter.css";
+import { RecipeList } from "./components/RecipeList";
+import { SearchBar } from "./components/SearchBar";
+import { RecipeDetail } from "./components/RecipeDetail";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home/Home.jsx";
+import { NewRecipe } from "./components/NewRecipe/index.jsx";
+import SignIn from "./components/SignIn/SignIn.jsx";
+import SignUp from "./components/SignUp/SignUp.jsx";
+import { UserPage } from "./components/UserPage/index.jsx";
 
 export const AppRouter = ({ recipes, setRecipes }) => {
-	return (
-		<Routes>
-			<Route
-				path='/user'
-				element={<UserPage />}
-			/>
-
-			<Route path='/about' element={<div>About page</div>} />
-			<Route path='/recipes' >
-				<Route path='new' element={<NewRecipe />} />
-				<Route path=':id' element={<RecipeDetail />} />
-				<Route
-					path=':id/edit'
-					element={<div>Example Edit Recipe component</div>}
-				/>
-        {/* Using 'index' parameter allow you to set a default component that should be displayed when /recipes url is being visited */}
-        <Route index element={<div>Recipes routes</div>}></Route>
-			</Route>
-
-			<Route
-				path='/'
-				element={
-					<>
-						<SearchBar setRecipes={setRecipes} />
-						<RecipeList recipes={recipes} />
-					</>
-				}
-			/>
-		</Routes>
-	);
+  return (
+    <Routes>
+      <Route path="/home" element={<Home />} />
+      <Route path="/newrecipe" element={<NewRecipe />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/settings" element={<UserPage />} />
+      <Route
+        className="left-bar"
+        path="/"
+        element={
+          <>
+            <SearchBar setRecipes={setRecipes} className="search-bar" />
+            <RecipeList recipes={recipes} className="recipe-list" />
+          </>
+        }
+      />
+      <Route path="/recipedetails" element={<RecipeDetail />} />
+    </Routes>
+  );
 };
