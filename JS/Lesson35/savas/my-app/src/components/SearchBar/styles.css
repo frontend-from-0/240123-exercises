@@ -1,10 +1,10 @@
 .form {
     background-color: brown;
-    display:inline-flex;
-    height: 50px;
+    height: 70px;
     border-radius: 10px;
     padding: 10px;
     margin: 5px;
+    display: flex;
 }
 
 .form__input {
@@ -13,6 +13,7 @@
     margin-right: 5px;
     height: 2rem;
     padding: 10px;
+    align-self: center;
 }
 
 .form__button {
@@ -23,7 +24,6 @@
     border-radius: 5px;
     margin-right: 5px;
     height: 2rem;
-    padding: 10px;
 }
 
 .form__button:hover {

@@ -24,10 +24,12 @@
     color: white;
 }
 
-.results-item {
-    padding: 2px;
-}
-.results-item:hover {
+.results-item-link:hover {
     border-radius: 5px;
     background-color: rgb(232, 148, 148);
+    padding: 0 10px;
+}
+
+.results-item {
+    padding: 2px;
 }
