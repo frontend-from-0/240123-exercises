@@ -13,18 +13,17 @@ export const AppRouter = ({ recipes, setRecipes }) => {
   return (
     <Routes>
       <Route path="/home" element={<Home />} />
-      <Route path="/newrecipe" element={<NewRecipe />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/new-recipe" element={<NewRecipe />} />
+      <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/sign-up" element={<SignUp />} />
       <Route path="/settings" element={<UserPage />} />
       <Route
-        className="left-bar"
         path="/"
         element={
-          <>
-            <SearchBar setRecipes={setRecipes} className="search-bar" />
-            <RecipeList recipes={recipes} className="recipe-list" />
-          </>
+          <div className="left-bar">
+            <SearchBar setRecipes={setRecipes} />
+            <RecipeList recipes={recipes} />
+          </div>
         }
       />
       <Route path="/recipedetails" element={<RecipeDetail />} />

@@ -1,8 +1,16 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-export const RecipeDetail = () => {
-  let { id } = useParams();
+export const RecipeDetail = (id) => {
+  const [recipe, setRecipe] = useState();
 
-  return <div>recipe detail: {id}</div>;
+  useEffect(() => {
+    if (id) {
+      fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+        .then((response) => response.json())
+        .then((data) => setRecipe(data.meals[0]));
+    }
+  }, [id]);
+
+  return <div>Recipe Detail: {recipe}</div>;
 };
