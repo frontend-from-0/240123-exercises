@@ -9,16 +9,27 @@ export const NewRecipe = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      strMeal: '', // Set your initial value for strMeal here
-      strDrinkAlternate: '', // Set your initial value for strDrinkAlternate here
-      strCategory: '', // Set your initial value for strCategory here
-      strCategoryOther: '', // Set your initial value for strCategoryOther here
+      strMeal: '',
+      strDrinkAlternate: '',
+      strCategory: '',
+      strCategoryOther: '',
+      strInstructions: '', 
+      strIngredientsAndMeasurements: '',
     },
   });
 
   const strCategory = watch('strCategory');
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+   
+    const ingredientsAndMeasurements = data.strIngredientsAndMeasurements.split(',').map(item => item.trim());
+
+    
+    console.log({
+      ...data,
+      ingredientsAndMeasurements,
+    });
+  };
 
   return (
     <form
@@ -28,7 +39,6 @@ export const NewRecipe = () => {
     >
       <label htmlFor='strMeal'>Meal name</label>
       <input
-        required
         id='strMeal'
         type='text'
         {...register('strMeal', { required: true })}
@@ -48,7 +58,7 @@ export const NewRecipe = () => {
       <label htmlFor='strCategory'>Meal category</label>
       <select
         id='strCategory'
-        {...register('strCategory', { required: true, minLength: 1 })}
+        {...register('strCategory', { required: true, })}
       >
         <option value=''>Select category</option>
         <option value='Side'>Side</option>
@@ -67,7 +77,22 @@ export const NewRecipe = () => {
         />
       )}
 
-      <button type='Submit'>Submit</button>
+      
+      <label htmlFor='strInstructions'>Instructions</label>
+      <textarea
+        id='strInstructions'
+        {...register('strInstructions')}
+        placeholder='Enter cooking instructions...'
+      />
+
+      <label htmlFor='strIngredientsAndMeasurements'>Ingredients and Measurements</label>
+      <textarea
+        id='strIngredientsAndMeasurements'
+        {...register('strIngredientsAndMeasurements')}
+        placeholder='e.g., Flour - 1dl, milk - 2dl, butter - 100g'
+      />
+
+      <button type='submit'>Submit</button>
     </form>
   );
 };
