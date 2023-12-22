@@ -1,7 +1,9 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export const RecipeDetail = (id) => {
+export const RecipeDetail = () => {
+  const { id } = useParams();
   const [recipe, setRecipe] = useState();
 
   useEffect(() => {
@@ -12,5 +14,9 @@ export const RecipeDetail = (id) => {
     }
   }, [id]);
 
-  return <div>Recipe Detail: {recipe}</div>;
+  return recipe ? (
+    <div>Recipe Detail: {recipe.strMeal}</div>
+  ) : (
+    <div>Loading...</div>
+  );
 };

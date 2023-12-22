@@ -26,7 +26,7 @@ export const AppRouter = ({ recipes, setRecipes }) => {
           </div>
         }
       />
-      <Route path="/recipedetails" element={<RecipeDetail />} />
+      <Route path="/recipes/:id" element={<RecipeDetail />} />
     </Routes>
   );
 };
