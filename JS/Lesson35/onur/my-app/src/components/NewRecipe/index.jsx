@@ -69,7 +69,7 @@ export const NewRecipe = () => {
 	return (
 		<StyledBox>
 			<Box sx={{ margin: '30px auto', maxWidth: '100%', '&:hover': { color: 'primary.light' } }}>
-				<Typography gutterBottom textAlign='center' variant="h4">Enter a new recipe</Typography>
+				<Typography gutterBottom textAlign='center' variant="h4">Add a new recipe</Typography>
 				<form onSubmit={handleSubmit(onSubmit)} noValidate>
 					<Stack spacing={2} sx={{ width: { xs: '250px', sm: '500px' } }}>
 
@@ -241,7 +241,7 @@ export const NewRecipe = () => {
 								<Checkbox {...register('strCreativeCommonsConfirmed')} />}
 						/>
 
-						<Button sx={{ backgroundColor: 'primary.light', '&:hover': { backgroundColor: 'primary.main' } }} type='submit' variant="contained" color="success"  >Login</Button>
+						<Button sx={{ backgroundColor: 'primary.light', '&:hover': { backgroundColor: 'primary.main' } }} type='submit' variant="contained" color="success"  >ADD</Button>
 					</Stack>
 				</form>
 			</Box>
