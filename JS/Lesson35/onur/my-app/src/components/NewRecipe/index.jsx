@@ -41,6 +41,7 @@ export const NewRecipe = () => {
 					processedData[`strIngredient${i}`] = "";
 				}
 			}
+			return null;
 		});
 		delete processedData.ingredients;
 
@@ -53,7 +54,7 @@ export const NewRecipe = () => {
 					processedData[`strMeasure${i}`] = "";
 				}
 			}
-
+			return null;
 		});
 		delete processedData.measures
 
