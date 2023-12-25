@@ -1,46 +1,126 @@
-import './styles.css'
+import { StyledBox } from "../SignInPage";
+import { useForm } from 'react-hook-form';
+import { Box, Button, MenuItem, Stack, TextField, Typography } from "@mui/material";
 
 export const SignUpPage = () => {
+
+    const form = useForm({
+        defaultValues: {
+            name: { firstName: '', lastName: '' },
+            userName: '',
+            email: '',
+            age: '',
+            gender: '',
+
+        }
+    });
+
+    const { register, handleSubmit, formState, reset } = form;
+
+    const { errors } = formState;
+
+    const onSubmit = (data) => {
+        console.log(data);
+        reset();
+    };
+
     return (
-        <div className='form-container'>
-            <form>
-                <div>
-                    <label htmlFor="name">Name: </label>
-                    <input className='form-input' type="text" id='name' />
-                </div>
+        <StyledBox>
+            <Box sx={{ margin: 'auto auto', maxWidth: '100%', '&:hover': { color: 'info.dark' } }}>
+                <Typography gutterBottom textAlign='center' variant="h4">Sign Up</Typography>
+                <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                    <Stack spacing={2} sx={{ width: { xs: '250px', sm: '500px' } }}>
 
-                <div>
-                    <label htmlFor="last-name">Last Name: </label>
-                    <input className='form-input' type="text" id='last-name' />
-                </div>
+                        <TextField label='First Name' type="text"
+                            {...register('name.firstName', {
+                                required: {
+                                    value: true,
+                                    message: 'First name is required!'
+                                },
+                                minLength: 2,
+                            })}
+                            error={!!errors.name?.firstName}
+                            helperText={errors.name?.firstName?.message}
+                        />
 
-                <div>
-                    <label htmlFor="user-name">User Name: </label>
-                    <input className='form-input' type="text" id='user-name' />
-                </div>
+                        <TextField label='Last Name' type="text"
+                            {...register('name.lastName', {
+                                required: {
+                                    value: true,
+                                    message: 'Last name is required!'
+                                },
+                                minLength: 2,
+                            })}
+                            error={!!errors.name?.lastName}
+                            helperText={errors.name?.lastName?.message}
+                        />
 
-                <div>
-                    <label htmlFor="email">Email: </label>
-                    <input className='form-input' type="email" id='email' />
-                </div>
+                        <TextField label='User Name' type="text"
+                            {...register('userName', {
+                                required: {
+                                    value: true,
+                                    message: 'User name is required!'
+                                },
+                                minLength: 2,
+                            })}
+                            error={!!errors.userName}
+                            helperText={errors.userName?.message}
+                        />
 
-                <div>
-                    <label htmlFor="age">Age: </label>
-                    <input className='form-input' type="number" id='age' />
-                </div>
+                        <TextField label='Email' type="email"
+                            {...register('email', {
+                                required: {
+                                    value: true,
+                                    message: 'Email is required!'
+                                },
+                                pattern: {
+                                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                                    message: 'Invalid email format'
+                                },
+                            })}
+                            error={!!errors.email}
+                            helperText={errors.email?.message}
+                        />
 
-                <div>
-                    <label htmlFor="gender">Gender: </label>
-                    <select className='form-input' name="gender" id="gender">
-                        <option value="">Select your gender</option>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                    </select>
-                </div>
+                        <TextField label='Age' type="number"
+                            {...register('age', {
+                                valueAsNumber: true,
+                                required: {
+                                    value: true,
+                                    message: 'Age is required!'
+                                }
+                            })}
+                            error={!!errors.age}
+                            helperText={errors.age?.message}
+                        />
 
-                <button className='btn sign-up'>Sign Up</button>
-            </form>
-        </div>
+
+                        <TextField
+                            label="Select your gender"
+                            select
+                            defaultValue=''
+                            fullWidth
+                            {...register('gender',
+                                {
+                                    required: {
+                                        value: true, message: 'Please select your gender!'
+                                    }
+                                })}
+                            error={!!errors.gender}
+                            helperText={errors.gender?.message}
+                        >
+
+                            <MenuItem value='male'>Male</MenuItem>
+                            <MenuItem value='female'>Female</MenuItem>
+
+                        </TextField>
+
+
+
+                        <Button sx={{ backgroundColor: 'info.main', '&:hover': { backgroundColor: 'info.dark' } }} type='submit' variant="contained" color="success"  >Sign Up</Button>
+                    </Stack>
+                </form>
+            </Box>
+        </StyledBox >
     )
 }
-

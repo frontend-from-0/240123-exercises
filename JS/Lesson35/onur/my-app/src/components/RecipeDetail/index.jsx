@@ -1,9 +1,6 @@
-import * as React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import './styles.css'
-
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Box, Card, Grid, ImageListItem, List, Paper, Typography } from '@mui/material'
 
 export const RecipeDetail = () => {
 
@@ -40,7 +37,7 @@ export const RecipeDetail = () => {
                 const measure = recipe[`strMeasure${i}`];
 
                 if (ingredient && (ingredient.trim().length > 0 && measure.trim().length > 0)) {
-                    ingredientsArray.push(`${measure} ${ingredient}`)
+                    ingredientsArray.push(`${measure} ~ ${ingredient}`)
                 }
             }
 
@@ -49,23 +46,47 @@ export const RecipeDetail = () => {
     }, [recipe])
 
     return (
-        <>
-            <div className='detail-container' key={recipe.idMeal}>
-                <div className='detail-left'>
-                    <h2>{recipe.strMeal}</h2>
-                    <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-                </div>
-                <div className='detail-right'>
-                    <h2>Recipe Detail</h2>
-                    <p>{recipe.strInstructions}</p>
-                    <div className='detail-ingredients'>
-                        <h4>Ingredients : </h4>
+
+        <Grid container p={2} >
+            <Grid item xs={12} md={3} >
+                <Paper elevation={6} sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, alignItems: 'center', gap: '10px' }}>
+                    <Box>
+                        <Typography sx={{ textAlign: 'center', margin: '20px 0' }} variant="h5">{recipe.strMeal}</Typography>
+                        <ImageListItem sx={{ maxWidth: '350px', maxHeight: '350px', minWidth: '200px', margin: '0 20px' }}>
+                            <img style={{ borderRadius: '10px' }} src={recipe.strMealThumb} alt={recipe.strMeal} />
+                        </ImageListItem>
+                    </Box>
+                    <Box mb={1}  >
+                        <Typography mb={0.6} variant="h6">Ingredients : </Typography>
                         {ingredients.map(ingredient => (
-                            <li key={ingredient}>{ingredient}</li>
+                            <List key={ingredient}>{ingredient}</List>
                         ))}
-                    </div>
-                </div>
-            </div>
-        </>
+                    </Box>
+                </Paper>
+            </Grid>
+            <Grid item xs={12} md={9}>
+                <Box elevation={6} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                    <Box mb={2} >
+                        <Typography variant="h5" sx={{ textAlign: 'center', margin: '20px 0' }}>Recipe Detail</Typography>
+                        <Typography variant="body1" sx={{ fontStyle: 'italic', padding: '5px', marginLeft: '5px' }} >{recipe.strInstructions}</Typography>
+                    </Box>
+                    <Card>
+                        {recipe.strYoutube && (
+                            <iframe
+                                style={{ borderRadius: '10px' }}
+                                width="700"
+                                height="400"
+                                src={`https://www.youtube.com/embed/${recipe.strYoutube.split('=')[1]}`}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allowFullScreen
+                            ></iframe>
+
+                        )}
+                    </Card>
+                </Box>
+            </Grid>
+        </Grid>
+
     )
-};
+}

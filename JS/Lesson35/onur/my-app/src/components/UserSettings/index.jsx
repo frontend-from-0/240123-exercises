@@ -1,14 +1,12 @@
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+
+
+import { Box, Button, Stack, TextField, Alert } from "@mui/material";
 import { useForm } from "react-hook-form"
-import styled from "@emotion/styled";
+import { StyledBox } from "../SignInPage";
 
-export const StyledBox = styled('div')(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    minHeight: '100vh',
-}))
 
-export const SignInPage = () => {
+
+export const UserSettings = () => {
 
     const form = useForm({
         defaultValues: {
@@ -28,8 +26,8 @@ export const SignInPage = () => {
 
     return (
         <StyledBox>
-            <Box sx={{ margin: 'auto auto', maxWidth: '100%', '&:hover': { color: 'success.main' } }}>
-                <Typography gutterBottom textAlign='center' variant="h4">Login</Typography>
+            <Box sx={{ margin: 'auto auto', maxWidth: '100%', '&:hover': { color: 'primary.light' } }}>
+                <Alert sx={{ marginBottom: '10px' }} severity="info">Please log in to change user settings.</Alert>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <Stack spacing={2} sx={{ width: { xs: '250px', sm: '500px' } }}>
                         <TextField label='Email' type="email"
