@@ -13,6 +13,7 @@ import { DarkMode, ModeNight, Restaurant } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { ListItemButton, ListItemIcon, Switch } from '@mui/material';
+import './styles.css'
 
 const pages = ['New Recipe', 'Sign In', 'Sign up', 'User Settings'];
 
@@ -33,7 +34,7 @@ export const Navbar = ({ mode, setMode }) => {
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Restaurant sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <Restaurant className='navIcon' sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -96,7 +97,7 @@ export const Navbar = ({ mode, setMode }) => {
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' }, margin: 'auto auto' }}>
 
-                        <Restaurant sx={{ mr: 1 }} />
+                        <Restaurant className='navIcon' sx={{ mr: 1 }} />
                         <Typography
                             variant="h5"
                             noWrap
