@@ -31,6 +31,9 @@ export const SearchBar = ({ setRecipes, originalRecipes }) => {
 
   const mealNames = ['Corba', 'Sushi', 'Burek', 'Bistek', 'Tamiya', 'Kumpir', 'Wontons', 'Lasagne', 'Kafteji', 'Big Mac', 'Poutine', 'Koshari', 'Dal fry', 'Timbits', 'Pancakes', 'Kapsalon', 'Fish pie', 'Flamiche', 'Shawarma', 'Kedgeree', 'Stamppot', 'Moussaka', 'Shakshuka', 'Sugar Pie', 'Ribollita'];
 
+  const categoryButtonNames = ['Side', 'Seafood', 'Beef', 'Vegetarian', 'Pasta', 'Pork', 'Dessert', 'Miscellaneous', 'Lamb', 'Chicken']
+
+
   const handleCategory = (category) => {
     if (category === 'All') {
       setRecipes(originalRecipes)
@@ -77,17 +80,9 @@ export const SearchBar = ({ setRecipes, originalRecipes }) => {
       <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
         <Button variant='outlined' onClick={() => handleCategory('All')}>All Meals</Button>
         <ButtonGroup sx={{ display: { md: 'flex', xs: 'none' } }} variant='text' size='medium' color='primary' >
-          <Button onClick={() => handleCategory('Side')}>Side</Button>
-          <Button onClick={() => handleCategory('Seafood')}>Seafood</Button>
-          <Button onClick={() => handleCategory('Beef')}>Beef</Button>
-          <Button onClick={() => handleCategory('Vegetarian')}>Vegetarian</Button>
-          <Button onClick={() => handleCategory('Pasta')}>Pasta</Button>
-          <Button onClick={() => handleCategory('Pork')}>Pork</Button>
-          <Button onClick={() => handleCategory('Dessert')}>Dessert</Button>
-          <Button onClick={() => handleCategory('Miscellaneous')}>Miscellaneous</Button>
-          <Button onClick={() => handleCategory('Lamb')}>Lamb</Button>
-          <Button onClick={() => handleCategory('Chicken')}>Chicken</Button>
-          <Button onClick={() => handleCategory('Dessert')}>Dessert</Button>
+          {categoryButtonNames.map((categoryName) => {
+            return <Button onClick={() => handleCategory(categoryName)}>{categoryName}</Button>
+          })}
         </ButtonGroup>
       </Box>
 
