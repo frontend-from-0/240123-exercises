@@ -6,6 +6,7 @@ import { AppRouter } from "./AppRouter";
 
 const App = () => {
 	const [recipes, setRecipes] = useState([]);
+	const [originalRecipes, setOriginalRecipes] = useState([]);
 
 	const [mode, setMode] = useState("light");
 
@@ -28,7 +29,10 @@ const App = () => {
 					signal: abortCont.signal,
 				});
 				const data = await res.json();
-				if (data.meals) return setRecipes(data.meals);
+				if (data.meals) {
+					setRecipes(data.meals);
+					setOriginalRecipes(data.meals);
+				}
 			} catch (error) {
 				console.error("Error fetching data:", error);
 			}
@@ -43,7 +47,12 @@ const App = () => {
 		<ThemeProvider theme={theme}>
 			<Box bgcolor={"background.default"} color={"text.primary"}>
 				<Navbar mode={mode} setMode={setMode} />
-				<AppRouter theme={theme} recipes={recipes} setRecipes={setRecipes} />
+				<AppRouter
+					theme={theme}
+					recipes={recipes}
+					setRecipes={setRecipes}
+					originalRecipes={originalRecipes}
+				/>
 			</Box>
 		</ThemeProvider>
 	);

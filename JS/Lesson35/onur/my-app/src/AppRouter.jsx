@@ -7,7 +7,7 @@ import { RecipeList } from './components/RecipeList'
 import { SearchBar } from './components/SearchBar'
 import { RecipeDetail } from './components/RecipeDetail'
 
-export const AppRouter = ({ recipes, setRecipes, theme }) => {
+export const AppRouter = ({ recipes, setRecipes, originalRecipes, theme }) => {
 	return (
 		<Routes>
 			<Route path='/recipes' >
@@ -21,7 +21,11 @@ export const AppRouter = ({ recipes, setRecipes, theme }) => {
 				path='/'
 				element={
 					<>
-						<SearchBar recipes={recipes} setRecipes={setRecipes} />
+						<SearchBar recipes={recipes}
+							setRecipes={setRecipes}
+							originalRecipes={originalRecipes}
+						/>
+
 						<RecipeList theme={theme} recipes={recipes} />
 					</>
 				}
