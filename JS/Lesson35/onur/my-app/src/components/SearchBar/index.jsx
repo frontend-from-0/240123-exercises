@@ -32,12 +32,16 @@ export const SearchBar = ({ setRecipes, originalRecipes }) => {
   const mealNames = ['Corba', 'Sushi', 'Burek', 'Bistek', 'Tamiya', 'Kumpir', 'Wontons', 'Lasagne', 'Kafteji', 'Big Mac', 'Poutine', 'Koshari', 'Dal fry', 'Timbits', 'Pancakes', 'Kapsalon', 'Fish pie', 'Flamiche', 'Shawarma', 'Kedgeree', 'Stamppot', 'Moussaka', 'Shakshuka', 'Sugar Pie', 'Ribollita'];
 
   const handleCategory = (category) => {
-    const selectedCategory = originalRecipes.filter(recipe => recipe.strCategory === category);
-    setRecipes(selectedCategory);
+    if (category === 'All') {
+      setRecipes(originalRecipes)
+    } else {
+      const selectedCategory = originalRecipes.filter(recipe => recipe.strCategory === category);
+      setRecipes(selectedCategory);
+    }
   }
 
   return (
-    <Stack spacing={3} >
+    <Stack spacing={2} >
       <Box>
         <form onSubmit={handleSubmit} style={{ maxWidth: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginTop: '20px' }}>
           <Box sx={{ width: { xs: '70%', sm: '50%' } }}>
@@ -70,8 +74,9 @@ export const SearchBar = ({ setRecipes, originalRecipes }) => {
           </Box>
         </form>
       </Box>
-      <Box sx={{ display: { md: 'flex', xs: 'none' } }} alignSelf='center'>
-        <ButtonGroup variant='text' size='medium' color='primary' >
+      <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
+        <Button variant='outlined' onClick={() => handleCategory('All')}>All Meals</Button>
+        <ButtonGroup sx={{ display: { md: 'flex', xs: 'none' } }} variant='text' size='medium' color='primary' >
           <Button onClick={() => handleCategory('Side')}>Side</Button>
           <Button onClick={() => handleCategory('Seafood')}>Seafood</Button>
           <Button onClick={() => handleCategory('Beef')}>Beef</Button>
