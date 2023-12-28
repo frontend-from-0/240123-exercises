@@ -1,19 +1,6 @@
 import React from "react";
-import { NavLink, useMatch, useResolvedPath } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
-
-const CustomLink = ({ to, pageName }) => {
-  const resolved = useResolvedPath(to);
-  const isActive = useMatch({ path: resolved.pathname });
-
-  return (
-    <li className={`item ${isActive ? "active" : ""}`}>
-      <NavLink to={to} exact={true} activeClassName="active">
-        {pageName}
-      </NavLink>
-    </li>
-  );
-};
 
 const Navbar = () => {
   return (
@@ -22,10 +9,38 @@ const Navbar = () => {
         Home
       </NavLink>
       <ul className="nav__list">
-        <CustomLink to="/new-recipe" pageName="New Recipe" />
-        <CustomLink to="/sign-in" pageName="Sign-in" />
-        <CustomLink to="/sign-up" pageName="Sign-up" />
-        <CustomLink to="/settings" pageName="User Settings" />
+        <NavLink
+          to="/new-recipe"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          New Recipe
+        </NavLink>
+        <NavLink
+          to="/sign-in"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Sign-in
+        </NavLink>
+        <NavLink
+          to="/sign-up"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Sign-up
+        </NavLink>
+        <NavLink
+          to="/settings"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          User Settings
+        </NavLink>
       </ul>
     </nav>
   );
