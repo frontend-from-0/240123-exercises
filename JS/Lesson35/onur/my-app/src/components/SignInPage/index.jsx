@@ -1,6 +1,7 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form"
 import styled from "@emotion/styled";
+import { useTheme } from "@mui/material/styles";
 
 export const StyledBox = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -9,6 +10,8 @@ export const StyledBox = styled('div')(({ theme }) => ({
 }))
 
 export const SignInPage = () => {
+
+    const theme = useTheme();
 
     const form = useForm({
         defaultValues: {
@@ -28,7 +31,7 @@ export const SignInPage = () => {
 
     return (
         <StyledBox>
-            <Box sx={{ margin: 'auto auto', maxWidth: '100%', '&:hover': { color: 'success.main' } }}>
+            <Box sx={{ margin: 'auto', maxWidth: '100%', '&:hover': { color: theme.palette.success.main } }}>
                 <Typography gutterBottom textAlign='center' variant="h4">Login</Typography>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <Stack spacing={2} sx={{ width: { xs: '250px', sm: '500px' } }}>

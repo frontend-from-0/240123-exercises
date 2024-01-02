@@ -1,8 +1,10 @@
 import { StyledBox } from "../SignInPage";
 import { useForm } from 'react-hook-form';
 import { Box, Button, MenuItem, Stack, TextField, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 export const SignUpPage = () => {
+    const theme = useTheme();
 
     const form = useForm({
         defaultValues: {
@@ -26,7 +28,7 @@ export const SignUpPage = () => {
 
     return (
         <StyledBox>
-            <Box sx={{ margin: 'auto auto', maxWidth: '100%', '&:hover': { color: 'info.dark' } }}>
+            <Box sx={{ margin: 'auto', maxWidth: '100%', '&:hover': { color: theme.palette.info.dark } }}>
                 <Typography gutterBottom textAlign='center' variant="h4">Sign Up</Typography>
                 <form onSubmit={handleSubmit(onSubmit)} noValidate>
                     <Stack spacing={2} sx={{ width: { xs: '250px', sm: '500px' } }}>
@@ -117,7 +119,7 @@ export const SignUpPage = () => {
 
 
 
-                        <Button sx={{ backgroundColor: 'info.main', '&:hover': { backgroundColor: 'info.dark' } }} type='submit' variant="contained" color="success"  >Sign Up</Button>
+                        <Button sx={{ backgroundColor: theme.palette.info.main, '&:hover': { backgroundColor: theme.palette.info.dark } }} type='submit' variant="contained" color="success"  >Sign Up</Button>
                     </Stack>
                 </form>
             </Box>

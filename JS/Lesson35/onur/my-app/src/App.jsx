@@ -17,6 +17,10 @@ const App = () => {
 				main: "#ff9800",
 				light: "#ef6c00",
 			},
+			linkColor: {
+				main: '#fff',
+				darker: '#000'
+			}
 		},
 	});
 
@@ -45,7 +49,7 @@ const App = () => {
 	console.log(recipes);
 	return (
 		<ThemeProvider theme={theme}>
-			<Box bgcolor={"background.default"} color={"text.primary"}>
+			<Box bgcolor={theme.palette.background.default} color={theme.palette.text.primary}>
 				<Navbar mode={mode} setMode={setMode} />
 				<AppRouter
 					theme={theme}

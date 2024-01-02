@@ -2,9 +2,11 @@ import React from 'react'
 import { Autocomplete, Box, Button, ButtonGroup, IconButton, Stack, TextField } from '@mui/material'
 import { useState } from 'react';
 import { YoutubeSearchedFor } from '@mui/icons-material';
-
+import { useTheme } from '@mui/material/styles'
 
 export const SearchBar = ({ setRecipes, originalRecipes }) => {
+  const theme = useTheme();
+
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -72,7 +74,7 @@ export const SearchBar = ({ setRecipes, originalRecipes }) => {
           </Box>
           <Box>
             <IconButton type="submit" aria-label="search">
-              <YoutubeSearchedFor fontSize='large' sx={{ color: 'primary.light' }} />
+              <YoutubeSearchedFor fontSize='large' sx={{ color: theme.palette.primary.light }} />
             </IconButton>
           </Box>
         </form>

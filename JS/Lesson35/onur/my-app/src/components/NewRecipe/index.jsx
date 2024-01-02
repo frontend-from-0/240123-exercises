@@ -1,10 +1,11 @@
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, Stack, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form"
 import { StyledBox } from '../SignInPage'
-
+import { useTheme } from '@mui/material/styles';
 
 
 export const NewRecipe = () => {
+	const theme = useTheme();
 
 	const combinedPattern = /^(https:\/\/|\S+)$/;
 
@@ -68,7 +69,7 @@ export const NewRecipe = () => {
 
 	return (
 		<StyledBox>
-			<Box sx={{ margin: '30px auto', maxWidth: '100%', '&:hover': { color: 'primary.light' } }}>
+			<Box sx={{ margin: '30px auto', maxWidth: '100%', '&:hover': { color: theme.palette.primary.light } }}>
 				<Typography gutterBottom textAlign='center' variant="h4">Add a new recipe</Typography>
 				<form onSubmit={handleSubmit(onSubmit)} noValidate>
 					<Stack spacing={2} sx={{ width: { xs: '250px', sm: '500px' } }}>
@@ -241,7 +242,7 @@ export const NewRecipe = () => {
 								<Checkbox {...register('strCreativeCommonsConfirmed')} />}
 						/>
 
-						<Button sx={{ backgroundColor: 'primary.light', '&:hover': { backgroundColor: 'primary.main' } }} type='submit' variant="contained" color="success"  >ADD</Button>
+						<Button sx={{ backgroundColor: theme.palette.primary.main, '&:hover': { backgroundColor: theme.palette.primary.light } }} type='submit' variant="contained" color="success"  >ADD</Button>
 					</Stack>
 				</form>
 			</Box>

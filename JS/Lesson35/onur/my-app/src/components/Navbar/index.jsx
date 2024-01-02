@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,10 +14,13 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { ListItemButton, ListItemIcon, Switch } from '@mui/material';
 import './styles.css'
+import { useTheme } from '@mui/material/styles';
 
 const pages = ['New Recipe', 'Sign In', 'Sign up', 'User Settings'];
 
 export const Navbar = ({ mode, setMode }) => {
+    const theme = useTheme();
+
     const [anchorElNav, setAnchorElNav] = useState(null);
 
     const handleOpenNavMenu = (event) => {
@@ -47,7 +50,7 @@ export const Navbar = ({ mode, setMode }) => {
                             color: 'inherit',
                         }}
                     >
-                        <NavLink style={{ textDecoration: 'none', color: '#fff' }} to={`/`}>Recipe App</NavLink>
+                        <NavLink style={{ textDecoration: 'none', color: theme.palette.linkColor.main }} to={`/`}>Recipe App</NavLink>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, position: 'absolute', left: '10px', display: { xs: 'flex', md: 'none' } }}>
@@ -109,13 +112,13 @@ export const Navbar = ({ mode, setMode }) => {
                                 color: 'inherit',
                             }}
                         >
-                            <NavLink style={{ textDecoration: 'none', color: '#fff' }} to={`/`}>Recipe App</NavLink>
+                            <NavLink style={{ textDecoration: 'none', color: theme.palette.linkColor.main }} to={`/`}>Recipe App</NavLink>
 
                         </Typography>
                     </Box>
                     <Box sx={{ flexGrow: 1, gap: '10px', position: 'absolute', right: '12%', display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Button key={page} component={NavLink} sx={{ color: '#fff', '&:hover': { backgroundColor: 'action.hover' } }} to={
+                            <Button key={page} component={NavLink} sx={{ color: theme.palette.linkColor.main, '&:hover': { backgroundColor: theme.palette.action.hover } }} to={
                                 `${page === 'New Recipe' ? '/recipes/new'
                                     : page === 'Sign In' ? '/signInPage'
                                         : page === 'Sign up' ? '/signUpPage'
@@ -126,7 +129,7 @@ export const Navbar = ({ mode, setMode }) => {
                     <Box sx={{ position: 'fixed', right: '1px' }}>
                         <ListItemButton sx={{ display: 'flex', alignItems: 'center' }}>
                             <ListItemIcon component="a">
-                                {mode === 'light' ? <ModeNight sx={{ color: 'primary.light' }} /> : <DarkMode />}
+                                {mode === 'light' ? <ModeNight sx={{ color: theme.palette.primary.light }} /> : <DarkMode />}
                             </ListItemIcon>
                             <Switch size='medium' onChange={e => setMode(prev => mode === "light" ? "dark" : "light")} />
                         </ListItemButton>
