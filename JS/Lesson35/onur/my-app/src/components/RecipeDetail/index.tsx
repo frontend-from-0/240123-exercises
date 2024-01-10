@@ -1,42 +1,57 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { Box, Card, Grid, ImageListItem, List, Paper, Typography } from '@mui/material'
+import { useRecipes } from "../../Modules/recipes/RecipesProvider";
+import { Recipe } from "../../Modules/recipes/models";
 
 export const RecipeDetail = () => {
 
+    const recipeContext = useRecipes();
+
     let { id } = useParams();
-    const [recipe, setRecipe] = useState([]);
+    const [recipe, setRecipe] = useState<Recipe | undefined>(undefined);
 
     useEffect(() => {
 
         const abortCont = new AbortController();
 
-        const getURL = async () => {
-            try {
-                const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`, { signal: abortCont.signal });
-                const data = await res.json();
-                if (data.meals) return setRecipe(data.meals[0])
-            } catch (error) {
-                console.error('Error fetching data:', error);
+        if (id) {
+            const currentRecipe: Recipe[] = recipeContext.filter(recipe => recipe.idMeal === id);
+            if (currentRecipe.length > 0) {
+                setRecipe(currentRecipe[0])
             }
+        } else {
+            const getURL = async () => {
+                try {
+                    const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`, { signal: abortCont.signal });
+                    const data = await res.json();
+                    if (data.meals) return setRecipe(data.meals[0])
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+            }
+            getURL();
         }
-        getURL();
+
 
         return () => abortCont.abort();
-    }, [id]);
+    }, [id, recipeContext]);
     console.log(recipe)
 
-    const [ingredients, setIngredients] = useState([]);
+    const [ingredients, setIngredients] = useState<string[]>([]);
 
     useEffect(() => {
 
         if (recipe) {
-            const ingredientsArray = [];
+            const ingredientsArray: string[] = [];
             for (let i = 1; i <= 20; i++) {
-                const ingredient = recipe[`strIngredient${i}`];
-                const measure = recipe[`strMeasure${i}`];
+                const ingredientKey = `strIngredient${i}` as keyof Recipe;
+                const measureKey = `strMeasure${i}` as keyof Recipe;
 
-                if (ingredient && (ingredient.trim().length > 0 && measure.trim().length > 0)) {
+                const ingredient: string | undefined = recipe[ingredientKey];
+                const measure: string | undefined = recipe[measureKey];
+
+                if ((ingredient && measure) && (ingredient.trim().length > 0 && measure.trim().length > 0)) {
                     ingredientsArray.push(`${measure} ~ ${ingredient}`)
                 }
             }
@@ -51,9 +66,9 @@ export const RecipeDetail = () => {
             <Grid item xs={12} md={3} >
                 <Paper elevation={6} sx={{ display: 'flex', flexDirection: { xs: 'row', md: 'column' }, alignItems: 'center', gap: '10px' }}>
                     <Box>
-                        <Typography sx={{ textAlign: 'center', margin: '20px 0' }} variant="h5">{recipe.strMeal}</Typography>
+                        <Typography sx={{ textAlign: 'center', margin: '20px 0' }} variant="h5">{recipe?.strMeal}</Typography>
                         <ImageListItem sx={{ maxWidth: '350px', maxHeight: '350px', minWidth: '200px', margin: '0 20px' }}>
-                            <img style={{ borderRadius: '10px' }} src={recipe.strMealThumb} alt={recipe.strMeal} />
+                            <img style={{ borderRadius: '10px' }} src={recipe?.strMealThumb} alt={recipe?.strMeal} />
                         </ImageListItem>
                     </Box>
                     <Box mb={1}  >
@@ -65,13 +80,13 @@ export const RecipeDetail = () => {
                 </Paper>
             </Grid>
             <Grid item xs={12} md={9}>
-                <Box elevation={6} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                <Box component='div' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
                     <Box mb={2} >
                         <Typography variant="h5" sx={{ textAlign: 'center', margin: '20px 0' }}>Recipe Detail</Typography>
-                        <Typography variant="body1" sx={{ fontStyle: 'italic', padding: '5px', marginLeft: '5px' }} >{recipe.strInstructions}</Typography>
+                        <Typography variant="body1" sx={{ fontStyle: 'italic', padding: '5px', marginLeft: '5px' }} >{recipe?.strInstructions}</Typography>
                     </Box>
                     <Card>
-                        {recipe.strYoutube && (
+                        {recipe?.strYoutube && (
                             <iframe
                                 style={{ borderRadius: '10px' }}
                                 width="700"

@@ -2,9 +2,16 @@ import { Box, Button, Checkbox, FormControlLabel, MenuItem, Stack, TextField, Ty
 import { useForm } from "react-hook-form"
 import { StyledBox } from '../SignInPage'
 import { useTheme } from '@mui/material/styles';
+import { useRecipes, useRecipesDispatch } from "../../Modules/recipes/RecipesProvider";
+import { RecipeActionType } from "../../Modules/recipes/models";
 
 
 export const NewRecipe = () => {
+
+	const recipeContext = useRecipes();
+	const dispatch = useRecipesDispatch();
+
+
 	const theme = useTheme();
 
 	const combinedPattern = /^(https:\/\/|\S+)$/;
@@ -59,14 +66,21 @@ export const NewRecipe = () => {
 		});
 		delete processedData.measures
 
-
 		processedData.dateModified = new Date().toString();
+
+		const allId = recipeContext.map(recipe => recipe.idMeal)
+		const newId = Math.max(...allId) + 1
+
+		processedData.idMeal = newId
+
+		dispatch({ type: RecipeActionType.ADD_RECIPES, payload: [processedData] })
+
 
 		reset();
 
-		console.log(processedData);
+		console.log('New recipe: ', processedData);
 	};
-
+	console.log('All recipes: ', recipeContext)
 	return (
 		<StyledBox>
 			<Box sx={{ margin: '30px auto', maxWidth: '100%', '&:hover': { color: theme.palette.primary.light } }}>

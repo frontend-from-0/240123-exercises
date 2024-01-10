@@ -3,9 +3,12 @@ import { Autocomplete, Box, Button, ButtonGroup, IconButton, Stack, TextField } 
 import { useState } from 'react';
 import { YoutubeSearchedFor } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles'
+import { useRecipes } from '../../Modules/recipes/RecipesProvider';
 
-export const SearchBar = ({ setRecipes, originalRecipes }) => {
+export const SearchBar = ({ setRecipes }) => {
   const theme = useTheme();
+
+  const recipeContext = useRecipes();
 
 
   const [searchValue, setSearchValue] = useState('');
@@ -13,34 +16,29 @@ export const SearchBar = ({ setRecipes, originalRecipes }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const getUrl = async () => {
-      try {
-        const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}`);
-        const data = await res.json();
-        if (data.meals) {
-          setRecipes(data.meals);
-        } else {
-          setRecipes([]);
-        }
-        setSearchValue("");
-      } catch (error) {
-        console.log('Error fetching data:', error)
+    if (searchValue.length > 0) {
+      const searchName = recipeContext.map(recipe => recipe.strMeal)
+        .filter(recipe => recipe.toLowerCase().includes(searchValue.toLowerCase()))
+      // console.log('Search Name: ,', searchName)
+      if (searchName) {
+        const filteredRecipe = recipeContext.filter(recipe => recipe.strMeal.toLowerCase().includes(searchValue.toLowerCase()))
+        setRecipes(filteredRecipe)
       }
     }
-    getUrl();
+    setSearchValue('')
+
   }
 
-  const mealNames = ['Corba', 'Sushi', 'Burek', 'Bistek', 'Tamiya', 'Kumpir', 'Wontons', 'Lasagne', 'Kafteji', 'Big Mac', 'Poutine', 'Koshari', 'Dal fry', 'Timbits', 'Pancakes', 'Kapsalon', 'Fish pie', 'Flamiche', 'Shawarma', 'Kedgeree', 'Stamppot', 'Moussaka', 'Shakshuka', 'Sugar Pie', 'Ribollita'];
+  const mealNames = recipeContext.map(recipe => recipe.strMeal)
 
   const categoryButtonNames = ['Side', 'Seafood', 'Beef', 'Vegetarian', 'Pasta', 'Pork', 'Dessert', 'Miscellaneous', 'Lamb', 'Chicken']
 
 
   const handleCategory = (category) => {
     if (category === 'All') {
-      setRecipes(originalRecipes)
+      setRecipes(recipeContext)
     } else {
-      const selectedCategory = originalRecipes.filter(recipe => recipe.strCategory === category);
+      const selectedCategory = recipeContext.filter(recipe => recipe.strCategory === category);
       setRecipes(selectedCategory);
     }
   }

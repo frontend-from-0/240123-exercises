@@ -2,6 +2,7 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form"
 import styled from "@emotion/styled";
 import { useTheme } from "@mui/material/styles";
+import { UserActionType, useUserDispatch, initialUserState } from "../../Modules/user/UserProvider";
 
 export const StyledBox = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -10,6 +11,8 @@ export const StyledBox = styled('div')(({ theme }) => ({
 }))
 
 export const SignInPage = () => {
+
+    const dispatch = useUserDispatch();
 
     const theme = useTheme();
 
@@ -27,7 +30,10 @@ export const SignInPage = () => {
     const onSubmit = (data) => {
         console.log(data);
         reset();
+        dispatch({ type: UserActionType.LOG_IN })
     };
+
+    console.log('initial user state: ', initialUserState)
 
     return (
         <StyledBox>
