@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.recipe-image {
+  max-height: 300px;
+  margin: 20px auto;
+  border-radius: 5px;
+}
