@@ -82,7 +82,7 @@ export const Navbar = ({ mode, setMode }) => {
                                 vertical: 'top',
                                 horizontal: 'left',
                             }}
-                            open={anchorElNav}
+                            open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
                                 display: { xs: 'block', md: 'none' },

@@ -81,7 +81,7 @@ export const SearchBar = ({ setRecipes }) => {
         <Button variant='outlined' onClick={() => handleCategory('All')}>All Meals</Button>
         <ButtonGroup sx={{ display: { md: 'flex', xs: 'none' } }} variant='text' size='medium' color='primary' >
           {categoryButtonNames.map((categoryName) => {
-            return <Button onClick={() => handleCategory(categoryName)}>{categoryName}</Button>
+            return <Button key={categoryName} onClick={() => handleCategory(categoryName)}>{categoryName}</Button>
           })}
         </ButtonGroup>
       </Box>

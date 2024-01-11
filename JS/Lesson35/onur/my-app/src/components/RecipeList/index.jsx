@@ -48,8 +48,8 @@ export const RecipeList = ({ recipes }) => {
 					{recipes.map((recipe) => {
 						if (recipe.strMealThumb) {
 							return (
-								<Grid item md={3}>
-									<Card sx={{ '&:hover': { color: theme.palette.primary.light } }} key={recipe.idMeal}>
+								<Grid item md={3} key={recipe.idMeal}>
+									<Card sx={{ '&:hover': { color: theme.palette.primary.light } }} >
 										<CardContent>
 											<Typography variant='subtitle1'>{recipe.strMeal}</Typography>
 											<Typography variant='subtitle2'>{recipe.strArea}</Typography>
