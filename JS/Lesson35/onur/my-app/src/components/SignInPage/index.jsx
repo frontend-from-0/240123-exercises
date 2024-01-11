@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import styled from "@emotion/styled";
 import { useTheme } from "@mui/material/styles";
 import { UserActionType, useUserDispatch, initialUserState } from "../../Modules/user/UserProvider";
+import { useNavigate } from "react-router-dom";
 
 export const StyledBox = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -11,6 +12,8 @@ export const StyledBox = styled('div')(({ theme }) => ({
 }))
 
 export const SignInPage = () => {
+
+    const navigate = useNavigate();
 
     const dispatch = useUserDispatch();
 
@@ -31,6 +34,7 @@ export const SignInPage = () => {
         console.log(data);
         reset();
         dispatch({ type: UserActionType.LOG_IN })
+        navigate('/')
     };
 
     console.log('initial user state: ', initialUserState)
