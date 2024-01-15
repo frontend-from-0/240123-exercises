@@ -1,0 +1,24 @@
+.recipe-details-container {
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "heading heading"
+    "image-content text-content";
+    gap: 20px;
+  }
+  
+  .heading {
+    grid-area: heading;
+  }
+  
+  .image-content {
+    grid-area: image-content;
+  }
+  
+  .text-content {
+    grid-area: text-content;
+  }
+  
+  .recipe-thumbnail {
+    width: 100%;
+  }
