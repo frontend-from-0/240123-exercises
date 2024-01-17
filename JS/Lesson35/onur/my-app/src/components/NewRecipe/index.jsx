@@ -1,40 +1,37 @@
-import { useForm } from 'react-hook-form';
-import './styles.css';
+import { Box, Button, Checkbox, FormControlLabel, MenuItem, Stack, TextField, Typography } from "@mui/material";
+import { useForm } from "react-hook-form"
+import { StyledBox } from '../SignInPage'
+import { useTheme } from '@mui/material/styles';
 
-
-// const useMyHook = () => {
-//   const myData = {id: 'xxxx', name:'Data name'};
-//   const deleteMyData = () => {console.log('Deleting data...')};
-
-//   return [ myData, deleteMyData ];
-// }
 
 export const NewRecipe = () => {
-	// const [data,  setData] = useMyHook();
-
-	// console.log(data);
-	// setData();
-	const {
-		reset,
-		register,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm({
-		strMeal: "", strDrinkAlternate: "", strCategoryOther: "", strArea: "", strCategory: "", strCreativeCommonsConfirmed: "",
-		strImageSource: "", strSource: "", strTags: "", strYoutube: ""
-	});
-
-	const strCategory = watch('strCategory');
+	const theme = useTheme();
 
 	const combinedPattern = /^(https:\/\/|\S+)$/;
 
 
+	const form = useForm({
+		defaultValues: {
+			strMeal: '',
+			strDrinkAlternate: '',
+			strCategoryOther: '',
+			strArea: '',
+			strCategory: '',
+			strCreativeCommonsConfirmed: '',
+			strImageSource: '',
+			strSource: '',
+			strTags: '',
+			strYoutube: '',
+		}
+	});
+
+	const { register, handleSubmit, formState, reset } = form;
+
+	const { errors } = formState;
+
 	const onSubmit = (data) => {
 
 		const processedData = { ...data };
-
-
 
 		const ingredientsArray = data.ingredients.split(",").map((ingredient) => ingredient.trim());
 		ingredientsArray.map((ingredient, index) => {
@@ -45,6 +42,7 @@ export const NewRecipe = () => {
 					processedData[`strIngredient${i}`] = "";
 				}
 			}
+			return null;
 		});
 		delete processedData.ingredients;
 
@@ -57,7 +55,7 @@ export const NewRecipe = () => {
 					processedData[`strMeasure${i}`] = "";
 				}
 			}
-
+			return null;
 		});
 		delete processedData.measures
 
@@ -67,144 +65,187 @@ export const NewRecipe = () => {
 		reset();
 
 		console.log(processedData);
-
-	}
+	};
 
 	return (
-		<>
-			<form
-				className='new-recipe-form'
-				onSubmit={handleSubmit(onSubmit)}
-				noValidate
-			>
+		<StyledBox>
+			<Box sx={{ margin: '30px auto', maxWidth: '100%', '&:hover': { color: theme.palette.primary.light } }}>
+				<Typography gutterBottom textAlign='center' variant="h4">Add a new recipe</Typography>
+				<form onSubmit={handleSubmit(onSubmit)} noValidate>
+					<Stack spacing={2} sx={{ width: { xs: '250px', sm: '500px' } }}>
 
-				<label className='form-label' htmlFor='strMeal'>Meal Name :</label>
-				<input
-					className='form-input'
-					id='strMeal'
-					type='text'
-					{...register('strMeal', { required: true, minLength: 2 })}
-					placeholder='Please enter meal type...'
-				/>
-				{errors.strMeal && (
-					<span className='input-error'>Meal name is required</span>
-				)}
+						<TextField label='Meal Name' type="text"
+							{...register('strMeal', {
+								required: {
+									value: true,
+									message: 'Meal name is required!'
+								},
+								minLength: 2,
+							})}
+							error={!!errors.strMeal}
+							helperText={errors.strMeal?.message}
+						/>
 
-				<label className='form-label' htmlFor='strDrinkAlternate'>Drink Alternate :</label>
-				<input
-					className='form-input'
-					id='strDrinkAlternate'
-					type='text'
-					{...register('strDrinkAlternate', { pattern: /\S+/ })}
-				/>
+						<TextField label='Drink Alternate' type="text"
+							{...register('strDrinkAlternate', {
+								pattern: {
+									value: /\S+/,
+								}
+							})}
+							error={!!errors.strDrinkAlternate}
+							helperText={errors.strDrinkAlternate?.message}
+						/>
 
-				<label className='form-label' htmlFor='strCategory'>Meal Category :</label>
-				<select
-					className='form-input'
-					id='strCategory'
-					{...register('strCategory', { required: true, minLength: 1 })}
-				>
-					<option value=''>Select category</option>
-					<option value='Side'>Side</option>
-					<option value='Main'>Main</option>
-					<option value='Dessert'>Dessert</option>
-					<option value='Other'>Other</option>
-				</select>
-				{errors.strCategory && (
-					<span className='input-error'>Category is required</span>
-				)}
-				{strCategory === 'Other' && (
-					<input
-						className='form-input'
-						type='text'
-						{...register('	', { required: true, minLength: 2 })}
-						placeholder='Please enter category...'
-					/>
-				)}
+						<TextField label='Select meal category' select
+							defaultValue=''
+							{...register('strCategory', {
+								required: {
+									value: true,
+									message: 'Please select your meal category'
+								}
+							})}
+							error={!!errors.strCategory}
+							helperText={errors.strCategory?.message}
+						>
+							<MenuItem value=""></MenuItem>
+							<MenuItem value="side">Side</MenuItem>
+							<MenuItem value="main">Main</MenuItem>
+							<MenuItem value="dessert">Dessert</MenuItem>
+						</TextField>
 
-				<label className='form-label' htmlFor='strArea'>Area Name :</label>
-				<input
-					className='form-input'
-					id='strArea'
-					type='text'
-					{...register('strArea', { required: true, minLength: 2 })}
-				/>
-				{errors.strArea && (
-					<span className='input-error'>Area name is required</span>
-				)}
+						<TextField label='Area Name' type="text"
+							{...register('strArea', {
+								required: {
+									value: true,
+									message: 'Area name is required!'
+								},
+								minLength: 2,
+							})}
+							error={!!errors.strArea}
+							helperText={errors.strArea?.message}
+						/>
 
-				<label className='form-label' htmlFor='strInstructions'>Instructions :</label>
-				<textarea
-					className='form-input'
-					id='strInstructions'
-					{...register('strInstructions', { required: true, minLength: 10 })}
-				></textarea>
-				{errors.strInstructions && (
-					<span className='input-error'>Instructions are required</span>
-				)}
-
-				<label className='form-label' htmlFor="strMealThumb">Meal Thumb :</label>
-				<input type="text" id='strMealThumb' className='form-input' {...register("strMealThumb", {
-					required: true,
-					pattern: /\.(jpg|jpeg)$/
-				})} />
-				{errors.strMealThumb && (
-					<span className='input-error'>Please enter a valid URL</span>
-				)}
-
-				<label className='form-label' htmlFor='strTags'>Tag Name :</label>
-				<input
-					className='form-input'
-					id='strTags'
-					type='text'
-					{...register('strTags', { required: true, minLength: 2 })}
-				/>
-				{errors.strTags && (
-					<span className='input-error'>Tag name is required</span>
-				)}
-
-				<label className='form-label' htmlFor="strYoutube">Youtube video :</label>
-				<input type="text" id='strYoutube' className='form-input' {...register("strYoutube", {
-					required: true,
-					pattern: /^(https?:\/\/)?(www\.)?(youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
-				})} />
-				{errors.strYoutube && (
-					<span className='input-error'>Please enter a valid Youtube URL</span>
-				)}
-
-				<label className='form-label'>Ingredients : </label>
-				<textarea className='form-input' placeholder='Please separate by commas' {...register("ingredients", { required: true, minLength: 1 })} />
-				{errors.ingredients && (
-					<span className='input-error'>Ingredients are required</span>
-				)}
-
-				<label className='form-label'>Measures : </label>
-				<textarea className='form-input' placeholder='Please separate by commas' {...register("measures", { required: true, minLength: 1 })} />
-				{errors.measures && (
-					<span className='input-error'>Measures is required</span>
-				)}
-
-				<label className='form-label' htmlFor="strSource">Source :</label>
-				<input className='form-input' type="text" id='strSource' {...register("strSource", {
-					required: true,
-					pattern: /^https:\/\//
-				})} />
-				{errors.strSource && (
-					<span className='input-error'>Please enter a valid  address</span>
-				)}
-
-				<label className='form-label' htmlFor="strImageSource">Image source :</label>
-				<input className='form-input' type="text" id='strImageSource' {...register("strImageSource", { pattern: combinedPattern })} />
-
-				<div className='form-checkbox'>
-					<label className='form-label' htmlFor="strCreativeCommonsConfirmed">Creative Commons :</label>
-					<input className='form-checkbox-input' type="checkbox" id='strCreativeCommonsConfirmed' {...register("strCreativeCommonsConfirmed")} />
-				</div>
+						<TextField label='Instructions' type="text"
+							{...register('strInstructions', {
+								required: {
+									value: true,
+									message: 'Please enter instructions!'
+								},
+								minLength: 10,
+							})}
+							error={!!errors.strInstructions}
+							helperText={errors.strInstructions?.message}
+						/>
 
 
+						<TextField label='Meal Thumb' type="text"
+							{...register('strMealThumb', {
+								required: {
+									value: true,
+									message: 'Please include a photo of your food !'
+								},
+								pattern: {
+									value: /\.(jpg|jpeg)$/,
+									message: 'Please enter a valid address'
+								}
+							})}
+							error={!!errors.strMealThumb}
+							helperText={errors.strMealThumb?.message}
+						/>
 
-				<button className='form-btn' type='Submit'>Submit</button>
-			</form>
-		</>
-	);
-};
+						<TextField label='Tag Name' type="text"
+							{...register('strTags', {
+								required: {
+									value: true,
+									message: 'Tag name is required!'
+								},
+								minLength: 2,
+							})}
+							error={!!errors.strTags}
+							helperText={errors.strTags?.message}
+						/>
+
+						<TextField label='Youtube video address' type="text"
+							{...register('strYoutube', {
+								required: {
+									value: true,
+									message: 'Please add a YouTube video showing the preparation of your meal.'
+								},
+								pattern: {
+									value: /^(https?:\/\/)?(www\.)?(youtube\.com\/(?:[^/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+									message: 'Please enter a valid address'
+								}
+							})}
+							error={!!errors.strYoutube}
+							helperText={errors.strYoutube?.message}
+						/>
+
+						<TextField label='Ingredients' type="text"
+							{...register('ingredients', {
+								required: {
+									value: true,
+									message: 'Please enter the ingredients!'
+								},
+								minLength: 2,
+							})}
+							error={!!errors.ingredients}
+							helperText={errors.ingredients?.message}
+						/>
+
+						<TextField label='Measures' type="text"
+							{...register('measures', {
+								required: {
+									value: true,
+									message: 'Please enter the measures!'
+								},
+								minLength: 2,
+							})}
+							error={!!errors.measures}
+							helperText={errors.measures?.message}
+						/>
+
+						<TextField label='Source' type="text"
+							{...register('strSource', {
+								required: {
+									value: true,
+									message: 'Please enter your source!'
+								},
+								pattern: {
+									value: /^https:\/\//,
+									message: 'Please enter a valid address'
+								},
+								minLength: 2,
+							})}
+							error={!!errors.strSource}
+							helperText={errors.strSource?.message}
+						/>
+
+						<TextField label='Image source' type="text"
+							{...register('strImageSource', {
+								required: {
+									value: true,
+									message: 'Please enter the image source!'
+								},
+								pattern: {
+									value: combinedPattern,
+									message: 'Please enter a valid value'
+								},
+								minLength: 2,
+							})}
+							error={!!errors.strImageSource}
+							helperText={errors.strImageSource?.message}
+						/>
+
+						<FormControlLabel
+							label='Creative Commons'
+							control={
+								<Checkbox {...register('strCreativeCommonsConfirmed')} />}
+						/>
+
+						<Button sx={{ backgroundColor: theme.palette.primary.main, '&:hover': { backgroundColor: theme.palette.primary.light } }} type='submit' variant="contained" color="success"  >ADD</Button>
+					</Stack>
+				</form>
+			</Box>
+		</StyledBox>
+	)
+}

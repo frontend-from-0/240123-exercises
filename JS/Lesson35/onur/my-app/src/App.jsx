@@ -1,41 +1,65 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-import { BD_SEARCH_BASE_URL } from './urls.js';
-import { AppRouter } from './AppRouter.jsx';
-import { Navbar } from './components/Navbar'
+import { Box, ThemeProvider, createTheme } from "@mui/material";
+import { Navbar } from "./components/Navbar";
+import { useEffect, useState } from "react";
+import { BD_SEARCH_BASE_URL } from "./urls.js";
+import { AppRouter } from "./AppRouter";
 
-export const App = () => {
-	// 1. Fetch recipes data from an API (Get request, API key, useState to store data, useEffect)
-	// 2. Display the data (RecipeList component -> use <ul> to display data)
-	// 3. Search recipe (A new component SearchBar with a <form> element, text input, and submit functionality)
-
+const App = () => {
 	const [recipes, setRecipes] = useState([]);
-	// If you want to keep both initial recipes and recipes from search  on the screen at the same time use code below:
-	// const [searchResult, setSearchResult] = useState([]);
+	const [originalRecipes, setOriginalRecipes] = useState([]);
 
-	// Runs once of component render (component render = "sayfanin yenilenmesi")
+	const [mode, setMode] = useState("light");
+
+	const theme = createTheme({
+		palette: {
+			mode: mode,
+			primary: {
+				main: "#ff9800",
+				light: "#ef6c00",
+			},
+			linkColor: {
+				main: '#fff',
+				darker: '#000'
+			}
+		},
+	});
+
 	useEffect(() => {
-		fetch(BD_SEARCH_BASE_URL)
-			.then((response) => response.json())
-			.then((data) => setRecipes(data.meals));
+		const abortCont = new AbortController();
+
+		const getURL = async () => {
+			try {
+				const res = await fetch(BD_SEARCH_BASE_URL, {
+					signal: abortCont.signal,
+				});
+				const data = await res.json();
+				if (data.meals) {
+					setRecipes(data.meals);
+					setOriginalRecipes(data.meals);
+				}
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			}
+		};
+		getURL();
+
+		return () => abortCont.abort();
 	}, []);
 
-	// If you want to keep both initial recipes and recipes from search  on the screen at the same time use code below:
-	// useEffect(() => {
-	//   setRecipes(prevState => {
-	//     // compare searchResult with prevState of recipes
-	//     // only add values from searchResult array that are not present in the prevState array (recipes)
-	//   });
-
-	// },[recipes, searchResult]);
-
+	console.log(recipes);
 	return (
-		<div className='container'>
-
-			<Navbar />
-
-			<AppRouter recipes={recipes} setRecipes={setRecipes} />
-
-		</div>
+		<ThemeProvider theme={theme}>
+			<Box bgcolor={theme.palette.background.default} color={theme.palette.text.primary}>
+				<Navbar mode={mode} setMode={setMode} />
+				<AppRouter
+					theme={theme}
+					recipes={recipes}
+					setRecipes={setRecipes}
+					originalRecipes={originalRecipes}
+				/>
+			</Box>
+		</ThemeProvider>
 	);
 };
+
+export default App;
