@@ -3,14 +3,13 @@ import { Navbar } from "./components/Navbar";
 import { useEffect, useState } from "react";
 import { BD_SEARCH_BASE_URL } from "./urls.js";
 import { AppRouter } from "./AppRouter";
-import { useRecipesDispatch } from "./Modules/recipes/RecipesProvider";
-import { RecipeActionType } from "./Modules/recipes/models";
-import { UserProvider } from "./Modules/user/UserProvider";
+import { useRecipesDispatch } from "./modules/recipes/RecipesProvider";
+import { RecipeActionType } from "./modules/recipes/models";
+import { UserProvider } from "./modules/user/UserProvider";
 
 const App = () => {
-	const dispatch = useRecipesDispatch();
 
-	const [recipes, setRecipes] = useState([]);
+	const dispatch = useRecipesDispatch();
 
 	const [mode, setMode] = useState("light");
 
@@ -38,7 +37,6 @@ const App = () => {
 				});
 				const data = await res.json();
 				if (data.meals) {
-					setRecipes(data.meals);
 					dispatch({ type: RecipeActionType.ADD_RECIPES, payload: data.meals })
 				}
 			} catch (error) {
@@ -50,16 +48,12 @@ const App = () => {
 		return () => abortCont.abort();
 	}, [dispatch]);
 
-	console.log(recipes);
 	return (
 		<ThemeProvider theme={theme}>
 			<UserProvider>
 				<Box bgcolor={theme.palette.background.default} color={theme.palette.text.primary}>
 					<Navbar mode={mode} setMode={setMode} />
-					<AppRouter
-						recipes={recipes}
-						setRecipes={setRecipes}
-					/>
+					<AppRouter />
 				</Box>
 			</UserProvider>
 		</ThemeProvider>

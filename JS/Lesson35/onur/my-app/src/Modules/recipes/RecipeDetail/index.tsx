@@ -1,14 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { Box, Card, Grid, ImageListItem, List, Paper, Typography } from '@mui/material'
-import { useRecipes } from "../../Modules/recipes/RecipesProvider";
-import { Recipe } from "../../Modules/recipes/models";
+import { useRecipes } from "../RecipesProvider";
+import { Recipe } from "../models";
 
 export const RecipeDetail = () => {
 
-    const recipeContext = useRecipes();
+    const recipes = useRecipes();
 
     let { id } = useParams();
+
     const [recipe, setRecipe] = useState<Recipe | undefined>(undefined);
 
     useEffect(() => {
@@ -16,7 +17,7 @@ export const RecipeDetail = () => {
         const abortCont = new AbortController();
 
         if (id) {
-            const currentRecipe: Recipe[] = recipeContext.filter(recipe => recipe.idMeal === id);
+            const currentRecipe: Recipe[] = recipes.filter(recipe => recipe.idMeal === id);
             if (currentRecipe.length > 0) {
                 setRecipe(currentRecipe[0])
             }
@@ -35,8 +36,7 @@ export const RecipeDetail = () => {
 
 
         return () => abortCont.abort();
-    }, [id, recipeContext]);
-    console.log(recipe)
+    }, [id, recipes]);
 
     const [ingredients, setIngredients] = useState<string[]>([]);
 
@@ -58,7 +58,7 @@ export const RecipeDetail = () => {
 
             setIngredients(ingredientsArray);
         }
-    }, [recipe])
+    }, [recipe]);
 
     return (
 

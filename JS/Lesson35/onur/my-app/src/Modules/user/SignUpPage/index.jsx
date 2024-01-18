@@ -1,8 +1,8 @@
-import { StyledBox } from "../SignInPage";
 import { useForm } from 'react-hook-form';
 import { Box, Button, MenuItem, Stack, TextField, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import { StyledBox } from '../../../components/StyledBox';
 
 export const SignUpPage = () => {
     const theme = useTheme();
@@ -25,7 +25,6 @@ export const SignUpPage = () => {
     const { errors } = formState;
 
     const onSubmit = (data) => {
-        console.log(data);
         reset();
         navigate('/signInPage')
     };

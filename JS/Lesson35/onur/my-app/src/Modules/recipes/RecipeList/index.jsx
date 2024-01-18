@@ -3,12 +3,15 @@ import { MenuBook } from '@mui/icons-material';
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles'
+import { useRecipes } from '../RecipesProvider';
 
 
 
-export const RecipeList = ({ recipes }) => {
+export const RecipeList = () => {
 
-	const theme = useTheme()
+	const recipes = useRecipes();
+
+	const theme = useTheme();
 
 	const [loading, setLoading] = useState(true);
 
@@ -16,7 +19,7 @@ export const RecipeList = ({ recipes }) => {
 		setTimeout(() => {
 			setLoading(false)
 		}, 1000)
-	}, [])
+	}, []);
 
 	return (
 		<Grid container p={3} >

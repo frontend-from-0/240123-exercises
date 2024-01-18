@@ -30,8 +30,11 @@ function recipesReducer(recipes: Recipe[], action: RecipeAction) {
                 (payloadItem) =>
                     recipes.every((recipe) => recipe.idMeal !== payloadItem.idMeal)
             );
-
             return [...recipes, ...newRecipes];
+        }
+        case RecipeActionType.SEARCH_RECİPE: {
+
+            return [...action.payload];
         }
         case RecipeActionType.REMOVE_ALL: {
             return [];

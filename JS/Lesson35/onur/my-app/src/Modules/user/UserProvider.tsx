@@ -10,7 +10,7 @@ export const initialUserState: User = { loggedIn: false };
 export enum UserActionType {
     LOG_IN = 'logIn',
     LOG_OUT = 'logOut',
-    SIGN_UP = 'SignUp'
+    SIGN_UP = 'signUp'
 }
 
 export interface UserAction {

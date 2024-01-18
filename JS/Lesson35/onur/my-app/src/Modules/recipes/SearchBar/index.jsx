@@ -1,47 +1,71 @@
-import React from 'react'
 import { Autocomplete, Box, Button, ButtonGroup, IconButton, Stack, TextField } from '@mui/material'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { YoutubeSearchedFor } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles'
-import { useRecipes } from '../../Modules/recipes/RecipesProvider';
+import { useRecipesDispatch } from '../RecipesProvider';
+import { RecipeActionType } from '../models';
 
-export const SearchBar = ({ setRecipes }) => {
+export const SearchBar = () => {
+
   const theme = useTheme();
 
-  const recipeContext = useRecipes();
-
+  const dispatch = useRecipesDispatch();
 
   const [searchValue, setSearchValue] = useState('');
+
+  const [recipesApi, setRecipesApi] = useState([]);
+
+
+  useEffect(() => {
+    const abortCont = new AbortController();
+
+    const getURL = async () => {
+      try {
+        const res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}`, {
+          signal: abortCont.signal,
+        });
+        const data = await res.json();
+        if (data.meals) {
+          setRecipesApi(data.meals);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    getURL();
+
+    return () => abortCont.abort();
+  }, [searchValue]);
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (searchValue.length > 0) {
-      const searchName = recipeContext.map(recipe => recipe.strMeal)
-        .filter(recipe => recipe.toLowerCase().includes(searchValue.toLowerCase()))
-      // console.log('Search Name: ,', searchName)
-      if (searchName) {
-        const filteredRecipe = recipeContext.filter(recipe => recipe.strMeal.toLowerCase().includes(searchValue.toLowerCase()))
-        setRecipes(filteredRecipe)
-      }
+
+      const filteredRecipe = recipesApi.filter(recipe => recipe.strMeal.toLowerCase().includes(searchValue.toLowerCase()))
+
+      dispatch({ type: RecipeActionType.SEARCH_RECİPE, payload: filteredRecipe });
+    } else {
+      dispatch({ type: RecipeActionType.SEARCH_RECİPE, payload: recipesApi });
     }
     setSearchValue('')
 
-  }
+  };
 
-  const mealNames = recipeContext.map(recipe => recipe.strMeal)
+  const mealNames = recipesApi.map(recipe => recipe.strMeal);
 
-  const categoryButtonNames = ['Side', 'Seafood', 'Beef', 'Vegetarian', 'Pasta', 'Pork', 'Dessert', 'Miscellaneous', 'Lamb', 'Chicken']
+  const categoryButtonNames = ['Side', 'Seafood', 'Beef', 'Vegetarian', 'Pasta', 'Pork', 'Dessert', 'Miscellaneous', 'Lamb', 'Chicken'];
 
 
   const handleCategory = (category) => {
     if (category === 'All') {
-      setRecipes(recipeContext)
+      dispatch({ type: RecipeActionType.SEARCH_RECİPE, payload: recipesApi });
     } else {
-      const selectedCategory = recipeContext.filter(recipe => recipe.strCategory === category);
-      setRecipes(selectedCategory);
+      const selectedCategory = recipesApi.filter(recipe => recipe.strCategory === category);
+      dispatch({ type: RecipeActionType.SEARCH_RECİPE, payload: selectedCategory });
     }
-  }
+  };
 
   return (
     <Stack spacing={2} >

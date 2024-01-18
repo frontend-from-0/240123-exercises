@@ -1,6 +1,6 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useTheme } from "@mui/material";
 import { useState } from "react";
-import { UserActionType, useUserDispatch } from "../../Modules/user/UserProvider";
+import { UserActionType, useUserDispatch } from "../UserProvider";
 
 
 export const SignOutPage = () => {

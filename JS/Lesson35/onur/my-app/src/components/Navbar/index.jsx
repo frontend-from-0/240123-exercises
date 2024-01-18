@@ -15,9 +15,9 @@ import { useState } from 'react';
 import { ListItemButton, ListItemIcon, Switch } from '@mui/material';
 import './styles.css'
 import { useTheme } from '@mui/material/styles';
-import { useUserContext } from '../../Modules/user/UserProvider';
-import { SignOutPage } from '../SignOutPage';
-import { Account } from '../Account';
+import { useUserContext } from '../../modules/user/UserProvider';
+import { SignOutPage } from '../../modules/user/SignOutPage';
+import { Account } from '../../modules/user/Account';
 
 
 export const Navbar = ({ mode, setMode }) => {
