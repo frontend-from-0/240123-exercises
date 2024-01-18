@@ -1,10 +1,18 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
-import { Box, Card, Grid, ImageListItem, List, Paper, Typography } from '@mui/material'
+import { Box, Button, Card, Grid, ImageListItem, List, Paper, Typography } from '@mui/material'
 import { useRecipes } from "../RecipesProvider";
 import { Recipe } from "../models";
+import { useDispatchFavorites } from "../../user/FavoritesProvider";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { useUserContext } from "../../user/UserProvider";
+import { useTheme } from '@mui/material'
 
 export const RecipeDetail = () => {
+
+    const theme = useTheme();
+
+    const userContext = useUserContext();
 
     const recipes = useRecipes();
 
@@ -60,6 +68,17 @@ export const RecipeDetail = () => {
         }
     }, [recipe]);
 
+
+    const dispatchFavorites = useDispatchFavorites();
+
+    const [wasAdd, setWasAdd] = useState(false);
+
+    const handleAddFavorite = () => {
+        dispatchFavorites({ type: 'add_favorite', payload: [recipe] });
+        setWasAdd(true);
+    }
+
+
     return (
 
         <Grid container p={2} >
@@ -82,6 +101,12 @@ export const RecipeDetail = () => {
             <Grid item xs={12} md={9}>
                 <Box component='div' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
                     <Box mb={2} >
+                        {(userContext.loggedIn) ?
+                            <Button
+                                endIcon={wasAdd ? <Favorite sx={{ color: theme.palette.error.dark }} /> : <FavoriteBorder />}
+                                sx={{ marginLeft: '10px', marginTop: '10px' }}
+                                onClick={handleAddFavorite}>Add to my favorites</Button> : null}
+
                         <Typography variant="h5" sx={{ textAlign: 'center', margin: '20px 0' }}>Recipe Detail</Typography>
                         <Typography variant="body1" sx={{ fontStyle: 'italic', padding: '5px', marginLeft: '5px' }} >{recipe?.strInstructions}</Typography>
                     </Box>

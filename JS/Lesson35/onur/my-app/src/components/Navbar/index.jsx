@@ -24,7 +24,7 @@ export const Navbar = ({ mode, setMode }) => {
     const theme = useTheme();
 
     const userContext = useUserContext();
-    const pages = userContext.loggedIn ? ['New Recipe', <SignOutPage />] : ['Sign In', 'Sign up'];
+    const pages = userContext.loggedIn ? ['New Recipe', 'My Favorites', <SignOutPage />] : ['Sign In', 'Sign up'];
 
 
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -95,7 +95,8 @@ export const Navbar = ({ mode, setMode }) => {
                                         `${page === 'New Recipe' ? '/recipes/new'
                                             : page === 'Sign In' ? '/signInPage'
                                                 : page === 'Sign up' ? '/signUpPage'
-                                                    : '/'
+                                                    : page === 'My Favorites' ? '/favorites' :
+                                                        '/'
                                         } `}
                                 >
                                     {page}
@@ -128,13 +129,14 @@ export const Navbar = ({ mode, setMode }) => {
                                 `${page === 'New Recipe' ? '/recipes/new'
                                     : page === 'Sign In' ? '/signInPage'
                                         : page === 'Sign up' ? '/signUpPage'
-                                            : '/'
+                                            : page === 'My Favorites' ? '/favorites'
+                                                : '/'
                                 } `}>{page}</Button>
                         ))}
                     </Box>
                     <Box sx={{ position: 'fixed', right: '30px' }}>
                         <ListItemButton sx={{ display: 'flex', alignItems: 'center' }}>
-                            <ListItemIcon component="a">
+                            <ListItemIcon component="a" sx={{ display: { xs: 'none', lg: 'flex' } }}>
                                 {mode === 'light' ? <ModeNight sx={{ color: theme.palette.primary.light }} /> : <DarkMode />}
                             </ListItemIcon>
                             <Switch size='medium' onChange={e => setMode(prev => mode === "light" ? "dark" : "light")} />

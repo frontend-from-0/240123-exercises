@@ -6,6 +6,7 @@ import { AppRouter } from "./AppRouter";
 import { useRecipesDispatch } from "./modules/recipes/RecipesProvider";
 import { RecipeActionType } from "./modules/recipes/models";
 import { UserProvider } from "./modules/user/UserProvider";
+import { FavoritesProvider } from "./modules/user/FavoritesProvider";
 
 const App = () => {
 
@@ -51,10 +52,12 @@ const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<UserProvider>
-				<Box bgcolor={theme.palette.background.default} color={theme.palette.text.primary}>
-					<Navbar mode={mode} setMode={setMode} />
-					<AppRouter />
-				</Box>
+				<FavoritesProvider>
+					<Box bgcolor={theme.palette.background.default} color={theme.palette.text.primary}>
+						<Navbar mode={mode} setMode={setMode} />
+						<AppRouter />
+					</Box>
+				</FavoritesProvider>
 			</UserProvider>
 		</ThemeProvider>
 	);

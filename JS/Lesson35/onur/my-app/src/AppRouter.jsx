@@ -5,6 +5,7 @@ import { SignUpPage } from './modules/user/SignUpPage'
 import { RecipeList } from './modules/recipes/RecipeList'
 import { SearchBar } from './modules/recipes/SearchBar'
 import { RecipeDetail } from './modules/recipes/RecipeDetail'
+import { Favorites } from './modules/user/Favorites'
 
 export const AppRouter = () => {
 	return (
@@ -15,6 +16,7 @@ export const AppRouter = () => {
 			</Route>
 			<Route path='/signInPage' element={<SignInPage />} />
 			<Route path='/signUpPage' element={<SignUpPage />} />
+			<Route path='/favorites' element={<Favorites />} />
 			<Route
 				path='/'
 				element={
