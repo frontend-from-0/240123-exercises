@@ -1,4 +1,4 @@
-import { Box, ThemeProvider, createTheme } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import { Navbar } from "./components/Navbar";
 import { useEffect, useState } from "react";
 import { BD_SEARCH_BASE_URL } from "./urls.js";
@@ -7,26 +7,14 @@ import { useRecipesDispatch } from "./modules/recipes/RecipesProvider";
 import { RecipeActionType } from "./modules/recipes/models";
 import { UserProvider } from "./modules/user/UserProvider";
 import { FavoritesProvider } from "./modules/user/FavoritesProvider";
+import { customTheme } from "./components/Theme/theme";
 
 const App = () => {
+	const [mode, setMode] = useState('light');
+	const theme = customTheme(mode);
 
 	const dispatch = useRecipesDispatch();
 
-	const [mode, setMode] = useState("light");
-
-	const theme = createTheme({
-		palette: {
-			mode: mode,
-			primary: {
-				main: "#ff9800",
-				light: "#ef6c00",
-			},
-			linkColor: {
-				main: '#fff',
-				darker: '#000'
-			}
-		},
-	});
 
 	useEffect(() => {
 		const abortCont = new AbortController();

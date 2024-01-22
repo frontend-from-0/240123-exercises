@@ -12,19 +12,19 @@ import MenuItem from '@mui/material/MenuItem';
 import { DarkMode, ModeNight, Restaurant } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { ListItemButton, ListItemIcon, Switch } from '@mui/material';
+import { ListItemButton, ListItemIcon, Switch, useTheme } from '@mui/material';
 import './styles.css'
-import { useTheme } from '@mui/material/styles';
 import { useUserContext } from '../../modules/user/UserProvider';
 import { SignOutPage } from '../../modules/user/SignOutPage';
 import { Account } from '../../modules/user/Account';
 
 
 export const Navbar = ({ mode, setMode }) => {
+
     const theme = useTheme();
 
     const userContext = useUserContext();
-    const pages = userContext.loggedIn ? ['New Recipe', 'My Favorites', <SignOutPage />] : ['Sign In', 'Sign up'];
+    const pages = userContext.loggedIn ? ['New Recipe', 'My Favorites 🤍', <SignOutPage />] : ['Sign In', 'Sign up'];
 
 
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -95,7 +95,7 @@ export const Navbar = ({ mode, setMode }) => {
                                         `${page === 'New Recipe' ? '/recipes/new'
                                             : page === 'Sign In' ? '/signInPage'
                                                 : page === 'Sign up' ? '/signUpPage'
-                                                    : page === 'My Favorites' ? '/favorites' :
+                                                    : page === 'My Favorites 🤍' ? '/favorites' :
                                                         '/'
                                         } `}
                                 >
@@ -129,7 +129,7 @@ export const Navbar = ({ mode, setMode }) => {
                                 `${page === 'New Recipe' ? '/recipes/new'
                                     : page === 'Sign In' ? '/signInPage'
                                         : page === 'Sign up' ? '/signUpPage'
-                                            : page === 'My Favorites' ? '/favorites'
+                                            : page === 'My Favorites 🤍' ? '/favorites'
                                                 : '/'
                                 } `}>{page}</Button>
                         ))}
