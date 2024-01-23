@@ -1,0 +1,42 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+form  {
+    display: flex;
+    justify-content: center;
+    gap:5px;
+    width: 50%;
+}
+form input {
+    width: 70%;
+    font-size: 1rem;
+    padding: 5px;
+}
+form input:focus {
+    outline: 0;
+    border: 1px solid #3d909b
+}
+form button {
+    background-color: #0c881c;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    width: 25%;
+}
+form button:hover {
+    background-color: #056312;
+}
+@media only screen and (max-width:600px) {
+    form  {
+        width: 100%;
+    }
+    form input {
+        width: 100%;
+    }
+    form button{
+        width: 20%;
+    }
+}

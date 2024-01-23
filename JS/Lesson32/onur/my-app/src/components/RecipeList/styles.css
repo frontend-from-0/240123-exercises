@@ -1,0 +1,20 @@
+.list-container {
+    display: flex;
+    flex-direction: row;
+ }
+ .main h2 {
+    text-align: center;
+ }
+ .main ul {
+    list-style: none;
+ }
+ .main ul li {
+    margin-bottom: 3px;
+    color: #1f1f1d;
+    cursor: pointer;
+ }
+ .main ul li:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+ }
+ 
