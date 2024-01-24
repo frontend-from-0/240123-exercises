@@ -1,14 +1,18 @@
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, Stack, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form"
-import { StyledBox } from '../SignInPage'
 import { useTheme } from '@mui/material/styles';
+import { useRecipesDispatch } from "../RecipesProvider";
+import { RecipeActionType } from "../models";
+import { StyledBox } from "../../../components/StyledBox";
 
 
 export const NewRecipe = () => {
+
+	const dispatch = useRecipesDispatch();
+
 	const theme = useTheme();
 
 	const combinedPattern = /^(https:\/\/|\S+)$/;
-
 
 	const form = useForm({
 		defaultValues: {
@@ -57,14 +61,17 @@ export const NewRecipe = () => {
 			}
 			return null;
 		});
-		delete processedData.measures
-
+		delete processedData.measures;
 
 		processedData.dateModified = new Date().toString();
 
-		reset();
+		const newId = Date.now().toString();
 
-		console.log(processedData);
+		processedData.idMeal = newId;
+
+		dispatch({ type: RecipeActionType.ADD_RECIPES, payload: [processedData] });
+
+		reset();
 	};
 
 	return (
@@ -107,7 +114,6 @@ export const NewRecipe = () => {
 							error={!!errors.strCategory}
 							helperText={errors.strCategory?.message}
 						>
-							<MenuItem value=""></MenuItem>
 							<MenuItem value="side">Side</MenuItem>
 							<MenuItem value="main">Main</MenuItem>
 							<MenuItem value="dessert">Dessert</MenuItem>

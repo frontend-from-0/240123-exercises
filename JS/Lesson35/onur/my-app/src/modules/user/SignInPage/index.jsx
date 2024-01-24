@@ -1,15 +1,17 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form"
-import styled from "@emotion/styled";
 import { useTheme } from "@mui/material/styles";
+import { UserActionType, useUserDispatch } from "../UserProvider";
+import { useNavigate } from "react-router-dom";
+import { StyledBox } from "../../../components/StyledBox";
 
-export const StyledBox = styled('div')(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    minHeight: '100vh',
-}))
+
 
 export const SignInPage = () => {
+
+    const navigate = useNavigate();
+
+    const dispatch = useUserDispatch();
 
     const theme = useTheme();
 
@@ -25,8 +27,9 @@ export const SignInPage = () => {
     const { errors } = formState;
 
     const onSubmit = (data) => {
-        console.log(data);
         reset();
+        dispatch({ type: UserActionType.LOG_IN })
+        navigate('/')
     };
 
     return (

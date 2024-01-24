@@ -3,11 +3,15 @@ import { MenuBook } from '@mui/icons-material';
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useTheme } from '@mui/material/styles'
+import { useRecipes } from '../RecipesProvider';
 
 
-export const RecipeList = ({ recipes }) => {
 
-	const theme = useTheme()
+export const RecipeList = () => {
+
+	const recipes = useRecipes();
+
+	const theme = useTheme();
 
 	const [loading, setLoading] = useState(true);
 
@@ -15,7 +19,7 @@ export const RecipeList = ({ recipes }) => {
 		setTimeout(() => {
 			setLoading(false)
 		}, 1000)
-	}, [])
+	}, []);
 
 	return (
 		<Grid container p={3} >
@@ -47,8 +51,8 @@ export const RecipeList = ({ recipes }) => {
 					{recipes.map((recipe) => {
 						if (recipe.strMealThumb) {
 							return (
-								<Grid item md={3}>
-									<Card sx={{ '&:hover': { color: theme.palette.primary.light } }} key={recipe.idMeal}>
+								<Grid item md={3} key={recipe.idMeal}>
+									<Card sx={{ '&:hover': { color: theme.palette.primary.light } }} >
 										<CardContent>
 											<Typography variant='subtitle1'>{recipe.strMeal}</Typography>
 											<Typography variant='subtitle2'>{recipe.strArea}</Typography>

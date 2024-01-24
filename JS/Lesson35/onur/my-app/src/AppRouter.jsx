@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom'
-import { NewRecipe } from './components/NewRecipe'
-import { SignInPage } from './components/SignInPage'
-import { SignUpPage } from './components/SignUpPage'
-import { UserSettings } from './components/UserSettings'
-import { RecipeList } from './components/RecipeList'
-import { SearchBar } from './components/SearchBar'
-import { RecipeDetail } from './components/RecipeDetail'
+import { NewRecipe } from './modules/recipes/NewRecipe'
+import { SignInPage } from './modules/user/SignInPage'
+import { SignUpPage } from './modules/user/SignUpPage'
+import { RecipeList } from './modules/recipes/RecipeList'
+import { SearchBar } from './modules/recipes/SearchBar'
+import { RecipeDetail } from './modules/recipes/RecipeDetail'
+import { Favorites } from './modules/user/Favorites'
 
-export const AppRouter = ({ recipes, setRecipes, originalRecipes, theme }) => {
+export const AppRouter = () => {
 	return (
 		<Routes>
 			<Route path='/recipes' >
@@ -16,17 +16,13 @@ export const AppRouter = ({ recipes, setRecipes, originalRecipes, theme }) => {
 			</Route>
 			<Route path='/signInPage' element={<SignInPage />} />
 			<Route path='/signUpPage' element={<SignUpPage />} />
-			<Route path='/user/settings' element={<UserSettings />} />
+			<Route path='/favorites' element={<Favorites />} />
 			<Route
 				path='/'
 				element={
 					<>
-						<SearchBar recipes={recipes}
-							setRecipes={setRecipes}
-							originalRecipes={originalRecipes}
-						/>
-
-						<RecipeList theme={theme} recipes={recipes} />
+						<SearchBar />
+						<RecipeList />
 					</>
 				}
 			/>

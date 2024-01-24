@@ -12,14 +12,20 @@ import MenuItem from '@mui/material/MenuItem';
 import { DarkMode, ModeNight, Restaurant } from '@mui/icons-material';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
-import { ListItemButton, ListItemIcon, Switch } from '@mui/material';
+import { ListItemButton, ListItemIcon, Switch, useTheme } from '@mui/material';
 import './styles.css'
-import { useTheme } from '@mui/material/styles';
+import { useUserContext } from '../../modules/user/UserProvider';
+import { SignOutPage } from '../../modules/user/SignOutPage';
+import { Account } from '../../modules/user/Account';
 
-const pages = ['New Recipe', 'Sign In', 'Sign up', 'User Settings'];
 
 export const Navbar = ({ mode, setMode }) => {
+
     const theme = useTheme();
+
+    const userContext = useUserContext();
+    const pages = userContext.loggedIn ? ['New Recipe', 'My Favorites 🤍', <SignOutPage />] : ['Sign In', 'Sign up'];
+
 
     const [anchorElNav, setAnchorElNav] = useState(null);
 
@@ -76,7 +82,7 @@ export const Navbar = ({ mode, setMode }) => {
                                 vertical: 'top',
                                 horizontal: 'left',
                             }}
-                            open={anchorElNav}
+                            open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
                                 display: { xs: 'block', md: 'none' },
@@ -84,12 +90,13 @@ export const Navbar = ({ mode, setMode }) => {
                         >
                             {pages.map((page) => (
                                 <MenuItem component={NavLink} key={page} onClick={handleCloseNavMenu}
-                                    sx={{ color: 'primary.main' }}
+                                    sx={{ color: theme.palette.primary.main }}
                                     to={
                                         `${page === 'New Recipe' ? '/recipes/new'
                                             : page === 'Sign In' ? '/signInPage'
                                                 : page === 'Sign up' ? '/signUpPage'
-                                                    : page === 'User Settings' ? '/user/settings' : '/'
+                                                    : page === 'My Favorites 🤍' ? '/favorites' :
+                                                        '/'
                                         } `}
                                 >
                                     {page}
@@ -122,17 +129,21 @@ export const Navbar = ({ mode, setMode }) => {
                                 `${page === 'New Recipe' ? '/recipes/new'
                                     : page === 'Sign In' ? '/signInPage'
                                         : page === 'Sign up' ? '/signUpPage'
-                                            : page === 'User Settings' ? '/user/settings' : '/'
+                                            : page === 'My Favorites 🤍' ? '/favorites'
+                                                : '/'
                                 } `}>{page}</Button>
                         ))}
                     </Box>
-                    <Box sx={{ position: 'fixed', right: '1px' }}>
+                    <Box sx={{ position: 'fixed', right: '30px' }}>
                         <ListItemButton sx={{ display: 'flex', alignItems: 'center' }}>
-                            <ListItemIcon component="a">
+                            <ListItemIcon component="a" sx={{ display: { xs: 'none', lg: 'flex' } }}>
                                 {mode === 'light' ? <ModeNight sx={{ color: theme.palette.primary.light }} /> : <DarkMode />}
                             </ListItemIcon>
                             <Switch size='medium' onChange={e => setMode(prev => mode === "light" ? "dark" : "light")} />
                         </ListItemButton>
+                    </Box>
+                    <Box sx={{ position: 'fixed', right: '7px' }}>
+                        {userContext.loggedIn && <Account />}
                     </Box>
                 </Toolbar>
             </Container>
