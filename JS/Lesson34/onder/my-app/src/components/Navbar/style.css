@@ -25,8 +25,8 @@
   .navbar a:hover {
     color: #ffcc00; 
   }
+  
   .active-link {
-    color: green;
-    font-weight: bold;
+    color: #ffcc00; 
   }
   
