@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { TextField, Button, Grid } from "@mui/material";
+// SearchBar/index.jsx
+import React, { useState } from 'react';
 
 const SearchBar = ({ setRecipes }) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,33 +15,14 @@ const SearchBar = ({ setRecipes }) => {
         } else {
           setRecipes([]);
         }
-        setValue("");
+        setValue('');
       });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container spacing={2}>
-        <Grid item xs={9}>
-          <TextField
-            fullWidth
-            variant="outlined"
-            label="Search"
-            value={value}
-            onChange={(event) => setValue(event.target.value)}
-          />
-        </Grid>
-        <Grid item xs={3}>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-          >
-            Search
-          </Button>
-        </Grid>
-      </Grid>
+      <input onChange={(event) => setValue(event.target.value)} value={value} type="text" />
+      <button type="submit">Search</button>
     </form>
   );
 };

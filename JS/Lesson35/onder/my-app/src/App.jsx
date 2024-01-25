@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Routes, Route, Link as RouterLink } from 'reac
 import { useEffect, useState } from "react";
 import { Container, CssBaseline, Typography, Link, Grid } from '@mui/material';
 import { BD_SEARCH_BASE_URL } from "./urls.js";
-import { RecipeList } from "./components/RecipeList";
-import { SearchBar } from "./components/SearchBar";
 import { NewRecipe } from "./components/NewRecipe";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import RecipeDetail from './components/RecipeDetail';
+import SearchBar from './components/SearchBar';
+import RecipeList from './components/RecipeList';
 
-const App = () => {
+
+
+export const App = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
