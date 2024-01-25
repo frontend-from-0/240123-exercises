@@ -16,4 +16,8 @@ const UserPage = () => {
   );
 };
 
+<<<<<<< Updated upstream
 export default UserPage;
+=======
+export default UserPage;
+>>>>>>> Stashed changes

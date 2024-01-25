@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+<<<<<<< Updated upstream
 import { Typography, Button, CircularProgress, Container, Paper } from '@mui/material';
+=======
+>>>>>>> Stashed changes
 import './styles.css';
 
 const RecipeDetail = ({ onClearSelection }) => {
@@ -29,6 +32,7 @@ const RecipeDetail = ({ onClearSelection }) => {
   }, [id]);
 
   if (!recipe) {
+<<<<<<< Updated upstream
     return <CircularProgress />;
   }
 
@@ -54,3 +58,24 @@ const RecipeDetail = ({ onClearSelection }) => {
 };
 
 export default RecipeDetail;
+=======
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <div className="recipe-details-container">
+      <h2 className="heading">Recipe Details</h2>
+      <div className="image-content">
+        <img className="recipe-thumbnail" src={recipe.strMealThumb} alt={recipe.strMeal} />
+      </div>
+      <div className="text-content">
+        <p>{recipe.strMeal}</p>
+        <p>{recipe.strInstructions}</p>
+        <button onClick={onClearSelection}>Go Back to Recipes</button>
+      </div>
+    </div>
+  );
+};
+
+export default RecipeDetail;
+>>>>>>> Stashed changes
