@@ -1,12 +1,16 @@
-export const RecipeList = ({recipes}) => {
-	return (
-		<div>
-			<h2>Search Results</h2>
-			<ul>
-				{recipes.map((recipe) => {
-					return <li key={recipe.id}>{recipe.strMeal}</li>
-				})}
-			</ul>
-		</div>
-	);
+import React from 'react';
+
+export const RecipeList = ({ recipes, onRecipeClick }) => {
+  return (
+    <div>
+      <h2>Search Results</h2>
+      <ul>
+        {recipes.map((recipe) => (
+          <li key={recipe.id} onClick={() => onRecipeClick(recipe)}>
+            {recipe.strMeal}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
