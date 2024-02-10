@@ -1,9 +1,11 @@
-import { RecipeList } from './components/RecipeList';
-import { SearchBar } from './components/SearchBar';
+import  RecipeList  from './components/RecipeList';
+import  SearchBar  from './components/SearchBar';
 import { NewRecipe } from './components/NewRecipe';
-import {UserPage} from './components/UserPage';
-import { RecipeDetail } from './components/RecipeDetail';
+import UserPage from './components/UserPage';
+import  RecipeDetail  from './components/RecipeDetail';
 import { Routes, Route } from 'react-router-dom';
+
+
 
 export const AppRouter = ({ recipes, setRecipes }) => {
 	return (
