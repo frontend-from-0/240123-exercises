@@ -8,7 +8,7 @@ import './styles.css';
 //   return [ myData, deleteMyData ];
 // }
 
-export const NewRecipe = () => {
+export const CreateRecipe = () => {
   // const [data,  setData] = useMyHook();
 
   // console.log(data);
