@@ -1,0 +1,10 @@
+.new-recipe-form {
+    margin: 20px auto;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-error {
+    color: #ff0000;
+  }
