@@ -1,7 +1,7 @@
 import React from 'react';
-import { Routes, Route, Link as RouterLink } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Container, CssBaseline, Typography, Link, Grid } from '@mui/material';
+import { Container, CssBaseline, Grid } from '@mui/material';
 import { BD_SEARCH_BASE_URL } from './urls.js';
 import { NewRecipe } from './components/NewRecipe';
 import Navbar from './components/Navbar/index.jsx';
