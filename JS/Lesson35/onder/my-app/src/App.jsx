@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/index.jsx';
 import RecipeDetail from './components/RecipeDetail';
 import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
+import About from './components/About'
 
 
 export const App = () => {
@@ -40,6 +41,7 @@ export const App = () => {
 								exact
 								element={<RecipeList recipes={recipes} />}
 							/>
+							<Route path="/about" element={<About />} />
 						</Routes>
 					</Grid>
 				</Grid>
