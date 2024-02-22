@@ -1,38 +1,53 @@
-import './App.css';
+import React from 'react';
+import { Routes, Route, } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Container, CssBaseline, Grid } from '@mui/material';
 import { BD_SEARCH_BASE_URL } from './urls.js';
-import {AppRouter} from './AppRouter.jsx';
+import { NewRecipe } from './components/NewRecipe';
+import Navbar from './components/Navbar/index.jsx';
+import RecipeDetail from './components/RecipeDetail';
+import SearchBar from './components/SearchBar';
+import RecipeList from './components/RecipeList';
+import About from './components/About'
+
 
 export const App = () => {
-	// 1. Fetch recipes data from an API (Get request, API key, useState to store data, useEffect)
-	// 2. Display the data (RecipeList component -> use <ul> to display data)
-	// 3. Search recipe (A new component SearchBar with a <form> element, text input, and submit functionality)
-
 	const [recipes, setRecipes] = useState([]);
-	// If you want to keep both initial recipes and recipes from search  on the screen at the same time use code below:
-	// const [searchResult, setSearchResult] = useState([]);
 
-	// Runs once of component render (component render = "sayfanin yenilenmesi")
 	useEffect(() => {
 		fetch(BD_SEARCH_BASE_URL)
 			.then((response) => response.json())
 			.then((data) => setRecipes(data.meals));
 	}, []);
 
-	// If you want to keep both initial recipes and recipes from search  on the screen at the same time use code below:
-	// useEffect(() => {
-	//   setRecipes(prevState => {
-	//     // compare searchResult with prevState of recipes
-	//     // only add values from searchResult array that are not present in the prevState array (recipes)
-	//   });
-
-	// },[recipes, searchResult]);
-
 	return (
-		<div className='container'>
-
-      <AppRouter recipes={recipes} setRecipes={setRecipes} />
-			
-		</div>
+		<>
+			<CssBaseline />
+			<Navbar />
+			<Container component='main' maxWidth='lg'>
+				<Grid container spacing={3}>
+					<Grid item xs={12}>
+						<SearchBar setRecipes={setRecipes} />
+					</Grid>
+					<Grid item xs={12}>
+						<Routes>
+							<Route
+								path='/recipe/:id'
+								element={<RecipeDetail recipes={recipes} />}
+							/>
+							<Route path='/create-recipe' element={<NewRecipe />} />
+							<Route
+								path='/'
+								exact
+								element={<RecipeList recipes={recipes} />}
+							/>
+							<Route path="/about" element={<About />} />
+						</Routes>
+					</Grid>
+				</Grid>
+			</Container>
+		</>
 	);
 };
+
+export default App;
