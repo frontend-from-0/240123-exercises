@@ -9,7 +9,8 @@ class Person {
     }
 
     greet() {
-        console.log(`Hello, my name is ${this._name}, my gender is ${this._gender} and I am ${this._age} years old.`);
+onder-lesson19JS-updated
+        console.log(`Hello, My name is ${this._name},My gender is ${this._gender} and I am ${this._age} years old. `)
     }
 }
 
@@ -20,7 +21,9 @@ class Student extends Person {
     }
 
     greet() {
-        console.log(`Hello, my name is ${this._name}. My gender is ${this._gender}. I am ${this._age} years old. My job is ${this._major}.`);
+onder-lesson19JS-updated
+        console.log(`Hello, My name is ${this._name}.My gender is ${this._gender}.I am ${this._age} years old.My job is ${this._major} `)
+
     }
 }
 
@@ -160,4 +163,7 @@ myAccount.withdraw(525);
 
 console.log("Current account balance: ", myAccount.currentBalance);
 
+onder-lesson19JS-updated
 console.log("Transaction history: ", myAccount.transactionHistory);
+
+
