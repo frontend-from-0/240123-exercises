@@ -1,0 +1,47 @@
+.recipe-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.image-content {
+  text-align: center;
+}
+
+.recipe-thumbnail {
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.text-content {
+  margin-top: 20px;
+  text-align: justify;
+}
+
+.text-content p {
+  margin-bottom: 10px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
