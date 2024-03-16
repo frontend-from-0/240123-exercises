@@ -194,6 +194,7 @@ console.log(resultEx5);
 console.log("================================");
 
 // 6. Write a recursive function to check if an array includes a specific value.
+console.log("Example6: ");
 const numbers = [1, 2, 3, 4, 5];
 const valueToCheck = 3;
 
@@ -211,11 +212,11 @@ function removeSpecified(arr, valueToRemove) {
   }
 }
 
-const result = removeSpecified(numbers, valueToCheck);
-console.log(result); // Output: [1, 2, 4, 5]
-
+const result2 = removeSpecified(numbers, valueToCheck);
+console.log(result2);
 // used same function in example 4
 console.log("================================");
+
 // 7. Write a recursive function to find the maximum depth of a nested object.
 console.log("Example7: ");
 
